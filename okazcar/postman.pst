@@ -1,0 +1,6 @@
+# POST request (Insert)
+curl -X POST -H "Content-Type: application/json" -d "{\"nom\": \"Example Modele\", \"dateCreation\": \"2024-02-28T00:00:00\"}" http://localhost:8080/modeles
+# PUT request (Update)
+curl -X PUT -H "Content-Type: application/json" -d "{\"nom\": \"Updated Modele Name\", \"dateCreation\": \"2027-03-01T12:00:00\"}" http://localhost:8080/modeles/1
+# DELETE
+curl -X DELETE http://localhost:8080/modeles/1
