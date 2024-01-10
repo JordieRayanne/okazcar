@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="voiture@localhost [2]">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.51">
+    <root id="1">
+      <ServerVersion>7.0.4</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="admin"/>
+    <schema id="3" parent="1" name="config"/>
+    <schema id="4" parent="1" name="learnFirebase"/>
+    <schema id="5" parent="1" name="local"/>
+    <schema id="6" parent="1" name="voiture">
+      <Current>1</Current>
+      <LastIntrospectionLocalTimestamp>2024-01-10.10:36:03</LastIntrospectionLocalTimestamp>
+    </schema>
+    <table id="7" parent="6" name="user"/>
+  </database-model>
+</dataSource>

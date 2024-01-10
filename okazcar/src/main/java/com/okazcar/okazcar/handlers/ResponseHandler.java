@@ -2,12 +2,18 @@ package com.okazcar.okazcar.handlers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.okazcar.okazcar.models.Role;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ResponseHandler {
 
@@ -51,6 +57,10 @@ public class ResponseHandler {
         map.put("Data", object);
         map.put("Status", st.value());
         return getString(map);
+    }
+
+    public static Collection<? extends GrantedAuthority> mapRolesToAuthorities(Set<Role> roles){
+        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getRoleName())).collect(Collectors.toList());
     }
 
     public static String getString(Map<String, Object> map) throws JsonProcessingException {

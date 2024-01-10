@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.io.IOException;
 
-import static itu.learn.learnfirebase.handler.ResponseHandler.showError;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -17,11 +16,11 @@ public class GlobalExceptionHandler {
         if (ex.getCause() instanceof RollbackException rollbackException) {
             if (rollbackException.getCause() != null) {
                 // Handle the ConstraintViolationException here
-                return showError(ex, HttpStatus.CONFLICT);
+                return ResponseHandler.showError(ex, HttpStatus.CONFLICT);
             }
         }
 
         // Handle other TransactionSystemExceptions here
-        return showError(ex, HttpStatus.INTERNAL_SERVER_ERROR);
+        return ResponseHandler.showError(ex, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
