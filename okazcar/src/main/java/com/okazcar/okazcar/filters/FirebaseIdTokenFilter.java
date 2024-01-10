@@ -5,7 +5,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class FirebaseIdTokenFilter extends OncePerRequestFilter {
             return;
         }
         String tokenId = authorization.replace("Bearer ", "");
-        SecurityContextHolder.getContext().setAuthentication(new FirebaseAuthenticationToken(tokenId));
+        //SecurityContextHolder.getContext().setAuthentication(new FirebaseAuthenticationToken(tokenId));
         filterChain.doFilter(request, response);
     }
 }
