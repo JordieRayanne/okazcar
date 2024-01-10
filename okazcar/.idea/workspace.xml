@@ -4,47 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/UtilisateurController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/exception/ForgetException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/filters/FirebaseIdTokenFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/handlers/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/handlers/MyAccessDeniedHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/handlers/ResponseHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/UserAuthentication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/Users.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/Utilisateur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/dto/UserInsertDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/dto/UserLoginDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/mongodb/UserMongoDb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/providers/FirebaseIdTokenProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/RoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/UtilisateurRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/mongodb/UserMongoDbRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/FirebaseInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/UtilisateurService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/token/FirebaseAuthenticationToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/settingsFirebase.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="init from Mahery - Login">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/handlers/MyAccessDeniedHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/handlers/MyAccessDeniedHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/OkazcarApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controller/MarqueController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/ModeleController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/model/Marque.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/Modele.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repositories/ModeleRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repository/MarqueRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/service/MarqueService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,8 +89,25 @@
       <option name="presentableId" value="Default" />
       <updated>1704834314072</updated>
       <workItem from="1704834315198" duration="676000" />
-      <workItem from="1704835031129" duration="2765000" />
+      <workItem from="1704835031129" duration="3558000" />
     </task>
+    <task id="LOCAL-00001" summary="init from Mahery - Login">
+      <option name="closed" value="true" />
+      <created>1704837902522</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1704837902522</updated>
+    </task>
+    <task id="LOCAL-00002" summary="init from Mahery - Login">
+      <option name="closed" value="true" />
+      <created>1704863709152</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1704863709152</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,5 +123,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init from Mahery - Login" />
+    <option name="LAST_COMMIT_MESSAGE" value="init from Mahery - Login" />
   </component>
 </project>
