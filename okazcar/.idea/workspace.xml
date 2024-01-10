@@ -4,35 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="init from Mahery - Login - v2">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/config/JwtFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/RoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/details/UtilisateurDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/RoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="Fijaliana be">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/UtilisateurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/UtilisateurController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/filters/FirebaseIdTokenFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/handlers/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/handlers/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/handlers/MyAccessDeniedHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/handlers/MyAccessDeniedHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/handlers/ResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/handlers/ResponseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/UserAuthentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/UserAuthentication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/providers/FirebaseIdTokenProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/RoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/UtilisateurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/UtilisateurService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/token/FirebaseAuthenticationToken.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/MarqueController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/MarqueController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/Marque.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/Marque.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repositories/MarqueRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repositories/MarqueRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/services/MarqueService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/services/MarqueService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/okazcar/okazcar/OkazcarApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/okazcar/okazcar/OkazcarApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controller/CategorieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controller/CategorieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/UtilisateurController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/UtilisateurController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/model/Categorie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/model/Categorie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repository/CategorieRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repository/CategorieRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/CategorieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/CategorieService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +119,7 @@
       <updated>1704834314072</updated>
       <workItem from="1704834315198" duration="676000" />
       <workItem from="1704835031129" duration="5181000" />
-      <workItem from="1704882466423" duration="26868000" />
+      <workItem from="1704882466423" duration="27972000" />
     </task>
     <task id="LOCAL-00001" summary="init from Mahery - Login">
       <option name="closed" value="true" />
@@ -173,7 +153,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704865374812</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fijaliana be">
+      <option name="closed" value="true" />
+      <created>1704914692686</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1704914692686</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fijaliana be">
+      <option name="closed" value="true" />
+      <created>1704914785510</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704914785510</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +189,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init from Mahery - Login" />
     <MESSAGE value="init from Mahery - Login - v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="init from Mahery - Login - v2" />
+    <MESSAGE value="Fijaliana be" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fijaliana be" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

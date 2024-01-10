@@ -88,4 +88,10 @@ public class UtilisateurController {
             return showError(e, HttpStatus.FORBIDDEN);
         }
     }
+
+    @GetMapping("/utilisateur/logout")
+    public String logOut() throws JsonProcessingException {
+        SecurityContextHolder.getContext().setAuthentication(null);
+        return generateResponse("Logout successfully", HttpStatus.OK, "");
+    }
 }
