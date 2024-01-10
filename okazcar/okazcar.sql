@@ -1,4 +1,4 @@
-CREATE DATABASE voiture;
+CREATE DATABASE okazcar;
 
 CREATE TABLE utilisateur (
     id SERIAL PRIMARY KEY,
@@ -21,6 +21,11 @@ CREATE TABLE marque (
     nom VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE type (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL
+);
+
 CREATE TABLE modele (
     id SERIAL PRIMARY KEY,
     nom VARCHAR(50) NOT NULL,
@@ -37,6 +42,7 @@ CREATE TABLE voiture (
     nom VARCHAR(50) NOT NULL,
     id_categorie INTEGER REFERENCES categorie(id),
     id_marque INTEGER REFERENCES marque(id),
+    id_type INTEGER REFERENCES type(id),
     id_modele INTEGER REFERENCES modele(id),
     couleur VARCHAR(20),
     localisation VARCHAR(100),
