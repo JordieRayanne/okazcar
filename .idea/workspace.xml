@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="70b7ab97-b82e-4ccc-b049-0a820d1e9bd5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/okazcar/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/okazcar/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/okazcar/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/okazcar/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/okazcar/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/okazcar/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/okazcar/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/okazcar/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/OkazcarApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/controller/MarqueController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/controllers/ModeleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/model/Marque.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/models/Modele.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/repositories/ModeleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/repository/MarqueRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/service/MarqueService.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2ajaKEqGAB6WnWR7UziInpIzHXd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.OkazcarApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/mahery/IdeaProjects/okazcar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="OkazcarApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="okazcar" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.okazcar.okazcar.OkazcarApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-86fc8109" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="70b7ab97-b82e-4ccc-b049-0a820d1e9bd5" name="Changes" comment="" />
+      <created>1704834376184</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704834376184</updated>
+      <workItem from="1704834377270" duration="950000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
