@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.io.IOException;
 
-import static itu.learn.learnfirebase.handler.ResponseHandler.showError;
+import static com.okazcar.okazcar.handlers.ResponseHandler.showError;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
