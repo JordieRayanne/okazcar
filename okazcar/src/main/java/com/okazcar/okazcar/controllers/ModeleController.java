@@ -5,6 +5,7 @@ import com.okazcar.okazcar.repositories.ModeleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,11 +22,13 @@ public class ModeleController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public List<Modele> getAllModeles() {
         return modeleRepository.findAll();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<Modele> getModeleById(@PathVariable("id") Integer id) {
         Optional<Modele> modeleOptional = modeleRepository.findById(id);
         return modeleOptional.map(modele -> new ResponseEntity<>(modele, HttpStatus.OK))
@@ -33,12 +36,14 @@ public class ModeleController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<Modele> createModele(@RequestBody Modele modele) {
         Modele createdModele = modeleRepository.save(modele);
         return new ResponseEntity<>(createdModele, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<Modele> updateModele(@PathVariable("id") Integer id, @RequestBody Modele modele) {
         Optional<Modele> existingModeleOptional = modeleRepository.findById(id);
         return existingModeleOptional.map(existingModele -> {
@@ -49,6 +54,7 @@ public class ModeleController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<HttpStatus> deleteModele(@PathVariable("id") Integer id) {
         try {
             modeleRepository.deleteById(id);
