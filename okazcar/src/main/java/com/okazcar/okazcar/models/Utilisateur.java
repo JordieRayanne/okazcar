@@ -4,6 +4,7 @@ import com.google.firebase.auth.UserRecord;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,6 +34,8 @@ public class Utilisateur {
     private String platform;
     @Column(name = "image_url")
     private String imageUrl = "";
+    @Column(name = "birthday")
+    private Date birthday;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "utilisateurs_role", joinColumns = @JoinColumn(name = "utilisateur_id_utilisateurs_role", referencedColumnName = "utilisateur_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id_users_role", referencedColumnName = "role_id") )
@@ -54,6 +57,7 @@ public class Utilisateur {
             throw new ForgetException("Error! You forgot to enter password", new Throwable("You doesn't enter any password"));
         setPassword(userDto.getPassword());
         setPhoneNumber(userDto.getPhoneNumber());
+        setBirthday(userDto.getBirthday());
         if (userDto.getImageFile() != null)
             setImageUrl(userDto.getImageFile().getResource().getFilename());
     }
