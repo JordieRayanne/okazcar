@@ -1,15 +1,38 @@
 CREATE DATABASE okazcar;
 
-CREATE TABLE utilisateur (
-    id SERIAL PRIMARY KEY,
-    nom VARCHAR(50) NOT NULL,
-    prenom VARCHAR(50) NOT NULL,
-    date_naiss DATE,
-    mail VARCHAR(100) UNIQUE NOT NULL,
-    contact VARCHAR(20),
-    genre VARCHAR(10),
-    mdp VARCHAR(255) NOT NULL
-);
+CREATE TABLE IF NOT EXISTS public.utilisateur
+(
+    utilisateur_id character varying(150) COLLATE pg_catalog."default" NOT NULL,
+    email character varying(80) COLLATE pg_catalog."default" NOT NULL,
+    image_url character varying(255) COLLATE pg_catalog."default",
+    password character varying(255) COLLATE pg_catalog."default",
+    phone_number character varying(255) COLLATE pg_catalog."default",
+    platform character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    username character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    birthday DATE COLLATE pg_catalog."default",
+    CONSTRAINT utilisateur_pkey PRIMARY KEY (utilisateur_id),
+    CONSTRAINT uk_rma38wvnqfaf66vvmi57c71lo UNIQUE (email)
+    );
+
+CREATE TABLE IF NOT EXISTS public.utilisateurs_role
+(
+    utilisateur_id_utilisateurs_role character varying(150) COLLATE pg_catalog."default" NOT NULL,
+    role_id_users_role integer NOT NULL,
+    CONSTRAINT utilisateurs_role_pkey PRIMARY KEY (utilisateur_id_utilisateurs_role, role_id_users_role)
+    );
+
+ALTER TABLE IF EXISTS public.utilisateurs_role
+    ADD CONSTRAINT fkha1whppwx5dpnsnypbf7pvqip FOREIGN KEY (role_id_users_role)
+    REFERENCES public.role (role_id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+       ON DELETE NO ACTION;
+
+
+ALTER TABLE IF EXISTS public.utilisateurs_role
+    ADD CONSTRAINT fkkji51o9hjts8snlu2t2m7a4r FOREIGN KEY (utilisateur_id_utilisateurs_role)
+    REFERENCES public.utilisateur (utilisateur_id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+       ON DELETE NO ACTION;
 
 CREATE TABLE categorie (
     id SERIAL PRIMARY KEY,

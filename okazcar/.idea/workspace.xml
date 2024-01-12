@@ -4,14 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="init from Mahery - Login - v2">
+    <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="Fijaliana be">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/UtilisateurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/UtilisateurController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controller/CategorieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controller/CategorieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/UtilisateurController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/UtilisateurController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/model/Categorie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/model/Categorie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repository/CategorieRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repository/CategorieRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/CategorieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/CategorieService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -37,28 +54,41 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.OkazcarApplication.executor": "Run",
     "git-widget-placeholder": "mahery",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/mahery/IdeaProjects/okazcar/okazcar/src/main/java/com/okazcar/okazcar/services",
+    "last_opened_file_path": "/home/mahery/IdeaProjects/okazcar/okazcar/src/main/java/com/okazcar/okazcar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "Docker",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql",
+      "mongo"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services" />
       <recent name="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services" />
       <recent name="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories" />
       <recent name="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.okazcar.okazcar.config" />
       <recent name="com.okazcar.okazcar.controllers" />
       <recent name="com.okazcar.okazcar.services" />
     </key>
@@ -88,7 +118,8 @@
       <option name="presentableId" value="Default" />
       <updated>1704834314072</updated>
       <workItem from="1704834315198" duration="676000" />
-      <workItem from="1704835031129" duration="4900000" />
+      <workItem from="1704835031129" duration="5181000" />
+      <workItem from="1704882466423" duration="27972000" />
     </task>
     <task id="LOCAL-00001" summary="init from Mahery - Login">
       <option name="closed" value="true" />
@@ -114,7 +145,31 @@
       <option name="project" value="LOCAL" />
       <updated>1704864059833</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="init from Mahery - Login - v2">
+      <option name="closed" value="true" />
+      <created>1704865374812</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1704865374812</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fijaliana be">
+      <option name="closed" value="true" />
+      <created>1704914692686</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1704914692686</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fijaliana be">
+      <option name="closed" value="true" />
+      <created>1704914785510</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704914785510</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +189,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init from Mahery - Login" />
     <MESSAGE value="init from Mahery - Login - v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="init from Mahery - Login - v2" />
+    <MESSAGE value="Fijaliana be" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fijaliana be" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

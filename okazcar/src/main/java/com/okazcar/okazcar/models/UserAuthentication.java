@@ -1,6 +1,5 @@
 package com.okazcar.okazcar.models;
 
-import com.google.firebase.auth.UserRecord;
 import lombok.Getter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -9,13 +8,15 @@ import java.util.Collection;
 
 @Getter
 public class UserAuthentication implements Authentication {
-    private final UserRecord userRecord;
-    public UserAuthentication(UserRecord userRecord) {
-        this.userRecord = userRecord;
+    private final Utilisateur utilisateur;
+    private final Collection<? extends GrantedAuthority> authorities;
+    public UserAuthentication(Utilisateur utilisateur, Collection<? extends GrantedAuthority> authorities) {
+        this.utilisateur = utilisateur;
+        this.authorities = authorities;
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override
@@ -40,11 +41,10 @@ public class UserAuthentication implements Authentication {
 
     @Override
     public void setAuthenticated(boolean isAuthenticated) throws IllegalArgumentException {
-
     }
 
     @Override
     public String getName() {
-        return null;
+        return utilisateur.getUsername();
     }
 }
