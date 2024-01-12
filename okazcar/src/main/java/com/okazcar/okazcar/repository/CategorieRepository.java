@@ -1,9 +1,0 @@
-package com.okazcar.okazcar.repository;
-
-import com.okazcar.okazcar.model.Categorie;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface CategorieRepository extends JpaRepository<Categorie, Integer> {
-}
