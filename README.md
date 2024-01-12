@@ -27,8 +27,8 @@ Welcome to okazcar project! This application is designed to streamline the opera
 
 ### Prerequisites
 
-- Node.js and npm installed
-- MongoDB installed and running
+- JAVA, npm and Spring Boot installed
+- MongoDB and Postgres installed and running
 
 ### Installation
 
