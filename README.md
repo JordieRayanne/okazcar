@@ -1,4 +1,4 @@
-# Car Shop Project
+# Okazcar Project
 
 Welcome to okazcar project! This application is designed to streamline the operations of a car dealership, making it easier to manage inventory, handle customer interactions, and keep track of sales. Whether you're a car enthusiast or a dealership owner, this project aims to provide a comprehensive solution for managing your automotive business.
 
