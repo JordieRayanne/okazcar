@@ -4,23 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70b7ab97-b82e-4ccc-b049-0a820d1e9bd5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/okazcar/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/okazcar/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/okazcar/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/okazcar/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/okazcar/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/okazcar/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/okazcar/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/okazcar/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/OkazcarApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/controller/MarqueController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/controllers/ModeleController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/model/Marque.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/models/Modele.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/repositories/ModeleRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/repository/MarqueRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/service/MarqueService.class" beforeDir="false" />
+    <list default="true" id="70b7ab97-b82e-4ccc-b049-0a820d1e9bd5" name="Changes" comment="logout">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/okazcar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/okazcar/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/controller/CategorieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/controller/CategorieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/controllers/UtilisateurController.class" beforeDir="false" afterPath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/controllers/UtilisateurController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/model/Categorie.class" beforeDir="false" afterPath="$PROJECT_DIR$/okazcar/target/classes/com/okazcar/okazcar/model/Categorie.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +22,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2ajaKEqGAB6WnWR7UziInpIzHXd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,7 +35,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.OkazcarApplication.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "mahery",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/mahery/IdeaProjects/okazcar",
     "node.js.detected.package.eslint": "true",
@@ -82,7 +71,17 @@
       <option name="presentableId" value="Default" />
       <updated>1704834376184</updated>
       <workItem from="1704834377270" duration="950000" />
+      <workItem from="1704915519409" duration="246000" />
     </task>
+    <task id="LOCAL-00001" summary="logout">
+      <option name="closed" value="true" />
+      <created>1704915744532</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1704915744532</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,5 +97,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="logout" />
+    <option name="LAST_COMMIT_MESSAGE" value="logout" />
   </component>
 </project>

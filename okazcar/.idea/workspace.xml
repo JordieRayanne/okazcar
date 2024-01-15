@@ -4,15 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="Fijaliana be">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="Rectification">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1/storage_v2/_src_/database/voiture.RGGHJQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1/storage_v2/_src_/database/voiture.RGGHJQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/417d3239-9b28-4d12-a04b-bf0be7c605a8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/417d3239-9b28-4d12-a04b-bf0be7c605a8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/UtilisateurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/UtilisateurController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controller/CategorieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controller/CategorieController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/UtilisateurController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/UtilisateurController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/model/Categorie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/model/Categorie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repository/CategorieRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repository/CategorieRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/service/CategorieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/CategorieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/V_Annonce_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/V_Annonce_Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/mongodb/Conversation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/mongodb/Conversation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/OkazcarApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/config/JwtFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/config/SecurityConfig$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/config/SecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controller/CategorieController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/MarqueController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/ModeleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/RoleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/UtilisateurController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/details/UtilisateurDetails.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/exception/ForgetException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/handlers/GlobalExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/handlers/MyAccessDeniedHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/handlers/ResponseHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/model/Categorie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/Marque.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/Modele.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/UserAuthentication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/Users.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/Utilisateur.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/dto/UserInsertDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/dto/UserLoginDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/mongodb/UserMongoDb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repositories/MarqueRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repositories/ModeleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repositories/RoleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repositories/UtilisateurRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repositories/mongodb/UserMongoDbRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repository/CategorieRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/services/FirebaseInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/services/MarqueService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/services/RoleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/services/UtilisateurService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/CategorieService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +69,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="main" />
+        <entry key="$PROJECT_DIR$/.." value="fd4f182480155abdc13822b304bc42954ef2680e" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -119,7 +155,16 @@
       <updated>1704834314072</updated>
       <workItem from="1704834315198" duration="676000" />
       <workItem from="1704835031129" duration="5181000" />
-      <workItem from="1704882466423" duration="27972000" />
+      <workItem from="1704882466423" duration="28241000" />
+      <workItem from="1704947433939" duration="221000" />
+      <workItem from="1704947689508" duration="107000" />
+      <workItem from="1704951635986" duration="211000" />
+      <workItem from="1704959108217" duration="2582000" />
+      <workItem from="1704987344184" duration="8000" />
+      <workItem from="1705041171137" duration="19431000" />
+      <workItem from="1705075796112" duration="2418000" />
+      <workItem from="1705132052115" duration="3483000" />
+      <workItem from="1705329317749" duration="3650000" />
     </task>
     <task id="LOCAL-00001" summary="init from Mahery - Login">
       <option name="closed" value="true" />
@@ -169,7 +214,103 @@
       <option name="project" value="LOCAL" />
       <updated>1704914785510</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Logout">
+      <option name="closed" value="true" />
+      <created>1704915612235</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1704915612235</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Logout">
+      <option name="closed" value="true" />
+      <created>1704915786940</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1704915786940</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Logout">
+      <option name="closed" value="true" />
+      <created>1704947455488</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1704947455488</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Logout">
+      <option name="closed" value="true" />
+      <created>1704947506550</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1704947506550</updated>
+    </task>
+    <task id="LOCAL-00011" summary="gitignore mipetraka tsara">
+      <option name="closed" value="true" />
+      <created>1704947713601</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1704947713601</updated>
+    </task>
+    <task id="LOCAL-00012" summary="gitignore mipetraka tsara">
+      <option name="closed" value="true" />
+      <created>1704947748571</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1704947748571</updated>
+    </task>
+    <task id="LOCAL-00013" summary="CRUD type - devise">
+      <option name="closed" value="true" />
+      <created>1704961062674</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1704961062674</updated>
+    </task>
+    <task id="LOCAL-00014" summary="CRUD type - devise">
+      <option name="closed" value="true" />
+      <created>1704961156296</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1704961156296</updated>
+    </task>
+    <task id="LOCAL-00015" summary="CRUD message - message">
+      <option name="closed" value="true" />
+      <created>1705063581188</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1705063581188</updated>
+    </task>
+    <task id="LOCAL-00016" summary="MongoDB - Héberger">
+      <option name="closed" value="true" />
+      <created>1705330460050</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1705330460050</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Rectification">
+      <option name="closed" value="true" />
+      <created>1705331324049</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1705331324049</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Rectification">
+      <option name="closed" value="true" />
+      <created>1705332602141</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1705332602141</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +331,13 @@
     <MESSAGE value="init from Mahery - Login" />
     <MESSAGE value="init from Mahery - Login - v2" />
     <MESSAGE value="Fijaliana be" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fijaliana be" />
+    <MESSAGE value="Logout" />
+    <MESSAGE value="gitignore mipetraka tsara" />
+    <MESSAGE value="CRUD type - devise" />
+    <MESSAGE value="CRUD message - message" />
+    <MESSAGE value="MongoDB - Héberger" />
+    <MESSAGE value="Rectification" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rectification" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
