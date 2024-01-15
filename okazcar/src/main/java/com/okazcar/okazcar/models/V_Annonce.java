@@ -1,4 +1,4 @@
-package com.okazcar.okazcar.model;
+package com.okazcar.okazcar.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;

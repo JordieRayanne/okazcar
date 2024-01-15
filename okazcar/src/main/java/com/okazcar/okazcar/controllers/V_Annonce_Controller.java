@@ -1,7 +1,7 @@
 package com.okazcar.okazcar.controllers;
 
-import com.okazcar.okazcar.model.V_Annonce;
-import com.okazcar.okazcar.repository.V_Annonce_Repository;
+import com.okazcar.okazcar.models.V_Annonce;
+import com.okazcar.okazcar.repositories.V_Annonce_Repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
