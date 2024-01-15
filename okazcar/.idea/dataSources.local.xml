@@ -17,7 +17,7 @@
       </schema-mapping>
     </data-source>
     <data-source name="voiture@localhost [2]" uuid="417d3239-9b28-4d12-a04b-bf0be7c605a8">
-      <database-info product="Mongo DB" version="7.0.4" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.18" dbms="MONGO" exact-version="7.0.4" exact-driver-version="1.18" />
+      <database-info product="Mongo DB" version="7.0.5" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.18" dbms="MONGO" exact-version="7.0.5" exact-driver-version="1.18" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <user-name>voiture</user-name>
@@ -26,6 +26,10 @@
           <node kind="schema" qname="@" />
         </introspection-scope>
       </schema-mapping>
+    </data-source>
+    <data-source name="okazcar@okzcar0.t3d2gux.mongodb.net" uuid="8a472eee-4876-4aae-b14e-20c06b1da9ac">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MONGO" />
+      <schema-mapping />
     </data-source>
   </component>
 </project>

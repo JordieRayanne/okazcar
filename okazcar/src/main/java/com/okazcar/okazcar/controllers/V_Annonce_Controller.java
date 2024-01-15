@@ -1,6 +1,5 @@
-package com.okazcar.okazcar.controller;
+package com.okazcar.okazcar.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.okazcar.okazcar.model.V_Annonce;
 import com.okazcar.okazcar.repository.V_Annonce_Repository;
 
@@ -9,10 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
