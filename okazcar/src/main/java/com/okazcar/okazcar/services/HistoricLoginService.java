@@ -45,6 +45,9 @@ public class HistoricLoginService {
         String codeChiffre = request.getParameter("codeChiffre");
         String email = request.getParameter("email");
         Utilisateur utilisateur = utilisateurRepository.findUtilisateurByEmail(email);
+        if (utilisateur == null) {
+            throw new SQLException("The code chiffre: <b>" + codeChiffre + "</b> is not found for the email: <b>" + email + "</b>");
+        }
         Optional<HistoricLogin> historicLogin = historicLoginRepository.findHistoricLoginByCodeChiffreAndUtilisateurId(codeChiffre, utilisateur.getUtilisateurId());
         if (historicLogin.isPresent()) {
             return historicLogin.get();
