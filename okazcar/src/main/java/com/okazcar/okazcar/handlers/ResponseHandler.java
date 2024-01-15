@@ -2,11 +2,15 @@ package com.okazcar.okazcar.handlers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.okazcar.okazcar.details.UtilisateurDetails;
 import com.okazcar.okazcar.models.Role;
+import com.okazcar.okazcar.models.Users;
+import com.okazcar.okazcar.services.UtilisateurService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -65,5 +69,22 @@ public class ResponseHandler {
 
     public static String getString(Map<String, Object> map) throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(map);
+    }
+
+    public static String prepareToBeSend(Users users, UtilisateurService utilisateurService) throws IOException {
+        String token = utilisateurService.generateToken(users.getUtilisateur().getEmail());
+        return prepareToBeSend(token, users, utilisateurService);
+    }
+
+    public static String prepareToBeSend(String token, Users users, UtilisateurService utilisateurService) throws IOException {
+        SecurityContextHolder.getContext().setAuthentication(utilisateurService.getAuthenticationToken(token, new UtilisateurDetails(users.getUtilisateur(), users.getUtilisateur().getRoles())));
+        Map<String, Object> map = new HashMap<>();
+        map.put("Token", token);
+        map.put("Email", users.getUtilisateur().getEmail());
+        map.put("Username", users.getUtilisateur().getUsername());
+        if (users.getUserMongoDb() != null) {
+            map.put("Image", users.getUserMongoDb().getImage());
+        }
+        return sendResponseData(map, HttpStatus.ACCEPTED);
     }
 }

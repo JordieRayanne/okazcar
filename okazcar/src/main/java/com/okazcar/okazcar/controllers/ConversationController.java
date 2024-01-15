@@ -30,7 +30,7 @@ public class ConversationController {
 
     @GetMapping("/conversations")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    public ResponseEntity<List<Conversation>> findByPerson(@RequestParam("personId1") String personId1, @RequestParam("personId2") String personId2) {
-        return new ResponseEntity<>(conversationService.getConversations(personId1, personId2), HttpStatus.OK);
+    public ResponseEntity<Conversation> findByPerson(@RequestParam("personId1") String personId1, @RequestParam("personId2") String personId2) {
+        return new ResponseEntity<>(conversationService.getConversations(personId1, personId2).get(0), HttpStatus.OK);
     }
 }
