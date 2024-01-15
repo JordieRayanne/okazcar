@@ -1,6 +1,6 @@
-package com.okazcar.okazcar.repository;
+package com.okazcar.okazcar.repositories;
 
-import com.okazcar.okazcar.model.Categorie;
+import com.okazcar.okazcar.models.Categorie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

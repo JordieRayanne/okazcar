@@ -1,8 +1,8 @@
-package com.okazcar.okazcar.controller;
+package com.okazcar.okazcar.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.okazcar.okazcar.model.Categorie;
-import com.okazcar.okazcar.repository.CategorieRepository;
+import com.okazcar.okazcar.models.Categorie;
+import com.okazcar.okazcar.repositories.CategorieRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

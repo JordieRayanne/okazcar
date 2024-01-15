@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS public.utilisateur
     birthday DATE COLLATE pg_catalog."default",
     CONSTRAINT utilisateur_pkey PRIMARY KEY (utilisateur_id),
     CONSTRAINT uk_rma38wvnqfaf66vvmi57c71lo UNIQUE (email)
-    );
+);
 
 CREATE TABLE IF NOT EXISTS public.utilisateurs_role
 (
