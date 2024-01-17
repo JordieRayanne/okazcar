@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="Rectification">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/HistoricLoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/HistoricLogin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/HistoricLoginRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/HistoricLoginService.java" afterDir="false" />
+    <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="Generateur code chiffre pour le login WEB">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1/storage_v2/_src_/database/voiture.RGGHJQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1/storage_v2/_src_/database/voiture.RGGHJQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/417d3239-9b28-4d12-a04b-bf0be7c605a8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/417d3239-9b28-4d12-a04b-bf0be7c605a8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-01-10_00_21_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-01-10_00_21__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ConversationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ConversationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/UtilisateurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/UtilisateurController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/handlers/ResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/handlers/ResponseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/OkazcarApplication.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/config/JwtFilter.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/config/SecurityConfig$1.class" beforeDir="false" />
@@ -174,7 +167,8 @@
       <workItem from="1705075796112" duration="2418000" />
       <workItem from="1705132052115" duration="3483000" />
       <workItem from="1705329317749" duration="5813000" />
-      <workItem from="1705344129774" duration="7118000" />
+      <workItem from="1705344129774" duration="7462000" />
+      <workItem from="1705492564128" duration="1380000" />
     </task>
     <task id="LOCAL-00001" summary="init from Mahery - Login">
       <option name="closed" value="true" />
@@ -344,7 +338,47 @@
       <option name="project" value="LOCAL" />
       <updated>1705333856901</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Generateur code chiffre pour le login WEB">
+      <option name="closed" value="true" />
+      <created>1705351373819</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1705351373819</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Generateur code chiffre pour le login WEB">
+      <option name="closed" value="true" />
+      <created>1705351382198</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1705351382198</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Generateur code chiffre pour le login WEB">
+      <option name="closed" value="true" />
+      <created>1705351582464</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1705351582464</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Generateur code chiffre pour le login WEB">
+      <option name="closed" value="true" />
+      <created>1705492966740</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1705492966740</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Generateur code chiffre pour le login WEB">
+      <option name="closed" value="true" />
+      <created>1705493265590</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1705493265590</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,7 +405,8 @@
     <MESSAGE value="CRUD message - message" />
     <MESSAGE value="MongoDB - Héberger" />
     <MESSAGE value="Rectification" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rectification" />
+    <MESSAGE value="Generateur code chiffre pour le login WEB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Generateur code chiffre pour le login WEB" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
