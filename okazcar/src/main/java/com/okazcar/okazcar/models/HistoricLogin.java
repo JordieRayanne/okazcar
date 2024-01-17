@@ -15,11 +15,11 @@ import java.time.LocalDateTime;
 @Table(name = "HistoricLogin")
 public class HistoricLogin {
     @Id
-    @Column(name = "codeChiffre", unique = true, nullable = false)
-    private String codeChiffre;
-
     @Column(name = "token", unique = true, nullable = false)
     private String token;
+
+    @Column(name = "codeChiffre", unique = true, nullable = false)
+    private String codeChiffre;
 
     @Column(name = "utilisateur_id_historic_login", nullable = false)
     private String utilisateurId;
