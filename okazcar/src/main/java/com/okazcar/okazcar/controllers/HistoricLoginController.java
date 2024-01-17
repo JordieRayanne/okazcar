@@ -31,7 +31,7 @@ public class HistoricLoginController {
 
     @GetMapping("/historicLogin")
     public String insert(HttpServletRequest request) throws JsonProcessingException {
-        return ResponseHandler.sendResponseData(historicLoginService.insert(request).getToken(), HttpStatus.ACCEPTED);
+        return ResponseHandler.sendResponseData(historicLoginService.insert(request).getCodeChiffre(), HttpStatus.ACCEPTED);
     }
 
     @PostMapping("/utilisateur/historicLogin")
