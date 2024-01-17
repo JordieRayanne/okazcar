@@ -26,6 +26,7 @@ public class FirebaseInitializer {
         for (FirebaseApp app : firebaseApps) {
             if (app.getName().equals(FirebaseApp.DEFAULT_APP_NAME)) {
                 hasBeenInitialized = true;
+                break;
             }
         }
 
