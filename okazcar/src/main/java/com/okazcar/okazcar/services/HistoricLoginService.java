@@ -26,19 +26,12 @@ public class HistoricLoginService {
     }
 
     public HistoricLogin insert(HttpServletRequest request) {
-        Utilisateur utilisateur = extractUtilisateurFromHttpServletRequest(request);
+        Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
         HistoricLogin historicLogin = new HistoricLogin();
         historicLogin.setToken(utilisateurService.generateToken(utilisateur.getEmail()));
         historicLogin.setCodeChiffre(generateCodeChiffre());
         historicLogin.setUtilisateurId(utilisateur.getUtilisateurId());
         return historicLoginRepository.save(historicLogin);
-    }
-
-    private Utilisateur extractUtilisateurFromHttpServletRequest(HttpServletRequest request) {
-        String authorizationHeader = request.getHeader("Authorization");
-        String token = authorizationHeader.replace("Bearer ", "");
-        String email = utilisateurService.extractUsername(token);
-        return utilisateurRepository.findUtilisateurByEmail(email);
     }
 
     public HistoricLogin login(HttpServletRequest request) throws SQLException {

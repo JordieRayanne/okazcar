@@ -34,9 +34,11 @@ import java.util.Arrays;
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
-
+	final UtilisateurService utilisateurService;
 	@Autowired
-	UtilisateurService utilisateurService;
+	public SecurityConfig(UtilisateurService utilisateurService) {
+		this.utilisateurService = utilisateurService;
+	}
 	@Bean
 	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
 			throws Exception {

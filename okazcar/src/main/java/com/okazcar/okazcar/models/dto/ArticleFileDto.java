@@ -15,9 +15,9 @@ import java.time.LocalDateTime;
 public class ArticleFileDto {
     private int articleId;
     private String userId;
-    private Timestamp dateHeureHistorique = Timestamp.valueOf(LocalDateTime.now());
 
     public ArticleFile getArticleFile() {
+        Timestamp dateHeureHistorique = Timestamp.valueOf(LocalDateTime.now());
         ArticleFile articleFile = new ArticleFile();
         articleFile.setArticleId(articleId);
         articleFile.getUserFiles().add(new UserFile(userId, dateHeureHistorique));
