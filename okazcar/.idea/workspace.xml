@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-01-10_00_21_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-01-10_00_21__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ConversationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ConversationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/OkazcarApplication.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/config/JwtFilter.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/config/SecurityConfig$1.class" beforeDir="false" />
@@ -172,6 +173,7 @@
       <workItem from="1705344129774" duration="7462000" />
       <workItem from="1705492564128" duration="1380000" />
       <workItem from="1705578569604" duration="13416000" />
+      <workItem from="1705641941487" duration="3566000" />
     </task>
     <task id="LOCAL-00001" summary="init from Mahery - Login">
       <option name="closed" value="true" />
@@ -413,7 +415,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705600680602</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Article populaire - part 1 (vita mamaky fichier)">
+      <option name="closed" value="true" />
+      <created>1705641978495</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1705641978495</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Article populaire - part 1 (vita mamaky fichier)">
+      <option name="closed" value="true" />
+      <created>1705643890764</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1705643890764</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,8 +1,12 @@
 package com.okazcar.okazcar.controllers;
 
+import com.okazcar.okazcar.models.Utilisateur;
 import com.okazcar.okazcar.models.dto.MessageDto;
 import com.okazcar.okazcar.models.mongodb.Conversation;
+import com.okazcar.okazcar.repositories.UtilisateurRepository;
 import com.okazcar.okazcar.services.ConversationService;
+import com.okazcar.okazcar.services.UtilisateurService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -14,8 +18,10 @@ import java.io.IOException;
 public class ConversationController {
 
     private final ConversationService conversationService;
-    public ConversationController(ConversationService conversationService) {
+    private final UtilisateurService utilisateurService;
+    public ConversationController(ConversationService conversationService, UtilisateurService utilisateurService) {
         this.conversationService = conversationService;
+        this.utilisateurService = utilisateurService;
     }
     @PostMapping("/conversation")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
@@ -27,9 +33,10 @@ public class ConversationController {
         }
     }
 
-    @GetMapping("/conversations")
+    @GetMapping("/conversations/{personId}")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    public ResponseEntity<Conversation> findByPerson(@RequestParam("personId1") String personId1, @RequestParam("personId2") String personId2) {
-        return new ResponseEntity<>(conversationService.getConversations(personId1, personId2).get(0), HttpStatus.OK);
+    public ResponseEntity<Conversation> findByPerson(@RequestParam("personId") String personId, HttpServletRequest request) {
+        Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
+        return new ResponseEntity<>(conversationService.getConversations(utilisateur.getUtilisateurId(), personId).get(0), HttpStatus.OK);
     }
 }
