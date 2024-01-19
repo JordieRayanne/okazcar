@@ -10,6 +10,7 @@ import com.okazcar.okazcar.services.UtilisateurService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,6 +31,7 @@ public class HistoricLoginController {
     }
 
     @GetMapping("/historicLogin")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public String insert(HttpServletRequest request) throws JsonProcessingException {
         return ResponseHandler.sendResponseData(historicLoginService.insert(request).getCodeChiffre(), HttpStatus.ACCEPTED);
     }

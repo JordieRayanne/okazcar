@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -23,6 +24,7 @@ public class ArticleFileController {
     }
 
     @GetMapping("/historic/{articleId}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<String> writeArticleFile(@PathVariable("articleId") int articleId, HttpServletRequest request) {
         Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
         ArticleFileDto articleFileDto = new ArticleFileDto(articleId, utilisateur.getUtilisateurId());
