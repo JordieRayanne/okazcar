@@ -32,5 +32,4 @@ public class Marque {
     public void setNom(String nom) {
         this.nom = nom;
     }
-
 }
