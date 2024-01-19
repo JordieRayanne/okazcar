@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="Article populaire - part 1 (vita mamaky fichier)">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-01-10_00_21_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-01-10_00_21__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ArticleFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ArticleFileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/dto/ArticleFileDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/dto/ArticleFileDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/HistoricLoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/HistoricLoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/UtilisateurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/UtilisateurService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/OkazcarApplication.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/config/JwtFilter.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/config/SecurityConfig$1.class" beforeDir="false" />
@@ -177,7 +171,7 @@
       <workItem from="1705329317749" duration="5813000" />
       <workItem from="1705344129774" duration="7462000" />
       <workItem from="1705492564128" duration="1380000" />
-      <workItem from="1705578569604" duration="12166000" />
+      <workItem from="1705578569604" duration="13416000" />
     </task>
     <task id="LOCAL-00001" summary="init from Mahery - Login">
       <option name="closed" value="true" />
@@ -403,7 +397,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705599958727</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Article populaire - part 1 (vita mamaky fichier)">
+      <option name="closed" value="true" />
+      <created>1705600573816</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1705600573816</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Article populaire - part 1 (vita mamaky fichier)">
+      <option name="closed" value="true" />
+      <created>1705600680602</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1705600680602</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
