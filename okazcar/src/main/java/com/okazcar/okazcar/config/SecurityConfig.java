@@ -67,7 +67,7 @@ public class SecurityConfig {
 		http
 				.authenticationProvider(authenticationProvider())
 				.authorizeHttpRequests(auth -> auth
-						.requestMatchers("/utilisateur/**")
+						.requestMatchers("/utilisateurs/**","/utilisateur/**","/Annonces/**")
 						.permitAll()
 						.anyRequest()
 						.authenticated())
