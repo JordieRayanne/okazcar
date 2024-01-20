@@ -17,7 +17,7 @@ public class AnnoncePopulaireController {
         this.annoncePopulaireService = annoncePopulaireService;
     }
 
-    @GetMapping("/anonnce/populaire")
+    @GetMapping("/anonnces/populaire")
     public ResponseEntity<List<Annonce>> getAnnoncePopulaires() {
         return new ResponseEntity<>(annoncePopulaireService.getAnnoncesPopulaires(), HttpStatus.OK);
     }
