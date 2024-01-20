@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArticleFile {
+public class AnnonceFile {
     private int articleId;
     private List<UserFile> userFiles = new ArrayList<>();
     private int totalCount = 1;

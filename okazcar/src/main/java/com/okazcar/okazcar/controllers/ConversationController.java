@@ -3,7 +3,6 @@ package com.okazcar.okazcar.controllers;
 import com.okazcar.okazcar.models.Utilisateur;
 import com.okazcar.okazcar.models.dto.MessageDto;
 import com.okazcar.okazcar.models.mongodb.Conversation;
-import com.okazcar.okazcar.repositories.UtilisateurRepository;
 import com.okazcar.okazcar.services.ConversationService;
 import com.okazcar.okazcar.services.UtilisateurService;
 import jakarta.servlet.http.HttpServletRequest;

@@ -3,7 +3,8 @@ package com.okazcar.okazcar.services.file;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
-import com.okazcar.okazcar.models.file.ArticleFile;
+import com.okazcar.okazcar.models.file.AnnonceFile;
+import lombok.Getter;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -13,9 +14,10 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class ArticleFileService {
+@Getter
+public class AnnonceFileService {
     File file = new File("historic.json");
-    private final List<ArticleFile> articleFiles = new ArrayList<>();
+    private final List<AnnonceFile> annonceFiles = new ArrayList<>();
     private final ObjectMapper objectMapper = new ObjectMapper();
     {
         try {
@@ -24,22 +26,22 @@ public class ArticleFileService {
             throw new RuntimeException(e);
         }
     }
-    public void writeFile(ArticleFile articleFile) throws IOException {
+    public void writeFile(AnnonceFile annonceFile) throws IOException {
         initArticleFile();
         boolean resp = file.createNewFile();
-        int indexArticleFile = checkArticleFile(articleFile);
+        int indexArticleFile = checkArticleFile(annonceFile);
         if (indexArticleFile != -1) {
-            this.articleFiles.get(indexArticleFile).addNewUserFile(articleFile.getUserFiles());
+            this.annonceFiles.get(indexArticleFile).addNewUserFile(annonceFile.getUserFiles());
         } else {
-            this.articleFiles.add(articleFile);
+            this.annonceFiles.add(annonceFile);
         }
-        objectMapper.writeValue(file, articleFiles);
+        objectMapper.writeValue(file, annonceFiles);
     }
 
-    private int checkArticleFile(ArticleFile newArticleFile) {
+    private int checkArticleFile(AnnonceFile newAnnonceFile) {
         int i = 0;
-        for (ArticleFile articleFile: this.articleFiles) {
-            if (articleFile.getArticleId() == newArticleFile.getArticleId())
+        for (AnnonceFile annonceFile : this.annonceFiles) {
+            if (annonceFile.getArticleId() == newAnnonceFile.getArticleId())
                 return i;
             i++;
         }
@@ -51,9 +53,9 @@ public class ArticleFileService {
         try {
             articlesList = objectMapper.readValue(file, new TypeReference<List<Map<String, Object>>>(){});
             for (Map<String, Object> articleMap : articlesList) {
-                ArticleFile article = objectMapper.convertValue(articleMap, ArticleFile.class);
+                AnnonceFile article = objectMapper.convertValue(articleMap, AnnonceFile.class);
                 if(checkArticleFile(article) == -1) {
-                    this.articleFiles.add(article);
+                    this.annonceFiles.add(article);
                 }
             }
         } catch (MismatchedInputException e) {

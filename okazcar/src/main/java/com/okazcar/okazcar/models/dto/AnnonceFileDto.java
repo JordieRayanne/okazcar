@@ -1,6 +1,6 @@
 package com.okazcar.okazcar.models.dto;
 
-import com.okazcar.okazcar.models.file.ArticleFile;
+import com.okazcar.okazcar.models.file.AnnonceFile;
 import com.okazcar.okazcar.models.file.UserFile;
 import lombok.*;
 
@@ -12,15 +12,15 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class ArticleFileDto {
+public class AnnonceFileDto {
     private int articleId;
     private String userId;
 
-    public ArticleFile getArticleFile() {
+    public AnnonceFile getArticleFile() {
         Timestamp dateHeureHistorique = Timestamp.valueOf(LocalDateTime.now());
-        ArticleFile articleFile = new ArticleFile();
-        articleFile.setArticleId(articleId);
-        articleFile.getUserFiles().add(new UserFile(userId, dateHeureHistorique));
-        return articleFile;
+        AnnonceFile annonceFile = new AnnonceFile();
+        annonceFile.setArticleId(articleId);
+        annonceFile.getUserFiles().add(new UserFile(userId, dateHeureHistorique));
+        return annonceFile;
     }
 }
