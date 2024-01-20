@@ -3,6 +3,7 @@ package com.okazcar.okazcar.controllers;
 import com.okazcar.okazcar.models.Annonce;
 import com.okazcar.okazcar.repositories.AnnonceRepository;
 import com.okazcar.okazcar.services.AnnoncePopulaireService;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,6 @@ public class AnnoncePopulaireController {
 
     @GetMapping("/anonnces/favori")
     public ResponseEntity<List<Annonce>> getAnnonceFavoris() {
-        return new ResponseEntity<>(annonceRepository.findAnnoncesByStatus(10), HttpStatus.OK);
+        return new ResponseEntity<>(annonceRepository.findAnnoncesByStatus(10, PageRequest.of(0, 6)).getContent(), HttpStatus.OK);
     }
 }

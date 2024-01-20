@@ -5,6 +5,8 @@ import com.okazcar.okazcar.models.file.AnnonceFile;
 import com.okazcar.okazcar.repositories.AnnonceRepository;
 import com.okazcar.okazcar.services.file.AnnonceFileService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,7 +26,8 @@ public class AnnoncePopulaireService {
     }
 
     public List<Annonce> getAnnoncesPopulaires() {
-        List<Annonce> annonces = annonceRepository.findAll();
+        Page<Annonce> annoncesPages = annonceRepository.findAll(PageRequest.of(0, 6));
+        List<Annonce> annonces = annoncesPages.getContent();
         List<Annonce> toReturn = new ArrayList<>();
         List<AnnonceFile> annonceFiles = annonceFileService.getAnnonceFiles();
         annonceFiles = annonceFiles.stream().sorted(Comparator.comparing(AnnonceFile::getTotalCount)).toList();
