@@ -3,7 +3,6 @@ package com.okazcar.okazcar.controllers;
 import com.okazcar.okazcar.models.Annonce;
 import com.okazcar.okazcar.repositories.AnnonceRepository;
 import com.okazcar.okazcar.services.AnnoncePopulaireService;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
