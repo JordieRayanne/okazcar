@@ -2,10 +2,12 @@ package com.okazcar.okazcar.services;
 
 import com.okazcar.okazcar.models.Annonce;
 import com.okazcar.okazcar.models.ClientVoiture;
+import com.okazcar.okazcar.models.Utilisateur;
 import com.okazcar.okazcar.models.file.AnnonceFile;
 import com.okazcar.okazcar.repositories.AnnonceRepository;
 import com.okazcar.okazcar.repositories.ClientVoitureRepository;
 import com.okazcar.okazcar.services.file.AnnonceFileService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,12 +23,14 @@ public class AnnoncePopulaireService {
     final AnnonceRepository annonceRepository;
     final AnnonceFileService annonceFileService;
     final ClientVoitureRepository clientVoitureRepository;
+    final UtilisateurService utilisateurService;
 
     @Autowired
-    public AnnoncePopulaireService (AnnonceRepository annonceRepository, AnnonceFileService annonceFileService, ClientVoitureRepository clientVoitureRepository) {
+    public AnnoncePopulaireService (AnnonceRepository annonceRepository, AnnonceFileService annonceFileService, ClientVoitureRepository clientVoitureRepository, UtilisateurService utilisateurService) {
         this.annonceRepository = annonceRepository;
         this.clientVoitureRepository = clientVoitureRepository;
         this.annonceFileService = annonceFileService;
+        this.utilisateurService = utilisateurService;
     }
 
     public List<Annonce> getAnnoncesPopulaires() {
@@ -42,22 +46,13 @@ public class AnnoncePopulaireService {
         return toReturn;
     }
 
-    public List<Annonce> getAnnoncesFavoris() {
+    public List<Annonce> getAnnoncesFavoris(HttpServletRequest request) {
         List<Annonce> annonces = new ArrayList<>();
-        List<ClientVoiture> clientVoitures = clientVoitureRepository.findClientVoituresByFavori(1);
+        Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
+        List<ClientVoiture> clientVoitures = clientVoitureRepository.findClientVoituresByFavoriAndUtilisateur(1, utilisateur);
         for (ClientVoiture clientVoiture: clientVoitures) {
-            if (!checkClientVoiture(clientVoiture.getAnnonce(), annonces)) {
-                annonces.add(clientVoiture.getAnnonce());
-            }
+            annonces.add(clientVoiture.getAnnonce());
         }
         return annonces;
-    }
-
-    private boolean checkClientVoiture(Annonce newAnnonce, List<Annonce> annonces) {
-        for (Annonce annonce: annonces) {
-            if (annonce.getId() == newAnnonce.getId())
-                return true;
-        }
-        return false;
     }
 }
