@@ -5,7 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.okazcar.okazcar.models.ClientVoiture;
 
+import java.util.List;
+
 @Repository
 public interface ClientVoitureRepository extends JpaRepository<ClientVoiture,Integer> {
-    
+    List<ClientVoiture> findClientVoituresByFavori(int favori);
 }

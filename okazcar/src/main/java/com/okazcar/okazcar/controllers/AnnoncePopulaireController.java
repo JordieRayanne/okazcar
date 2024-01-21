@@ -28,6 +28,6 @@ public class AnnoncePopulaireController {
 
     @GetMapping("/anonnces/favori")
     public ResponseEntity<List<Annonce>> getAnnonceFavoris() {
-        return new ResponseEntity<>(annonceRepository.findAnnoncesByStatus(10, PageRequest.of(0, 6)).getContent(), HttpStatus.OK);
+        return new ResponseEntity<>(annoncePopulaireService.getAnnoncesFavoris(), HttpStatus.OK);
     }
 }
