@@ -7,6 +7,8 @@ import com.okazcar.okazcar.models.file.AnnonceFile;
 import com.okazcar.okazcar.repositories.AnnonceRepository;
 import com.okazcar.okazcar.repositories.ClientVoitureRepository;
 import com.okazcar.okazcar.services.file.AnnonceFileService;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,6 +26,9 @@ public class AnnoncePopulaireService {
     final AnnonceFileService annonceFileService;
     final ClientVoitureRepository clientVoitureRepository;
     final UtilisateurService utilisateurService;
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Autowired
     public AnnoncePopulaireService (AnnonceRepository annonceRepository, AnnonceFileService annonceFileService, ClientVoitureRepository clientVoitureRepository, UtilisateurService utilisateurService) {
@@ -46,10 +51,11 @@ public class AnnoncePopulaireService {
         return toReturn;
     }
 
+    @SuppressWarnings("unchecked")
     public List<Annonce> getAnnoncesFavoris(HttpServletRequest request) {
         List<Annonce> annonces = new ArrayList<>();
         Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
-        List<ClientVoiture> clientVoitures = clientVoitureRepository.findClientVoituresByFavoriAndUtilisateur(1, utilisateur);
+        List<ClientVoiture> clientVoitures = (List<ClientVoiture>) entityManager.createNativeQuery("SELECT * FROM client_voiture WHERE favori = 1 AND id_utilisateur='"+utilisateur.getUtilisateurId()+"'", ClientVoiture.class).getResultList();
         for (ClientVoiture clientVoiture: clientVoitures) {
             annonces.add(clientVoiture.getAnnonce());
         }
