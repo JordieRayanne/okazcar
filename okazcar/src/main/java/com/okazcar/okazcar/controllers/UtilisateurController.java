@@ -61,8 +61,9 @@ public class UtilisateurController {
         }
     }
 
-    @PutMapping("/utilisateur")
-    public String update(@ModelAttribute UserInsertDto userDto) throws IOException {
+    @PutMapping("/utilisateurs/{id}")
+    public String update(@PathVariable("id") String id, @ModelAttribute UserInsertDto userDto) throws IOException {
+        userDto.setUserId(id);
         try {
             return sendResponseData(utilisateurService.update(userDto), HttpStatus.ACCEPTED);
         } catch (JsonProcessingException | ForgetException | FirebaseAuthException e) {
@@ -70,7 +71,7 @@ public class UtilisateurController {
         }
     }
 
-    @DeleteMapping("/utilisateur/{id}")
+    @DeleteMapping("/utilisateurs/{id}")
     public String delete(@PathVariable("id") String id) throws IOException {
         try {
             return sendResponseData(utilisateurService.delete(id), HttpStatus.ACCEPTED);

@@ -41,9 +41,10 @@ public class DeviseController {
         return new ResponseEntity<>(createdDevise, HttpStatus.CREATED);
     }
 
-    @PutMapping("/devise")
+    @PutMapping("/devises/{id}")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<Devise> update(@ModelAttribute Devise devise) {
+    public ResponseEntity<Devise> update(@PathVariable("id") int id, @ModelAttribute Devise devise) {
+        devise.setId(id);
         Devise updatedDevise = deviseService.update(devise);
         return new ResponseEntity<>(updatedDevise, HttpStatus.OK);
     }
