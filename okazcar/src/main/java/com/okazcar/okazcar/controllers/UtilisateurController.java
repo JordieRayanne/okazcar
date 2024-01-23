@@ -11,6 +11,7 @@ import com.okazcar.okazcar.services.UtilisateurService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,29 +30,19 @@ public class UtilisateurController {
         this.utilisateurService = utilisateurService;
     }
 
-    private String prepareToBeSend(Users users) throws IOException {
-        String token = utilisateurService.generateToken(users.getUtilisateur().getEmail());
-        SecurityContextHolder.getContext().setAuthentication(utilisateurService.getAuthenticationToken(token, new UtilisateurDetails(users.getUtilisateur(), users.getUtilisateur().getRoles())));
-        Map<String, Object> map = new HashMap<>();
-        map.put("Token", token);
-        map.put("Email", users.getUtilisateur().getEmail());
-        map.put("Username", users.getUtilisateur().getUsername());
-        if (users.getUserMongoDb() != null) {
-            map.put("Image", users.getUserMongoDb().getImage());
-        }
-        return sendResponseData(map, HttpStatus.ACCEPTED);
-    }
+
     @PostMapping("/utilisateur/login")
-    public String logIn(@ModelAttribute UserLoginDto userDto, HttpServletResponse response) throws IOException {
+    public String logIn(@ModelAttribute UserLoginDto userDto) throws IOException {
         try {
             Users users = utilisateurService.logIn(userDto);
-            return prepareToBeSend(users);
+            return prepareToBeSend(users, utilisateurService);
         } catch (Exception e) {
             return showError(e, HttpStatus.FORBIDDEN);
         }
     }
 
     @GetMapping("/utilisateurs")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public String getAll() throws IOException {
         try {
             return sendResponseData(utilisateurService.getAll(), HttpStatus.ACCEPTED);
@@ -64,7 +55,7 @@ public class UtilisateurController {
     public String signIn(@ModelAttribute UserInsertDto userDto) throws IOException {
         try {
             Users users = utilisateurService.insert(userDto);
-            return prepareToBeSend(users);
+            return prepareToBeSend(users, utilisateurService);
         } catch (Exception e) {
             return showError(e, HttpStatus.FORBIDDEN);
         }
@@ -91,6 +82,6 @@ public class UtilisateurController {
     @GetMapping("/utilisateur/logout")
     public String logOut() throws JsonProcessingException {
         SecurityContextHolder.getContext().setAuthentication(null);
-        return generateResponse("Logout successfully", HttpStatus.OK, "");
+        return sendResponseData("Logout successfully", HttpStatus.OK);
     }
 }

@@ -20,7 +20,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -34,9 +33,11 @@ import java.util.Arrays;
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
-
+	final UtilisateurService utilisateurService;
 	@Autowired
-	UtilisateurService utilisateurService;
+	public SecurityConfig(UtilisateurService utilisateurService) {
+		this.utilisateurService = utilisateurService;
+	}
 	@Bean
 	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
 			throws Exception {
@@ -67,7 +68,7 @@ public class SecurityConfig {
 		http
 				.authenticationProvider(authenticationProvider())
 				.authorizeHttpRequests(auth -> auth
-						.requestMatchers("/utilisateurs/**","/utilisateur/**","/Annonces/**")
+						.requestMatchers("/utilisateur/**","/annonces/**")
 						.permitAll()
 						.anyRequest()
 						.authenticated())

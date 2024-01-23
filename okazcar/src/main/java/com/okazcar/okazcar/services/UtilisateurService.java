@@ -13,6 +13,7 @@ import com.okazcar.okazcar.repositories.mongodb.UserMongoDbRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -116,6 +117,13 @@ public class UtilisateurService implements UserDetailsService {
             return insertUserWithoutImage(userDto);
         }
         return insertUserWithImage(userDto);
+    }
+
+    public Utilisateur extractUtilisateurFromHttpServletRequest(HttpServletRequest request) {
+        String authorizationHeader = request.getHeader("Authorization");
+        String token = authorizationHeader.replace("Bearer ", "");
+        String email = extractUsername(token);
+        return utilisateurRepository.findUtilisateurByEmail(email);
     }
 
     private Utilisateur insertUser(UserInsertDto userDto) throws FirebaseAuthException, ForgetException {

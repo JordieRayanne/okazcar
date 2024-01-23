@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.okazcar.okazcar.models.ClientVoiture;
 
+
 @Repository
 public interface ClientVoitureRepository extends JpaRepository<ClientVoiture,Integer> {
-    
 }

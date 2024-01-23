@@ -4,20 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="Rectification">
+    <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="Article populaire - part 1 (vita mamaky fichier)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/AnnoncePopulaireController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/AnnoncePopulaireService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1/storage_v2/_src_/database/voiture.RGGHJQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1/storage_v2/_src_/database/voiture.RGGHJQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/417d3239-9b28-4d12-a04b-bf0be7c605a8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/417d3239-9b28-4d12-a04b-bf0be7c605a8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-01-10_00_21_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-01-10_00_21__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/V_Annonce_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/V_Annonce_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/V_Annonce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/V_Annonce.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/V_Annonce_Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/V_Annonce_Repository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/AnnonceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/AnnonceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ArticleFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/AnnonceFileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ConversationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ConversationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/V_Annonce_Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/V_Annonce.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/dto/ArticleFileDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/dto/AnnonceFileDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/file/ArticleFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/file/AnnonceFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/V_Annonce_Repository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/ConversationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/ConversationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/file/ArticleFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/file/AnnonceFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/OkazcarApplication.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/config/JwtFilter.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/config/SecurityConfig$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/config/SecurityConfig.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controller/CategorieController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controller/Client_Voiture_Controller.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controller/V_Annonce_Controller.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/MarqueController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/controllers/ModeleController.class" beforeDir="false" />
@@ -29,7 +41,8 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/handlers/MyAccessDeniedHandler.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/handlers/ResponseHandler.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/model/Categorie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/model/V_Annonce.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/model/V_Annonce.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/model/Client_Voiture.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/model/V_Annonce.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/Marque.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/Modele.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/models/Role.class" beforeDir="false" />
@@ -45,12 +58,17 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repositories/UtilisateurRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repositories/mongodb/UserMongoDbRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repository/CategorieRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repository/V_Annonce_Repository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repository/V_Annonce_Repository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repository/Client_Voiture_Repository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/repository/V_Annonce_Repository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/services/FirebaseInitializer.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/services/MarqueService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/services/RoleService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/services/UtilisateurService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/service/CategorieService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/table.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/settingsFirebase.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/okazcar/okazcar/OkazcarApplicationTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +94,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ConversationController.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
@@ -90,34 +111,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.OkazcarApplication.executor": "Run",
-    "git-widget-placeholder": "mahery",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/mahery/IdeaProjects/okazcar/okazcar/src/main/java/com/okazcar/okazcar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Docker",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.OkazcarApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;mahery&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mahery/IdeaProjects/okazcar/okazcar/src/main/java/com/okazcar/okazcar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Docker&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql",
-      "mongo"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;,
+      &quot;mongo&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar" />
@@ -166,7 +187,13 @@
       <workItem from="1705041171137" duration="19431000" />
       <workItem from="1705075796112" duration="2418000" />
       <workItem from="1705132052115" duration="3483000" />
-      <workItem from="1705329317749" duration="4150000" />
+      <workItem from="1705329317749" duration="5813000" />
+      <workItem from="1705344129774" duration="7462000" />
+      <workItem from="1705492564128" duration="1380000" />
+      <workItem from="1705578569604" duration="13416000" />
+      <workItem from="1705641941487" duration="10743000" />
+      <workItem from="1705686601496" duration="1476000" />
+      <workItem from="1705688114960" duration="4133000" />
     </task>
     <task id="LOCAL-00001" summary="init from Mahery - Login">
       <option name="closed" value="true" />
@@ -328,7 +355,111 @@
       <option name="project" value="LOCAL" />
       <updated>1705333521100</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Rectification">
+      <option name="closed" value="true" />
+      <created>1705333856901</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1705333856901</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Generateur code chiffre pour le login WEB">
+      <option name="closed" value="true" />
+      <created>1705351373819</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1705351373819</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Generateur code chiffre pour le login WEB">
+      <option name="closed" value="true" />
+      <created>1705351382198</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1705351382198</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Generateur code chiffre pour le login WEB">
+      <option name="closed" value="true" />
+      <created>1705351582464</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1705351582464</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Generateur code chiffre pour le login WEB">
+      <option name="closed" value="true" />
+      <created>1705492966740</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1705492966740</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Generateur code chiffre pour le login WEB">
+      <option name="closed" value="true" />
+      <created>1705493265590</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1705493265590</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Generateur code chiffre pour le login WEB">
+      <option name="closed" value="true" />
+      <created>1705494425572</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1705494425572</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Article populaire - part 1 (vita mamaky fichier)">
+      <option name="closed" value="true" />
+      <created>1705599958727</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1705599958727</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Article populaire - part 1 (vita mamaky fichier)">
+      <option name="closed" value="true" />
+      <created>1705600573816</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1705600573816</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Article populaire - part 1 (vita mamaky fichier)">
+      <option name="closed" value="true" />
+      <created>1705600680602</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1705600680602</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Article populaire - part 1 (vita mamaky fichier)">
+      <option name="closed" value="true" />
+      <created>1705641978495</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1705641978495</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Article populaire - part 1 (vita mamaky fichier)">
+      <option name="closed" value="true" />
+      <created>1705643890764</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1705643890764</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Article populaire - part 1 (vita mamaky fichier)">
+      <option name="closed" value="true" />
+      <created>1705647265185</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1705647265185</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +470,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="mahery" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -355,7 +498,9 @@
     <MESSAGE value="CRUD message - message" />
     <MESSAGE value="MongoDB - Héberger" />
     <MESSAGE value="Rectification" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rectification" />
+    <MESSAGE value="Generateur code chiffre pour le login WEB" />
+    <MESSAGE value="Article populaire - part 1 (vita mamaky fichier)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Article populaire - part 1 (vita mamaky fichier)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

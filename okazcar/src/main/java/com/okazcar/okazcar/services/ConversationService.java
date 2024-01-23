@@ -1,11 +1,9 @@
 package com.okazcar.okazcar.services;
 
-import com.okazcar.okazcar.models.Utilisateur;
 import com.okazcar.okazcar.models.dto.MessageDto;
 import com.okazcar.okazcar.models.mongodb.Conversation;
 import com.okazcar.okazcar.models.mongodb.Message;
 import com.okazcar.okazcar.models.mongodb.Person;
-import com.okazcar.okazcar.repositories.UtilisateurRepository;
 import com.okazcar.okazcar.repositories.mongodb.ConversationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -18,11 +16,9 @@ import java.util.List;
 @Service
 public class ConversationService {
     private final ConversationRepository conversationRepository;
-    private final UtilisateurRepository utilisateurRepository;
     @Autowired
-    public ConversationService(ConversationRepository conversationRepository, UtilisateurRepository utilisateurRepository) {
+    public ConversationService(ConversationRepository conversationRepository) {
         this.conversationRepository = conversationRepository;
-        this.utilisateurRepository = utilisateurRepository;
     }
 
     public Conversation insert(MessageDto messageDto) throws IOException {
