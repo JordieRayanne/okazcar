@@ -42,7 +42,7 @@ public class UtilisateurController {
     }
 
     @GetMapping("/utilisateurs")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    //   @PreAuthorize("hasAnyRole('ADMIN')")
     public String getAll() throws IOException {
         try {
             return sendResponseData(utilisateurService.getAll(), HttpStatus.ACCEPTED);

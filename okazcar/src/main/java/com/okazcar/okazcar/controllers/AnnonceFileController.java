@@ -24,7 +24,7 @@ public class AnnonceFileController {
     }
 
     @GetMapping("/historic/{annonceId}")
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    // @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<String> writeArticleFile(@PathVariable("annonceId") int annonceId, HttpServletRequest request) {
         Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
         AnnonceFileDto annonceFileDto = new AnnonceFileDto(annonceId, utilisateur.getUtilisateurId());
