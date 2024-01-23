@@ -31,7 +31,7 @@ public class HistoricLoginController {
     }
 
     @GetMapping("/historicLogin")
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public String insert(HttpServletRequest request) throws JsonProcessingException {
         return ResponseHandler.sendResponseData(historicLoginService.insert(request).getCodeChiffre(), HttpStatus.ACCEPTED);
     }

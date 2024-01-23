@@ -48,7 +48,7 @@ INSERT INTO voiture_utilisateur (id_utilisateur,id_voiture)
 VALUES
     (1,1);
 
-INSERT INTO commission (id_voiture_utilisateur,commission)
+INSERT INTO commission (idvoitureutilisateur,commission)
 VALUES
     (1,5);
 

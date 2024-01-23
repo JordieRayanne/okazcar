@@ -30,7 +30,7 @@ public class AnnonceController {
     }
 
     @GetMapping("/annonce/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    // @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<Annonce> getById(@PathVariable("id") Integer id) {
         Optional<Annonce> AnnonceOptional = AnnonceRepository.findById(id);
         return AnnonceOptional.map(Annonce -> new ResponseEntity<>(Annonce, HttpStatus.OK))
@@ -38,7 +38,7 @@ public class AnnonceController {
     }
 
     @PostMapping("/annonce")
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+//    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<Annonce> create(@ModelAttribute Annonce Annonce) {
         Annonce createdAnnonce = AnnonceRepository.save(Annonce);
         return new ResponseEntity<>(createdAnnonce, HttpStatus.CREATED);
@@ -56,7 +56,7 @@ public class AnnonceController {
     }
 
     @DeleteMapping("/annonce/{id}")
-     @PreAuthorize("hasAnyRole('ADMIN')")
+    //   @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<HttpStatus> delete(@PathVariable("id") Integer id) {
         try {
             AnnonceRepository.deleteById(id);
