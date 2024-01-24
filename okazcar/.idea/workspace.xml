@@ -4,25 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="Article populaire - part 1 (vita mamaky fichier)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/AnnoncePopulaireController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/AnnoncePopulaireService.java" afterDir="false" />
+    <list default="true" id="e5eafb8a-e115-4549-ad41-4ce87f07193f" name="Changes" comment="Rectification import d'image">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1/storage_v2/_src_/database/voiture.RGGHJQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01bb6ea2-aaaa-432e-bf82-4d6fc16176f1/storage_v2/_src_/database/voiture.RGGHJQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-01-10_00_21_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-01-10_00_21__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/AnnonceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/AnnonceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ArticleFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/AnnonceFileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/AnnonceFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/AnnonceFileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ClientVoitureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ClientVoitureController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ConversationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ConversationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/V_Annonce_Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/V_Annonce.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/dto/ArticleFileDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/dto/AnnonceFileDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/file/ArticleFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/file/AnnonceFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/V_Annonce_Repository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/ConversationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/ConversationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/file/ArticleFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/file/AnnonceFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/DeviseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/DeviseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/HistoricLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/HistoricLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/MarqueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/MarqueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ModeleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/ModeleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/TypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/TypeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/UtilisateurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/UtilisateurController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/V_Annonce_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/V_Annonce_Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/VoitureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/VoitureController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/VoitureUtilisateurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/controllers/VoitureUtilisateurController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/ClientVoiture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/ClientVoiture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/Commission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/Commission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/ConnectionHistorique.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/V_Annonce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/V_Annonce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/Voiture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/Voiture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/mongodb/UserMongoDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/models/mongodb/UserMongoDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/AnnonceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/AnnonceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/CategorieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/CategorieRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/V_Annonce_Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/repositories/V_Annonce_Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/AnnonceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/AnnonceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/VoitureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/okazcar/okazcar/services/VoitureService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/OkazcarApplication.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/okazcar/okazcar/config/JwtFilter.class" beforeDir="false" />
@@ -89,7 +100,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="main" />
+        <entry key="$PROJECT_DIR$/.." value="cfa38d8a1a97466fb0d9a79373245da8858f74d6" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -459,7 +470,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705647265185</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Rectification import d'image">
+      <option name="closed" value="true" />
+      <created>1706113971598</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1706113971598</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,7 +519,8 @@
     <MESSAGE value="Rectification" />
     <MESSAGE value="Generateur code chiffre pour le login WEB" />
     <MESSAGE value="Article populaire - part 1 (vita mamaky fichier)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Article populaire - part 1 (vita mamaky fichier)" />
+    <MESSAGE value="Rectification import d'image" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rectification import d'image" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
