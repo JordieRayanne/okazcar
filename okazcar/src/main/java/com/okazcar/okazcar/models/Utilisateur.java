@@ -5,14 +5,15 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 
 
 import com.okazcar.okazcar.exception.ForgetException;
 import com.okazcar.okazcar.models.dto.*;
 @Getter
-@Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,21 +22,37 @@ import com.okazcar.okazcar.models.dto.*;
 public class Utilisateur {
     @Id
     @Column(name = "utilisateur_id", length = 150)
+    @Setter
     private String utilisateurId;
+
+    @Setter
     @Column(name = "email", unique = true, length = 80, nullable = false)
     private String email="";
+
     @Column(name = "username", nullable = false)
+    @Setter
     private String username;
+
+    @Setter
     @Column(name = "password")
     private String password = null;
+
+    @Setter
     @Column(name = "phone_number")
     private String phoneNumber = null;
+
     @Column(name = "platform", nullable = false)
+    @Setter
     private String platform;
+
     @Column(name = "image_url")
+    @Setter
     private String imageUrl = "";
+
     @Column(name = "birthday")
     private Date birthday;
+
+    @Setter
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "utilisateurs_role", joinColumns = @JoinColumn(name = "utilisateur_id_utilisateurs_role", referencedColumnName = "utilisateur_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id_users_role", referencedColumnName = "role_id") )
@@ -60,6 +77,13 @@ public class Utilisateur {
         setBirthday(userDto.getBirthday());
         if (userDto.getImageFile() != null)
             setImageUrl(userDto.getImageFile().getResource().getFilename());
+    }
+
+    public void setBirthday(Date date) throws ForgetException {
+        int diff = LocalDate.now().getYear() - date.toLocalDate().getYear();
+        if (diff < 18)
+            throw new ForgetException("You don't have the age appropriate : " + diff, new Throwable("You must have 18 years old or more"));
+        this.birthday = date;
     }
 
     public Utilisateur(UserRecord userRecord, UserInsertDto userDto) {

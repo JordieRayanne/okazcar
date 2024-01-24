@@ -1,9 +1,12 @@
 package com.okazcar.okazcar.models.mongodb;
 
+import com.google.common.io.Files;
+import com.okazcar.okazcar.handlers.FileUploaderHandler;
 import com.okazcar.okazcar.models.dto.MessageDto;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Base64;
@@ -33,7 +36,9 @@ public class Message {
             this.setType("MESSAGE");
         } else {
             assert messageDto.getFile() != null;
-            this.content = Base64.getEncoder().encodeToString(messageDto.getFile().getBytes());
+            File file = FileUploaderHandler.uploadFile(messageDto.getFile());
+            this.content = Base64.getEncoder().encodeToString(Files.toByteArray(file));
+            FileUploaderHandler.deleteFile(file);
             this.setType("FILE");
         }
         this.senderId = messageDto.getPersonId1();
