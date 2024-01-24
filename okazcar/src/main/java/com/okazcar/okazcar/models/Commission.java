@@ -11,7 +11,9 @@ public class Commission {
     @Column(name = "id")
     private int id;
 
-    private int idVoitureUtilisateur;
+	@ManyToOne
+    @JoinColumn(name = "idvoitureutilisateur", referencedColumnName = "id")
+    private VoitureUtilisateur voitureUtilisateur;
 
     private double commission;
 
@@ -23,12 +25,12 @@ public class Commission {
 		this.id = id;
 	}
 
-	public int getIdVoitureUtilisateur() {
-		return idVoitureUtilisateur;
+	public VoitureUtilisateur getVoitureUtilisateur() {
+		return voitureUtilisateur;
 	}
 
-	public void setIdVoitureUtilisateur(int idVoitureUtilisateur) {
-		this.idVoitureUtilisateur = idVoitureUtilisateur;
+	public void setVoitureUtilisateur(VoitureUtilisateur voitureUtilisateur) {
+		this.voitureUtilisateur = voitureUtilisateur;
 	}
 
 	public double getCommission() {

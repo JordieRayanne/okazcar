@@ -40,10 +40,9 @@ public class TypeController {
         return new ResponseEntity<>(createdType, HttpStatus.CREATED);
     }
 
-    @PutMapping("/types/{id}")
+    @PutMapping("/type")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<Type> update(@PathVariable("id") int id, @ModelAttribute Type type) {
-        type.setId(id);
+    public ResponseEntity<Type> update(@ModelAttribute Type type) {
         Type updatedType = typeService.update(type);
         return new ResponseEntity<>(updatedType, HttpStatus.OK);
     }
