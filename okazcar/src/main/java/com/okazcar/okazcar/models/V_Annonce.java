@@ -10,14 +10,16 @@ import java.util.Date;
 import org.hibernate.annotations.Subselect;
 import org.hibernate.annotations.Synchronize;
 
-@Entity
+@Entity(
+    name = "v_annonce"
+    )
 @Subselect("SELECT " +
         "annonce.id AS id_annonce, " +
         "annonce.date_annonce AS date_annonce, " +
         "annonce.status AS status, " +
         "commission.id AS id_commission, " +
         "commission.commission AS commission, " +
-        "voiture_utilisateur.id_utilisateur AS id_voiture_utilisateur, " +
+        "voiture_utilisateur.id AS idvoitureutilisateur, " +
         "voiture_utilisateur.etat AS voiture_utilisateur_etat, " +
         "voiture.id AS id_voiture, " +
         "voiture.nom AS voiture, " +
@@ -40,13 +42,13 @@ import org.hibernate.annotations.Synchronize;
         "utilisateur.birthday AS date_naissance, " +
         "utilisateur.email AS vendeur_mail, " +
         "utilisateur.phone_number AS contact, " +
-        "utilisateur.platform AS genre " +
+        "utilisateur.platform AS platform " +
         "FROM " +
         "annonce " +
         "JOIN " +
         "commission ON commission.id = annonce.id " +
         "JOIN " +
-        "voiture_utilisateur ON voiture_utilisateur.id = commission.id_voiture_utilisateur " +
+        "voiture_utilisateur ON voiture_utilisateur.id = commission.idvoitureutilisateur " +
         "JOIN " +
         "voiture ON voiture.id = voiture_utilisateur.id_voiture " +
         "JOIN " +
@@ -60,7 +62,7 @@ import org.hibernate.annotations.Synchronize;
         "JOIN " +
         "categorie ON categorie.id = voiture.id_categorie " +
         "JOIN " +
-        "utilisateur ON utilisateur.utilisateur_id = voiture_utilisateur.id_utilisateur;")
+        "utilisateur ON utilisateur.utilisateur_id = voiture_utilisateur.id_utilisateur")
 @Synchronize({ "annonce", "commission", "voiture_utilisateur", "voiture", "devise", "modele", "type", "marque", "categorie", "utilisateur" })
 @Getter
 @Setter
@@ -81,7 +83,7 @@ public class V_Annonce {
     @Column(name = "commission")
     private double commission;
 
-    @Column(name = "id_voiture_utilisateur")
+    @Column(name = "idvoitureutilisateur")
     private int idVoitureUtilisateur;
 
     @Column(name = "voiture_utilisateur_etat")
@@ -96,7 +98,7 @@ public class V_Annonce {
     @Column(name = "couleur")
     private String couleur;
 
-    @Column(name = "localisation")
+    @Column(name = "localisation")  
     private String localisation;
 
     @Column(name = "date_demande")
@@ -136,7 +138,7 @@ public class V_Annonce {
     private String categorie;
 
     @Column(name = "id_utilisateur")
-    private int idUtilisateur;
+    private String idUtilisateur;
 
     @Column(name = "vendeur_nom")
     private String vendeurNom;
@@ -150,6 +152,6 @@ public class V_Annonce {
     @Column(name = "contact")
     private String contact;
 
-    @Column(name = "genre")
-    private String genre;
+    @Column(name = "platform")
+    private String platform;
 }

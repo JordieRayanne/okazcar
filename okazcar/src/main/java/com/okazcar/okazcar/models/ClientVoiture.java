@@ -1,7 +1,6 @@
 package com.okazcar.okazcar.models;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -31,7 +30,8 @@ public class ClientVoiture {
     private Annonce annonce;
 
     @Column(name="date_contact", nullable = true)
-    private Timestamp dateContact = Timestamp.valueOf(LocalDateTime.now());
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    private Timestamp dateContact;
 
     @Column(name = "favori",nullable = true)
     private int favori;

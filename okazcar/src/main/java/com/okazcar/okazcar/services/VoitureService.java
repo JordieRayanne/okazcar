@@ -43,11 +43,7 @@ public class VoitureService {
             voiture.setLocalisation(newVoiture.getLocalisation());
             voiture.setDateDemande(newVoiture.getDateDemande());
             voiture.setDescription(newVoiture.getDescription());
-            try {
-                voiture.setPrix(newVoiture.getPrix());
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+            voiture.setPrix(newVoiture.getPrix());
             voiture.setDevise(newVoiture.getDevise());
             return voitureRepository.save(voiture);
         })

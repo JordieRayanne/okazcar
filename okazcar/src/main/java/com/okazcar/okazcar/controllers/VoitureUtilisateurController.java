@@ -24,14 +24,14 @@ public class VoitureUtilisateurController {
     }
 
     @GetMapping("/voitureUtilisateurs")
-    //   @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<List<VoitureUtilisateur>> getAll() {
         List<VoitureUtilisateur> voitureUtilisateurs= voitureUtilisateurService.getAllVoitureUtilisateurs();
         return new ResponseEntity<>(voitureUtilisateurs, HttpStatus.OK);
     }
 
     @PostMapping("/voitureUtilisateurs")
-    //  @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<VoitureUtilisateur> create(@ModelAttribute VoitureUtilisateur voitureUtilisateur){
         VoitureUtilisateur createdVoitureUtilisateur = voitureUtilisateurService.createVoitureUtilisateur(voitureUtilisateur);
         return new ResponseEntity<>(createdVoitureUtilisateur,HttpStatus.CREATED);

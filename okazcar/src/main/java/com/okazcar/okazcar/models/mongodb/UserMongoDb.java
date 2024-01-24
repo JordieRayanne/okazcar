@@ -44,13 +44,8 @@ public class UserMongoDb {
         String encodedImage;
         if (userDto.getImageFile() == null)
             encodedImage = Base64.getEncoder().encodeToString(downloadImage(userDto.getImage()));
-        else {
-            if (userDto.getImageFile().getResource().getFile().getName().endsWith(".png") || userDto.getImageFile().getResource().getFile().getName().endsWith(".jpeg") || userDto.getImageFile().getResource().getFile().getName().endsWith(".jpg") || userDto.getImageFile().getResource().getFile().getName().endsWith(".gif")) {
-                encodedImage = Base64.getEncoder().encodeToString(userDto.getImageFile().getBytes());
-            } else {
-                throw new IOException("The file :" + userDto.getImageFile().getResource().getFile().getName() + " is not an image");
-            }
-        }
+        else
+            encodedImage = Base64.getEncoder().encodeToString(userDto.getImageFile().getBytes());
         setUserId(userId);
         setImage(encodedImage);
     }
