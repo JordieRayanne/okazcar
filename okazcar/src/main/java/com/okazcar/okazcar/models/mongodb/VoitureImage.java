@@ -1,5 +1,7 @@
 package com.okazcar.okazcar.models.mongodb;
 
+import com.google.common.io.Files;
+import com.okazcar.okazcar.handlers.FileUploaderHandler;
 import com.okazcar.okazcar.models.Voiture;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.*;
@@ -9,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -32,11 +35,17 @@ public class VoitureImage {
     public VoitureImage(HttpServletRequest request, Voiture voiture) throws Exception {
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
         Map<String, MultipartFile> multipartFiles = multipartRequest.getMultiFileMap().toSingleValueMap();
+        File file;
         for (Map.Entry<String, MultipartFile> entry : multipartFiles.entrySet()) {
-            if (entry.getValue().getResource().getFile().getName().endsWith(".png") || entry.getValue().getResource().getFile().getName().endsWith(".jpeg") || entry.getValue().getResource().getFile().getName().endsWith(".jpg") || entry.getValue().getResource().getFile().getName().endsWith(".gif"))
-                imagesBytes.add(Base64.getEncoder().encodeToString(entry.getValue().getBytes()));
-            else
-                throw new Exception("The file :" + entry.getValue().getResource().getFile().getName() + " is not an image");
+            file = FileUploaderHandler.uploadFile(entry.getValue());
+            if (file.getName().endsWith(".png") || file.getName().endsWith(".jpeg") || file.getName().endsWith(".jpg") || file.getName().endsWith(".gif")) {
+                imagesBytes.add(Base64.getEncoder().encodeToString(Files.toByteArray(file)));
+                FileUploaderHandler.deleteFile(file);
+            }
+            else {
+                FileUploaderHandler.deleteFile(file);
+                throw new Exception("The file :" + file.getName() + " is not an image");
+            }
         }
         setVoitureId(voiture.getId());
     }

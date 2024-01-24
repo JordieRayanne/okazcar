@@ -5,13 +5,15 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.Base64;
-
 import com.okazcar.okazcar.models.dto.*;
+
+import static com.okazcar.okazcar.handlers.FileUploaderHandler.deleteFile;
+import static com.okazcar.okazcar.handlers.FileUploaderHandler.uploadFile;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -26,33 +28,22 @@ public class UserMongoDb {
     @Field("image")
     private String image;
 
-    public File getImageFile() throws IOException {
-        // Decode Base64 string
-        byte[] decodedBytes = Base64.getDecoder().decode(image);
-
-        // Convert byte array to image
-        BufferedImage image = ImageIO.read(new ByteArrayInputStream(decodedBytes));
-
-        // Save image to disk
-        File outputfile = new File(userId + ".jpg");
-        ImageIO.write(image, "jpg", outputfile);
-
-        return outputfile;
-    }
 
     public UserMongoDb(UserInsertDto userDto, String userId) throws IOException {
         String encodedImage;
+        File file = uploadFile(userDto.getImageFile());
         if (userDto.getImageFile() == null)
             encodedImage = Base64.getEncoder().encodeToString(downloadImage(userDto.getImage()));
         else {
-            if (userDto.getImageFile().getResource().getFile().getName().endsWith(".png") || userDto.getImageFile().getResource().getFile().getName().endsWith(".jpeg") || userDto.getImageFile().getResource().getFile().getName().endsWith(".jpg") || userDto.getImageFile().getResource().getFile().getName().endsWith(".gif")) {
-                encodedImage = Base64.getEncoder().encodeToString(userDto.getImageFile().getBytes());
+            if (file.getName().endsWith(".png") || file.getName().endsWith(".jpeg") || file.getName().endsWith(".jpg") || file.getName().endsWith(".gif")) {
+                encodedImage = Base64.getEncoder().encodeToString(Files.readAllBytes(file.toPath()));
             } else {
-                throw new IOException("The file :" + userDto.getImageFile().getResource().getFile().getName() + " is not an image");
+                throw new IOException("The file : " + file.getName() + " is not an image");
             }
         }
         setUserId(userId);
         setImage(encodedImage);
+        deleteFile(file);
     }
 
     private byte[] downloadImage(String imageUrl) throws IOException {
