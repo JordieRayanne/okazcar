@@ -33,7 +33,6 @@ public class ConversationController {
     @PostMapping("/conversation")
     //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<?> addMessage(@ModelAttribute MessageDto messageDto) {
-
         try {
             return new ResponseEntity<>(conversationService.insert(messageDto), HttpStatus.OK);
         }catch (IOException e) {
@@ -42,7 +41,7 @@ public class ConversationController {
     }
 
     @GetMapping("/conversations/{personId}")
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<Conversation> findByPerson(@RequestParam("personId") String personId, HttpServletRequest request) {
         Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
         return new ResponseEntity<>(conversationService.getConversations(utilisateur.getUtilisateurId(), personId).get(0), HttpStatus.OK);

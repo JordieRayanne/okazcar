@@ -1,19 +1,20 @@
 package com.okazcar.okazcar.models;
 
 import jakarta.persistence.*;
+import lombok.Setter;
 
 @Entity
 @Table(name = "commission")
 public class Commission {
 
-    @Id
+    @Setter
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-	@ManyToOne
-    @JoinColumn(name = "idvoitureutilisateur", referencedColumnName = "id")
-    private VoitureUtilisateur voitureUtilisateur;
+    @Setter
+	private int idVoitureUtilisateur;
 
     private double commission;
 
@@ -21,23 +22,17 @@ public class Commission {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public VoitureUtilisateur getVoitureUtilisateur() {
-		return voitureUtilisateur;
-	}
-
-	public void setVoitureUtilisateur(VoitureUtilisateur voitureUtilisateur) {
-		this.voitureUtilisateur = voitureUtilisateur;
+	public int getIdVoitureUtilisateur() {
+		return idVoitureUtilisateur;
 	}
 
 	public double getCommission() {
 		return commission;
 	}
 
-	public void setCommission(double commission) {
+	public void setCommission(double commission) throws Exception {
+		if (commission <= 0)
+			throw new Exception("Commission négative");
 		this.commission = commission;
 	}
 

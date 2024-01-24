@@ -68,7 +68,6 @@ public class SecurityConfig {
 		http
 				.authenticationProvider(authenticationProvider())
 				.authorizeHttpRequests(auth -> auth
-						// .requestMatchers("/v-annonces/**","/utilisateur/**","/annonces/**","/annonces-non-vendu/**","/annonce-vendu/**","/annonces-vendu/**")
 						.requestMatchers("/**")
 						.permitAll()
 						.anyRequest()

@@ -34,7 +34,7 @@ public class UserMongoDb {
         File file = uploadFile(userDto.getImageFile());
         if (userDto.getImageFile() == null)
             encodedImage = Base64.getEncoder().encodeToString(downloadImage(userDto.getImage()));
-       else {
+        else {
             if (file.getName().endsWith(".png") || file.getName().endsWith(".jpeg") || file.getName().endsWith(".jpg") || file.getName().endsWith(".gif")) {
                 encodedImage = Base64.getEncoder().encodeToString(Files.readAllBytes(file.toPath()));
             } else {
