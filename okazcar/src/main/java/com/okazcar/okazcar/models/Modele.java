@@ -1,49 +1,29 @@
 package com.okazcar.okazcar.models;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
-import jakarta.annotation.Generated;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "modele")
 public class Modele {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @Column(name = "nom")
+    @Column(name = "nom", nullable = false, unique = true)
     String nom;
 
     @Column(name = "date_creation")
-    Timestamp dateCreation;
+    Date dateCreation;
 
-    public Timestamp getDateCreation() {
-        return dateCreation;
-    }
-
-    public void setDateCreation(Timestamp dateCreation) {
-        this.dateCreation = dateCreation;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+    @OneToOne
+    @JoinColumn(name = "id_marque",nullable = false)
+    Marque marque;
 }

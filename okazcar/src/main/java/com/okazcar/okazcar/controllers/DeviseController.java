@@ -34,7 +34,7 @@ public class DeviseController {
         return new ResponseEntity<>(devise, HttpStatus.OK);
     }
 
-    @PostMapping("/devises")
+    @PostMapping("/devise")
     //@PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<Devise> create(@ModelAttribute Devise devise) {
         Devise createdDevise = deviseService.insert(devise);
@@ -43,16 +43,24 @@ public class DeviseController {
 
     @PutMapping("/devises/{id}")
     //@PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<Devise> update(@PathVariable("id") int id, @ModelAttribute Devise devise) {
-        devise.setId(id);
-        Devise updatedDevise = deviseService.update(devise);
-        return new ResponseEntity<>(updatedDevise, HttpStatus.OK);
+    public ResponseEntity<?> update(@PathVariable("id") int id, @ModelAttribute Devise devise) {
+        try {
+            devise.setId(id);
+            Devise updatedDevise = deviseService.update(devise);
+            return new ResponseEntity<>(updatedDevise, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @DeleteMapping("/devises/{id}")
     //@PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<Void> delete(@PathVariable int id) {
-        deviseService.delete(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    public ResponseEntity<String> delete(@PathVariable int id) {
+        try {
+            deviseService.delete(id);
+            return new ResponseEntity<>("Devise id="+id+" deleted", HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

@@ -30,7 +30,7 @@ public class CategorieController {
         this.categorieRepository = categorieRepository;
     }
 
-    @GetMapping("/categorie")
+    @GetMapping("/categories")
     public List<Categorie> getAll(){
         return categorieRepository.findAll();
     }
@@ -48,7 +48,7 @@ public class CategorieController {
         return new ResponseEntity<>(createdCategorie, HttpStatus.CREATED);
     }
 
-    @PutMapping("/categorie/{id}")
+    @PutMapping("/categories/{id}")
     public ResponseEntity<Categorie> update(@PathVariable("id") Integer id, @ModelAttribute Categorie categorie) {
         Optional<Categorie> existingCategorieOptional = categorieRepository.findById(id);
         return existingCategorieOptional.map(existingModele -> {
@@ -58,13 +58,13 @@ public class CategorieController {
         }).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @DeleteMapping("/categorie/{id}")
-    public ResponseEntity<HttpStatus> delete(@PathVariable("id") Integer id) {
+    @DeleteMapping("/categories/{id}")
+    public ResponseEntity<String> delete(@PathVariable("id") Integer id) {
         try {
             categorieRepository.deleteById(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>("Catégorie id="+id+" deleted", HttpStatus.NO_CONTENT);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

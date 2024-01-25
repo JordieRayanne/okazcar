@@ -1,10 +1,14 @@
 package com.okazcar.okazcar.models;
 
 import jakarta.persistence.*;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "commission")
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Commission {
 
     @Setter
@@ -17,18 +21,6 @@ public class Commission {
 	private int idVoitureUtilisateur;
 
     private double commission;
-
-	public int getId() {
-		return id;
-	}
-
-	public int getIdVoitureUtilisateur() {
-		return idVoitureUtilisateur;
-	}
-
-	public double getCommission() {
-		return commission;
-	}
 
 	public void setCommission(double commission) throws Exception {
 		if (commission <= 0)

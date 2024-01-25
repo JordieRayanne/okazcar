@@ -41,8 +41,8 @@ public class MarqueController {
         return new ResponseEntity<>(marque, HttpStatus.OK);
     }
 
-    @PostMapping("/marques")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PostMapping("/marque")
+    //@PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<Marque> create(@ModelAttribute Marque marque) {
         Marque createdMarque = marqueService.createMarque(marque);
         return new ResponseEntity<>(createdMarque, HttpStatus.CREATED);
@@ -57,8 +57,12 @@ public class MarqueController {
 
     @DeleteMapping("/marques/{id}")
     //   @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<Void> delete(@PathVariable int id) {
-        marqueService.deleteMarque(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    public ResponseEntity<String> delete(@PathVariable int id) {
+        try {
+            marqueService.deleteMarque(id);
+            return new ResponseEntity<>("Marque id="+id+" deleted", HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

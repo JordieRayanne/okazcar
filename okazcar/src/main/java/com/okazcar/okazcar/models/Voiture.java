@@ -14,14 +14,12 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Getter
 @Entity(name="voiture")
 @Table(name="voiture")
 public class Voiture {
@@ -32,8 +30,12 @@ public class Voiture {
     private int id;
 
     @Setter
-    @Column(name="nom",nullable = false)
+    @Column(name="nom",nullable = false, unique = true)
     private String nom;
+
+    @Setter
+    @Column(name="immatriculation",nullable = false, unique = true)
+    private String immatriculation;
 
     @Setter
     @ManyToOne
@@ -42,12 +44,7 @@ public class Voiture {
 
     @Setter
     @ManyToOne
-    @JoinColumn(name="id_marque", nullable = false)
-    private Marque marque;
-
-    @Setter
-    @ManyToOne
-    @JoinColumn(name = "id_type", nullable = true)
+    @JoinColumn(name = "id_type", nullable = false)
     private Type type;
     
     @Setter
@@ -64,11 +61,11 @@ public class Voiture {
     private String localisation;
 
     @Setter
-    @Column(name = "date_demande",nullable = true)
+    @Column(name = "date_demande",nullable = false)
     private Timestamp dateDemande = Timestamp.valueOf(LocalDateTime.now());
 
     @Setter
-    @Column(name = "description", nullable = true)
+    @Column(name = "description", nullable = false)
     private String description;
 
     @Column(name = "prix", nullable = false)
@@ -76,52 +73,9 @@ public class Voiture {
 
     @Setter
     @ManyToOne
-    @JoinColumn(name = "id_devise",nullable = true)
+    @JoinColumn(name = "id_devise",nullable = false)
     private Devise devise;
 
-    public int getId() {
-        return id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public Categorie getCategorie() {
-        return categorie;
-    }
-
-    public Marque getMarque() {
-        return marque;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public Modele getModele() {
-        return modele;
-    }
-
-    public String getCouleur() {
-        return couleur;
-    }
-
-    public String getLocalisation() {
-        return localisation;
-    }
-
-    public Timestamp getDateDemande() {
-        return dateDemande;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public double getPrix() {
-        return prix;
-    }
 
     public void setPrix(double prix) throws Exception {
         if (prix <= 0)
@@ -133,10 +87,6 @@ public class Voiture {
         setPrix(Double.parseDouble(prix));
     }
 
-    public Devise getDevise() {
-        return devise;
-    }
-
     public Voiture(HttpServletRequest request) throws Exception {
         Devise devise = new Devise();
         devise.setId(Integer.parseInt(request.getParameter("devise")));
@@ -145,10 +95,6 @@ public class Voiture {
         Categorie categorie = new Categorie();
         categorie.setId(Integer.parseInt(request.getParameter("categorie")));
         setCategorie(categorie);
-        //
-        Marque marque = new Marque();
-        marque.setId(Integer.parseInt(request.getParameter("marque")));
-        setMarque(marque);
         //
         Type type = new Type();
         type.setId(Integer.parseInt(request.getParameter("type")));
@@ -167,5 +113,7 @@ public class Voiture {
         setNom(request.getParameter("nom"));
 
         setPrix(request.getParameter("prix"));
+
+        setImmatriculation(request.getParameter("immatriculation"));
     }
 }

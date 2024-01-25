@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/modeles")
 public class ModeleController {
     private final ModeleRepository modeleRepository;
 
@@ -21,13 +20,13 @@ public class ModeleController {
         this.modeleRepository = modeleRepository;
     }
 
-    @GetMapping
+    @GetMapping("/modeles")
     //  @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public List<Modele> getAllModeles() {
         return modeleRepository.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/modeles/{id}")
     //  @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<Modele> getModeleById(@PathVariable("id") Integer id) {
         Optional<Modele> modeleOptional = modeleRepository.findById(id);
@@ -35,16 +34,16 @@ public class ModeleController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping
+    @PostMapping("/modele")
     // @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<Modele> createModele(@RequestBody Modele modele) {
+    public ResponseEntity<Modele> createModele(@ModelAttribute Modele modele) {
         Modele createdModele = modeleRepository.save(modele);
         return new ResponseEntity<>(createdModele, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/modeles/{id}")
     //  @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<Modele> updateModele(@PathVariable("id") Integer id, @RequestBody Modele modele) {
+    public ResponseEntity<Modele> updateModele(@PathVariable("id") Integer id, @ModelAttribute Modele modele) {
         Optional<Modele> existingModeleOptional = modeleRepository.findById(id);
         return existingModeleOptional.map(existingModele -> {
             modele.setId(id);
@@ -53,14 +52,14 @@ public class ModeleController {
         }).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/modeles/{id}")
     //   @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<HttpStatus> deleteModele(@PathVariable("id") Integer id) {
+    public ResponseEntity<String> deleteModele(@PathVariable("id") Integer id) {
         try {
             modeleRepository.deleteById(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>("Modèle id="+id + " deleted", HttpStatus.NO_CONTENT);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

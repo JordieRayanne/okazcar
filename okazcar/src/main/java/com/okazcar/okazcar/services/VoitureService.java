@@ -36,9 +36,9 @@ public class VoitureService {
         .map(voiture ->{
             voiture.setNom(newVoiture.getNom());
             voiture.setCategorie(newVoiture.getCategorie());
-            voiture.setMarque(newVoiture.getMarque());
             voiture.setType(newVoiture.getType());
             voiture.setModele(newVoiture.getModele());
+            voiture.setImmatriculation(newVoiture.getImmatriculation());
             voiture.setCouleur(newVoiture.getCouleur());
             voiture.setLocalisation(newVoiture.getLocalisation());
             voiture.setDateDemande(newVoiture.getDateDemande());

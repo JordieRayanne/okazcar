@@ -46,7 +46,7 @@ import org.hibernate.annotations.Synchronize;
         "JOIN " +
         "commission ON commission.id = annonce.id " +
         "JOIN " +
-        "voiture_utilisateur ON voiture_utilisateur.id = commission.id_voiture_utilisateur " +
+        "voiture_utilisateur ON voiture_utilisateur.id = commission.idvoitureutilisateur " +
         "JOIN " +
         "voiture ON voiture.id = voiture_utilisateur.id_voiture " +
         "JOIN " +
@@ -56,7 +56,7 @@ import org.hibernate.annotations.Synchronize;
         "JOIN " +
         "type ON type.id = voiture.id_type " +
         "JOIN " +
-        "marque ON marque.id = voiture.id_marque " +
+        "marque ON marque.id = modele.id_marque " +
         "JOIN " +
         "categorie ON categorie.id = voiture.id_categorie " +
         "JOIN " +

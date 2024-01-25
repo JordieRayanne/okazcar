@@ -35,25 +35,29 @@ public class VoitureController {
 
     @GetMapping("/voitures")
 //    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    public ResponseEntity<List<Voiture>> getAll(){
-        List<Voiture> voitures=voitureService.getAllVoitures();
+    public ResponseEntity<List<VoitureVoitureImage>> getAll(){
+        List<VoitureVoitureImage> voitures=voitureImageService.getAll();
         return new ResponseEntity<>(voitures,HttpStatus.OK);
     }
 
     @GetMapping("/voitures/{id}")
   //  @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    public ResponseEntity<Voiture> getById(@PathVariable int id){
-        Voiture voiture=voitureService.getVoitureById(id);
-        return new ResponseEntity<>(voiture,HttpStatus.OK);
+    public ResponseEntity<?> getById(@PathVariable int id){
+        try {
+            VoitureVoitureImage voiture=voitureImageService.getVoitureImageById(id);
+            return new ResponseEntity<>(voiture,HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
-    @PostMapping("/voitures")
+    @PostMapping("/voiture")
    // @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<?> create(HttpServletRequest request){
         try {
             return new ResponseEntity<>(voitureImageService.insert(request), HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -63,14 +67,18 @@ public class VoitureController {
         try {
             return new ResponseEntity<>(voitureImageService.update(request, id), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
     @DeleteMapping("/voitures/{id}")
   //  @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    public ResponseEntity<Void> delete(@PathVariable int id){
-        voitureService.deleteVoiture(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    public ResponseEntity<?> delete(@PathVariable int id){
+        try {
+            voitureService.deleteVoiture(id);
+            return new ResponseEntity<>("Voiture id="+ id +" deleted", HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 }
