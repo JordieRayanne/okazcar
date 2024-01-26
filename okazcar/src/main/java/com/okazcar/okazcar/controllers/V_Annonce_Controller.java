@@ -8,13 +8,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
+import java.util.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.TimeZone;
 
 @RestController
 public class V_Annonce_Controller {
@@ -46,7 +47,7 @@ public class V_Annonce_Controller {
             @RequestParam(required = false, defaultValue = "") String dateCreation,
             @RequestParam(required = false, defaultValue = "") String localisation,
             @RequestParam(required = false, defaultValue = "") String prix
-    ) {
+    ) throws ParseException {
         try {
             // parse manta
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
@@ -59,7 +60,6 @@ public class V_Annonce_Controller {
         } catch (ParseException e) {
            throw e;
         }
-        return Collections.emptyList();
     }
 
     @GetMapping("/v-annonces-valide")
