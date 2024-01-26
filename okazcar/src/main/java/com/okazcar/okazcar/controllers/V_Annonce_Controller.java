@@ -67,9 +67,8 @@ public class V_Annonce_Controller {
         try {
             return v_AnnonceRepository.findV_AnnoncesByVoitureUtilisateurEtat(10);
         } catch (Exception e) {
-            e.printStackTrace();
+            return Collections.emptyList();
         }
-        return Collections.emptyList();
     }
 
 }
