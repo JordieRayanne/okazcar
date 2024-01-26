@@ -54,9 +54,8 @@ public class V_Annonce_Controller {
             dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
                 Date parsedDate = dateFormat.parse(dateCreation);
             Timestamp timestamp = new Timestamp(parsedDate.getTime());
-
-            return v_AnnonceRepository.findV_AnnoncesByCategorieAndMarqueAndTypeAndDateCreationAndLocalisationAndPrix
-                    (categorie, marque, type, timestamp, localisation, Double.parseDouble(prix));
+            return null;
+            //return v_AnnonceRepository.findV_AnnoncesByCategorieAndMarqueAndTypeAndDateCreationAndLocalisationAndPrix(categorie, marque, type, timestamp, localisation, Double.parseDouble(prix));
         } catch (ParseException e) {
            throw e;
         }

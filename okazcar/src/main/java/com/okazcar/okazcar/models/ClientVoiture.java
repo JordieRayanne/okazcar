@@ -23,14 +23,14 @@ public class ClientVoiture {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name="id_utilisateur",nullable=true)
+    @JoinColumn(name="id_utilisateur",nullable=false)
     private Utilisateur utilisateur;
 
     @ManyToOne
-    @JoinColumn(name="id_annonce",nullable = true)
+    @JoinColumn(name="id_annonce",nullable = false)
     private Annonce annonce;
 
-    @Column(name="date_contact", nullable = true)
+    @Column(name="date_contact", nullable = false)
     private Timestamp dateContact = Timestamp.valueOf(LocalDateTime.now());
 
     @Column(name = "favori",nullable = true)

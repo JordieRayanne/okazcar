@@ -19,10 +19,10 @@ public class AnnonceService {
         this.annonceRepository = marqueRepository;
     }
 
-    public Annonce updateStatus(int id, Annonce newannonce){
+    public Annonce updateStatus(int id, int value){
         return annonceRepository.findById(id)
                 .map(annonce -> {
-                    annonce.setStatus(newannonce.getStatus());
+                    annonce.setStatus(value);
                     return annonceRepository.save(annonce);
                 })
                 .orElseThrow(() -> new EntityNotFoundException("Marque not found with id: " + id));

@@ -56,8 +56,6 @@ public class VoitureUtilisateurController {
     @Transactional
     public ResponseEntity<VoitureUtilisateur> updateEtatTo10(@PathVariable int id){
         VoitureUtilisateur updateEtat=voitureUtilisateurService.voitureUtilisateurEtatTo10(id);
-        updateEtat.getUtilisateur().setRoles(null);
-        updateEtat.getUtilisateur().setPassword(null);
         Annonce annonce = new Annonce();
         Commission commission = commissionRepository.getLatestCommissionByDateHeureCommission();
         double prix = (updateEtat.getPrix() * commission.getCommission())/100;
@@ -65,6 +63,8 @@ public class VoitureUtilisateurController {
         annonce.setPrixVoiture(updateEtat.getPrix());
         annonce.setVoitureUtilisateur(updateEtat);
         annonceRepository.save(annonce);
+        updateEtat.getUtilisateur().setRoles(null);
+        updateEtat.getUtilisateur().setPassword(null);
         return new ResponseEntity<>(updateEtat,HttpStatus.OK);
     }
 }

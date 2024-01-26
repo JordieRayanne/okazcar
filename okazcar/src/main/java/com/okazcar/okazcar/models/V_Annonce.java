@@ -58,7 +58,7 @@ import org.hibernate.annotations.Synchronize;
         "JOIN " +
         "categorie ON categorie.id = voiture.id_categorie " +
         "JOIN " +
-        "utilisateur ON utilisateur.utilisateur_id = voiture_utilisateur.id_utilisateur;")
+        "utilisateur ON utilisateur.utilisateur_id = voiture_utilisateur.id_utilisateur")
 @Synchronize({ "annonce", "voiture_utilisateur", "voiture", "devise", "modele", "type", "marque", "categorie", "utilisateur" })
 @Getter
 @Setter

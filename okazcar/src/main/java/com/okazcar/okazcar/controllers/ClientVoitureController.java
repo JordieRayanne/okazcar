@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.okazcar.okazcar.models.ClientVoiture;
 import com.okazcar.okazcar.services.ClientVoitureService;
@@ -34,5 +31,16 @@ public class ClientVoitureController {
     public ResponseEntity <ClientVoiture> create(@ModelAttribute ClientVoiture clientVoiture){
         ClientVoiture createdClientVoiture=clientVoitureService.createClientVoiture(clientVoiture);
         return new ResponseEntity<>(createdClientVoiture,HttpStatus.CREATED);
+    }
+
+
+    @GetMapping("/ajouterFavori/{id}")
+    // @PreAuthorize("hasAnyRole('ADMIN')")
+    public ResponseEntity<?> updateFavori(@PathVariable("id") int id){
+        try {
+            return new ResponseEntity<>(clientVoitureService.updateClientVoiture(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
+        }
     }
 }
