@@ -38,17 +38,10 @@ public class VoitureService {
             voiture.setCategorie(newVoiture.getCategorie());
             voiture.setType(newVoiture.getType());
             voiture.setModele(newVoiture.getModele());
-            voiture.setImmatriculation(newVoiture.getImmatriculation());
             voiture.setCouleur(newVoiture.getCouleur());
             voiture.setLocalisation(newVoiture.getLocalisation());
             voiture.setDateDemande(newVoiture.getDateDemande());
             voiture.setDescription(newVoiture.getDescription());
-            try {
-                voiture.setPrix(newVoiture.getPrix());
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-            voiture.setDevise(newVoiture.getDevise());
             return voitureRepository.save(voiture);
         })
         .orElseThrow(()->new EntityNotFoundException("Voiture not found with id:"+id));

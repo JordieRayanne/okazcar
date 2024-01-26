@@ -15,8 +15,8 @@ import org.hibernate.annotations.Synchronize;
         "annonce.id AS id_annonce, " +
         "annonce.date_annonce AS date_annonce, " +
         "annonce.status AS status, " +
-        "commission.id AS id_commission, " +
-        "commission.commission AS commission, " +
+        "annonce.prix_commission AS prix_commission, "+
+        "annonce.prix_voiture AS prix_voiture, "+
         "voiture_utilisateur.id_utilisateur AS id_voiture_utilisateur, " +
         "voiture_utilisateur.etat AS voiture_utilisateur_etat, " +
         "voiture.id AS id_voiture, " +
@@ -44,9 +44,7 @@ import org.hibernate.annotations.Synchronize;
         "FROM " +
         "annonce " +
         "JOIN " +
-        "commission ON commission.id = annonce.id " +
-        "JOIN " +
-        "voiture_utilisateur ON voiture_utilisateur.id = commission.idvoitureutilisateur " +
+        "voiture_utilisateur ON annonce.id_voitureutilisateur = voiture_utilisateur.id " +
         "JOIN " +
         "voiture ON voiture.id = voiture_utilisateur.id_voiture " +
         "JOIN " +
@@ -61,7 +59,7 @@ import org.hibernate.annotations.Synchronize;
         "categorie ON categorie.id = voiture.id_categorie " +
         "JOIN " +
         "utilisateur ON utilisateur.utilisateur_id = voiture_utilisateur.id_utilisateur;")
-@Synchronize({ "annonce", "commission", "voiture_utilisateur", "voiture", "devise", "modele", "type", "marque", "categorie", "utilisateur" })
+@Synchronize({ "annonce", "voiture_utilisateur", "voiture", "devise", "modele", "type", "marque", "categorie", "utilisateur" })
 @Getter
 @Setter
 public class V_Annonce {
@@ -75,11 +73,11 @@ public class V_Annonce {
     @Column(name = "status")
     private int status;
 
-    @Column(name = "id_commission")
-    private int idCommission;
+    @Column(name = "prix_voiture")
+    private double prixVoiture;
 
-    @Column(name = "commission")
-    private double commission;
+    @Column(name = "prix_commission")
+    private double prixCommission;
 
     @Column(name = "id_voiture_utilisateur")
     private int idVoitureUtilisateur;

@@ -1,12 +1,20 @@
 package com.okazcar.okazcar.models;
 
 import jakarta.persistence.*;
+import lombok.*;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
-@Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Entity(name = "annonce")
 @Table(name = "annonce")
-public class Annonce implements Serializable {
+public class Annonce {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,44 +22,19 @@ public class Annonce implements Serializable {
     private int id;
 
     @Column(name = "date_annonce")
-    private Timestamp dateAnnonce;
-
-    @ManyToOne
-    @JoinColumn(name = "id_commission", referencedColumnName = "id")
-    private Commission commission;
+    private Timestamp dateAnnonce = Timestamp.valueOf(LocalDateTime.now());
 
     @Column(name = "status")
-    private int status;
+    private int status = 0;
 
-	public int getId() {
-		return id;
-	}
+	@Column(name = "prix_commission", nullable = false)
+	private double prixCommission;
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
-	public Timestamp getDateAnnonce() {
-		return dateAnnonce;
-	}
+    @Column(name = "prix_voiture", nullable = false)
+    private double prixVoiture;
 
-	public void setDateAnnonce(Timestamp date_annonce) {
-		this.dateAnnonce = date_annonce;
-	}
-
-	public Commission getCommission() {
-		return commission;
-	}
-
-	public void setCommission(Commission commission) {
-		this.commission = commission;
-	}
-
-	public int getStatus() {
-		return status;
-	}
-
-	public void setStatus(int status) {
-		this.status = status;
-	}
+	@OneToOne
+	@JoinColumn(name = "id_voitureutilisateur",nullable = false)
+	private VoitureUtilisateur voitureUtilisateur;
 }

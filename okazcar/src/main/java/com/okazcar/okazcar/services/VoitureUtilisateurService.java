@@ -24,4 +24,14 @@ public class VoitureUtilisateurService {
     public VoitureUtilisateur createVoitureUtilisateur(VoitureUtilisateur voitureUtilisateur){
         return voitureUtilisateurRepository.save(voitureUtilisateur);
     }
+
+    public VoitureUtilisateur updateVoitureUtilisateur(VoitureUtilisateur voitureUtilisateur){
+        return voitureUtilisateurRepository.save(voitureUtilisateur);
+    }
+
+    public VoitureUtilisateur voitureUtilisateurEtatTo10(int id) {
+        VoitureUtilisateur voitureUtilisateur = voitureUtilisateurRepository.findById(id).orElseThrow(() -> new RuntimeException("VoitureUtilisateur not found"));
+        voitureUtilisateur.setEtat(10);
+        return voitureUtilisateurRepository.save(voitureUtilisateur);
+    }
 }

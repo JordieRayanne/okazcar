@@ -19,7 +19,7 @@ public class AnnonceService {
         this.annonceRepository = marqueRepository;
     }
 
-    public Annonce UpdateStatus(int id,Annonce newannonce){
+    public Annonce updateStatus(int id, Annonce newannonce){
         return annonceRepository.findById(id)
                 .map(annonce -> {
                     annonce.setStatus(newannonce.getStatus());

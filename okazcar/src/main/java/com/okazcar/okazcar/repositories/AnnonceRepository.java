@@ -11,5 +11,5 @@ import com.okazcar.okazcar.models.Annonce;
 @Repository
 public interface AnnonceRepository extends JpaRepository<Annonce, Integer> {
 
-    Page<Annonce> findAnnoncesByStatus(int status, Pageable pageable);
+    Annonce findAnnonceById(int id);
 }

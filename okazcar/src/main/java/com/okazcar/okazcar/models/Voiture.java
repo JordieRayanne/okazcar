@@ -2,9 +2,6 @@ package com.okazcar.okazcar.models;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Locale.Category;
-
-import ch.qos.logback.core.model.Model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,10 +29,6 @@ public class Voiture {
     @Setter
     @Column(name="nom",nullable = false, unique = true)
     private String nom;
-
-    @Setter
-    @Column(name="immatriculation",nullable = false, unique = true)
-    private String immatriculation;
 
     @Setter
     @ManyToOne
@@ -68,30 +61,7 @@ public class Voiture {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name = "prix", nullable = false)
-    private double prix;
-
-    @Setter
-    @ManyToOne
-    @JoinColumn(name = "id_devise",nullable = false)
-    private Devise devise;
-
-
-    public void setPrix(double prix) throws Exception {
-        if (prix <= 0)
-            throw new Exception("Erreur! Prix de voiture négatif ou null: " + prix);
-        this.prix = prix;
-    }
-
-    public void setPrix(String prix) throws Exception {
-        setPrix(Double.parseDouble(prix));
-    }
-
     public Voiture(HttpServletRequest request) throws Exception {
-        Devise devise = new Devise();
-        devise.setId(Integer.parseInt(request.getParameter("devise")));
-        setDevise(devise);
-        //
         Categorie categorie = new Categorie();
         categorie.setId(Integer.parseInt(request.getParameter("categorie")));
         setCategorie(categorie);
@@ -111,9 +81,5 @@ public class Voiture {
         setLocalisation(request.getParameter("localisation"));
 
         setNom(request.getParameter("nom"));
-
-        setPrix(request.getParameter("prix"));
-
-        setImmatriculation(request.getParameter("immatriculation"));
     }
 }

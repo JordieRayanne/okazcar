@@ -58,4 +58,3 @@ WHERE categorie LIKE '%%'
   AND date_creation::text LIKE '%%'
   AND localisation LIKE '%%'
   AND prix::text LIKE '%%';
-
