@@ -89,6 +89,7 @@ public class SecurityConfig {
 		config.setAllowCredentials(true);
 		config.addAllowedOrigin("http://localhost:3000");
 		config.addAllowedOrigin("http://localhost:8100");
+		config.addAllowedOrigin("http://localhost:3001");
 		config.setAllowedMethods(Arrays.asList("POST", "OPTIONS", "GET", "DELETE", "PUT"));
 		config.setAllowedHeaders(Arrays.asList("*"));
 		source.registerCorsConfiguration("/**", config);
@@ -103,7 +104,7 @@ public class SecurityConfig {
 			@Override
 			public void addCorsMappings( CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins("http://localhost:3000", "http://localhost:8100")
+						.allowedOrigins("http://localhost:3000", "http://localhost:8100", "http://localhost:3001")
 						.allowedMethods("GET", "POST", "PUT", "DELETE")
 						.allowedHeaders("*")
 						.allowCredentials(true);

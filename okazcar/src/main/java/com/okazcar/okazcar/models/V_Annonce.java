@@ -17,7 +17,6 @@ import org.hibernate.annotations.Synchronize;
         "annonce.status AS status, " +
         "annonce.prix_commission AS prix_commission, "+
         "annonce.prix_voiture AS prix_voiture, "+
-        "voiture_utilisateur.id_utilisateur AS id_voiture_utilisateur, " +
         "voiture_utilisateur.etat AS voiture_utilisateur_etat, " +
         "voiture.id AS id_voiture, " +
         "voiture.nom AS voiture, " +
@@ -27,6 +26,7 @@ import org.hibernate.annotations.Synchronize;
         "voiture.description AS description, " +
         "voiture.prix AS prix, " +
         "devise.id AS id_devise, " +
+        "modele.nom AS modele, " +
         "modele.id AS id_modele, " +
         "modele.date_creation AS date_creation, " +
         "type.id AS id_type, " +
@@ -73,14 +73,11 @@ public class V_Annonce {
     @Column(name = "status")
     private int status;
 
-    @Column(name = "prix_voiture")
-    private double prixVoiture;
-
     @Column(name = "prix_commission")
     private double prixCommission;
 
-    @Column(name = "id_voiture_utilisateur")
-    private int idVoitureUtilisateur;
+    @Column(name = "prix_voiture")
+    private double prixVoiture;
 
     @Column(name = "voiture_utilisateur_etat")
     private int voitureUtilisateurEtat;
@@ -109,6 +106,9 @@ public class V_Annonce {
     @Column(name = "id_devise")
     private int idDevise;
 
+    @Column(name = "modele")
+    private String modele;
+
     @Column(name = "id_modele")
     private int idModele;
 
@@ -134,7 +134,7 @@ public class V_Annonce {
     private String categorie;
 
     @Column(name = "id_utilisateur")
-    private int idUtilisateur;
+    private String idUtilisateur;
 
     @Column(name = "vendeur_nom")
     private String vendeurNom;

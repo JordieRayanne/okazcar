@@ -53,6 +53,21 @@ public class AnnonceController {
         return existingAnnonceOptional.map(existingModele -> {
             annonce.setId(id);
             Annonce updatedAnnonce = annonceRepository.save(annonce);
+            updatedAnnonce.getVoitureUtilisateur().getUtilisateur().setPassword(null);
+            updatedAnnonce.getVoitureUtilisateur().getUtilisateur().setRoles(null);
+            return new ResponseEntity<>(updatedAnnonce, HttpStatus.OK);
+        }).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping("/annonces_vendu/{id}")
+    //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    public ResponseEntity<Annonce> updateStatusVendu(@PathVariable("id") Integer id) {
+        Optional<Annonce> existingAnnonceOptional = annonceRepository.findById(id);
+        return existingAnnonceOptional.map(existingModele -> {
+            existingModele.setStatus(10);
+            Annonce updatedAnnonce = annonceRepository.save(existingModele);
+            updatedAnnonce.getVoitureUtilisateur().getUtilisateur().setPassword(null);
+            updatedAnnonce.getVoitureUtilisateur().getUtilisateur().setRoles(null);
             return new ResponseEntity<>(updatedAnnonce, HttpStatus.OK);
         }).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }

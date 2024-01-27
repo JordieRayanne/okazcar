@@ -1,11 +1,12 @@
 package com.okazcar.okazcar.controllers;
 
-import com.okazcar.okazcar.models.V_Annonce;
+import com.okazcar.okazcar.models.*;
 import com.okazcar.okazcar.repositories.V_Annonce_Repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -42,23 +43,14 @@ public class V_Annonce_Controller {
     @GetMapping("/v-annonces")
     public List<V_Annonce> getFilteredVAnnonces(
             @RequestParam(required = false, defaultValue = "") String categorie,
-            @RequestParam(required = false, defaultValue = "") String marque,
+            @RequestParam(required = false, defaultValue = "") String modele,
             @RequestParam(required = false, defaultValue = "") String type,
-            @RequestParam(required = false, defaultValue = "") String dateCreation,
             @RequestParam(required = false, defaultValue = "") String localisation,
-            @RequestParam(required = false, defaultValue = "") String prix
+            @RequestParam(required = false, defaultValue = "") String couleur
     ) throws ParseException {
-        try {
-            // parse manta
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
-            dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-                Date parsedDate = dateFormat.parse(dateCreation);
-            Timestamp timestamp = new Timestamp(parsedDate.getTime());
-            return null;
-            //return v_AnnonceRepository.findV_AnnoncesByCategorieAndMarqueAndTypeAndDateCreationAndLocalisationAndPrix(categorie, marque, type, timestamp, localisation, Double.parseDouble(prix));
-        } catch (ParseException e) {
-           throw e;
-        }
+        // parse manta
+        //return null;
+        return v_AnnonceRepository.findV_AnnoncesByCategorieAndModeleAndTypeAndLocalisationAndCouleur(categorie,modele,type,localisation,couleur);
     }
 
     @GetMapping("/v-annonces-valide")
@@ -70,4 +62,30 @@ public class V_Annonce_Controller {
         }
     }
 
+    @GetMapping("/v-annonces-non-valide")
+    public List<V_Annonce> getFilteredVAnnoncesNonValide() {
+        try {
+            return v_AnnonceRepository.findV_AnnoncesByVoitureUtilisateurEtat(0);
+        } catch (Exception e) {
+            return Collections.emptyList();
+        }
+    }
+
+    @GetMapping("/v-annonces-vendu")
+    public List<V_Annonce> getFilteredVAnnoncesVendu() {
+        try {
+            return v_AnnonceRepository.findV_AnnoncesByStatus(10);
+        } catch (Exception e) {
+            return Collections.emptyList();
+        }
+    }
+
+    @GetMapping("/v-annonces-non-vendu")
+    public List<V_Annonce> getFilteredVAnnoncesNonVendu() {
+        try {
+            return v_AnnonceRepository.findV_AnnoncesByStatus(0);
+        } catch (Exception e) {
+            return Collections.emptyList();
+        }
+    }
 }

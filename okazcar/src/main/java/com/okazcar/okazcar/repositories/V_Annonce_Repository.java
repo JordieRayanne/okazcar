@@ -9,14 +9,15 @@ import java.util.List;
 
 @Repository
 public interface V_Annonce_Repository extends JpaRepository<V_Annonce, Integer> {
-    List<V_Annonce> findV_AnnoncesByCategorieOrMarqueAndTypeAndDateCreationAndLocalisationAndPrix(
+    List<V_Annonce> findV_AnnoncesByCategorieAndModeleAndTypeAndLocalisationAndCouleur(
             String categorie,
-            String marque,
+            String modele,
             String type,
-            Timestamp dateCreation,
             String localisation,
-            double prix
+            String couleur
     );
 
     List<V_Annonce> findV_AnnoncesByVoitureUtilisateurEtat(int voitureUtilisateurEtat);
+
+    List<V_Annonce> findV_AnnoncesByStatus(int status);
 }
