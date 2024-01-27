@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import com.okazcar.okazcar.services.VoitureService;
 
 @RestController
-@CrossOrigin(origins = "")
 public class VoitureController {
     private final VoitureService voitureService;
     private final VoitureImageService voitureImageService;

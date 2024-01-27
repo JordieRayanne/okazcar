@@ -17,7 +17,6 @@ import com.okazcar.okazcar.models.VoitureUtilisateur;
 import com.okazcar.okazcar.services.VoitureUtilisateurService;
 
 @RestController
-@CrossOrigin(origins = "")
 public class VoitureUtilisateurController {
     private final VoitureUtilisateurService voitureUtilisateurService;
     private final CommissionRepository commissionRepository;

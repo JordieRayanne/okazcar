@@ -12,7 +12,6 @@ import com.okazcar.okazcar.models.Marque;
 import com.okazcar.okazcar.services.MarqueService;
 
 @RestController
-@CrossOrigin(origins = "")
 public class MarqueController {
 
     private final MarqueService marqueService;

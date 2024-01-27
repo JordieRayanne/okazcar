@@ -12,7 +12,6 @@ import com.okazcar.okazcar.models.ClientVoiture;
 import com.okazcar.okazcar.services.ClientVoitureService;
 
 @RestController
-@CrossOrigin(origins = "")
 public class ClientVoitureController {
     private final ClientVoitureService clientVoitureService;
 

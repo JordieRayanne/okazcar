@@ -18,7 +18,6 @@ import com.okazcar.okazcar.models.Annonce;
 import com.okazcar.okazcar.repositories.AnnonceRepository;
 
 @RestController
-@CrossOrigin(origins = "")
 public class AnnonceController {
     final AnnonceRepository annonceRepository;
     private final VoitureUtilisateurRepository voitureUtilisateurRepository;

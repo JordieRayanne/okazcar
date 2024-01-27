@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 
 @RestController
-@CrossOrigin(origins = "")
 public class AnnonceFileController {
     private final AnnonceFileService articleFileService;
     private final UtilisateurService utilisateurService;

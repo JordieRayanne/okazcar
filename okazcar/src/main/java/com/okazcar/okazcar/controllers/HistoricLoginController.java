@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @RestController
-@CrossOrigin(origins = "")
 public class HistoricLoginController {
     private final HistoricLoginService historicLoginService;
     private final UserMongoDbRepository userMongoDbRepository;
