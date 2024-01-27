@@ -6,6 +6,7 @@ import com.okazcar.okazcar.models.Annonce;
 import com.okazcar.okazcar.models.Commission;
 import com.okazcar.okazcar.repositories.AnnonceRepository;
 import com.okazcar.okazcar.repositories.CommissionRepository;
+import com.okazcar.okazcar.repositories.VoitureUtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,14 +22,17 @@ public class VoitureUtilisateurController {
     private final VoitureUtilisateurService voitureUtilisateurService;
     private final CommissionRepository commissionRepository;
     private final AnnonceRepository annonceRepository;
+    private final VoitureUtilisateurRepository voitureUtilisateurRepository;
 
     @Autowired
     public VoitureUtilisateurController(VoitureUtilisateurService voitureUtilisateurService,
                                         CommissionRepository commissionRepository,
-                                        AnnonceRepository annonceRepository) {
+                                        AnnonceRepository annonceRepository,
+                                        VoitureUtilisateurRepository voitureUtilisateurRepository) {
         this.voitureUtilisateurService = voitureUtilisateurService;
         this.commissionRepository = commissionRepository;
         this.annonceRepository = annonceRepository;
+        this.voitureUtilisateurRepository = voitureUtilisateurRepository;
     }
 
     @GetMapping("/voitureUtilisateurs")
@@ -51,8 +55,8 @@ public class VoitureUtilisateurController {
         return new ResponseEntity<>(createdVoitureUtilisateur,HttpStatus.CREATED);
     }
 
-    @PutMapping("/voitureUtilisateurs/{id}/to-10")
-    @PreAuthorize("hasAnyRole('ADMIN','USER')")
+    @GetMapping("/voitureUtilisateurs/{id}/to-10")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @Transactional
     public ResponseEntity<VoitureUtilisateur> updateEtatTo10(@PathVariable int id){
         VoitureUtilisateur updateEtat=voitureUtilisateurService.voitureUtilisateurEtatTo10(id);
@@ -66,5 +70,33 @@ public class VoitureUtilisateurController {
         updateEtat.getUtilisateur().setRoles(null);
         updateEtat.getUtilisateur().setPassword(null);
         return new ResponseEntity<>(updateEtat,HttpStatus.OK);
+    }
+
+    @GetMapping("/voitureUtilisateurs_validated")
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    public ResponseEntity<?> getVoitureUtilisateurValide() {
+        try {
+            List<VoitureUtilisateur> voitureUtilisateurs = voitureUtilisateurRepository.findVoitureUtilisateursByEtat(10);
+            for (int i = 0; i < voitureUtilisateurs.size(); i++) {
+                voitureUtilisateurs.get(i).getUtilisateur().setPassword(null);
+            }
+            return new ResponseEntity<>(voitureUtilisateurs, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/voitureUtilisateurs_not_validated")
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    public ResponseEntity<?> getVoitureUtilisateurNonValide() {
+        try {
+            List<VoitureUtilisateur> voitureUtilisateurs = voitureUtilisateurRepository.findVoitureUtilisateursByEtat(0);
+            for (int i = 0; i < voitureUtilisateurs.size(); i++) {
+                voitureUtilisateurs.get(i).getUtilisateur().setPassword(null);
+            }
+            return new ResponseEntity<>(voitureUtilisateurs, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

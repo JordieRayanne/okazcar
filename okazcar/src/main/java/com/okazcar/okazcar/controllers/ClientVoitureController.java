@@ -26,7 +26,7 @@ public class ClientVoitureController {
         return new ResponseEntity<>(clientVoitures,HttpStatus.OK);
     }
 
-    @PostMapping("/clientVoitures")
+    @PostMapping("/clientVoiture")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity <ClientVoiture> create(@ModelAttribute ClientVoiture clientVoiture){
         ClientVoiture createdClientVoiture=clientVoitureService.createClientVoiture(clientVoiture);

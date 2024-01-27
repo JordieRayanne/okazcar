@@ -3,6 +3,8 @@ package com.okazcar.okazcar.controllers;
 import com.okazcar.okazcar.models.*;
 import com.okazcar.okazcar.repositories.V_Annonce_Repository;
 
+import com.okazcar.okazcar.services.UtilisateurService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,18 +25,21 @@ import java.util.TimeZone;
 public class V_Annonce_Controller {
 
     private final V_Annonce_Repository v_AnnonceRepository;
+    final UtilisateurService utilisateurService;
 
     @Autowired
-    public V_Annonce_Controller(V_Annonce_Repository v_AnnonceRepository) {
+    public V_Annonce_Controller(V_Annonce_Repository v_AnnonceRepository, UtilisateurService utilisateurService) {
         this.v_AnnonceRepository = v_AnnonceRepository;
+        this.utilisateurService = utilisateurService;
     }
 
     @GetMapping("/v_annonces")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public List<V_Annonce> getAll() {
         return v_AnnonceRepository.findAll();
     }
 
-    @GetMapping("/v_annonce/{id_annonce}")
+    @GetMapping("/v_annonces/{id_annonce}")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<V_Annonce> getById(@PathVariable("id_annonce") Integer id_annonce) {
         Optional<V_Annonce> v_AnnonceOptional = v_AnnonceRepository.findById(id_annonce);
@@ -42,7 +47,7 @@ public class V_Annonce_Controller {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/v-annonces")
+    @GetMapping("/v_annonces")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public List<V_Annonce> getFilteredVAnnonces(
             @RequestParam(required = false, defaultValue = "") String categorie,
@@ -54,27 +59,7 @@ public class V_Annonce_Controller {
         return v_AnnonceRepository.findV_AnnoncesByCategorieAndModeleAndTypeAndLocalisationAndCouleur(categorie,modele,type,localisation,couleur);
     }
 
-    @GetMapping("/v-annonces-valide")
-    @PreAuthorize("hasAnyRole('ADMIN')")
-    public List<V_Annonce> getFilteredVAnnoncesValide() {
-        try {
-            return v_AnnonceRepository.findV_AnnoncesByVoitureUtilisateurEtat(10);
-        } catch (Exception e) {
-            return Collections.emptyList();
-        }
-    }
-
-    @GetMapping("/v-annonces-non-valide")
-    @PreAuthorize("hasAnyRole('ADMIN')")
-    public List<V_Annonce> getFilteredVAnnoncesNonValide() {
-        try {
-            return v_AnnonceRepository.findV_AnnoncesByVoitureUtilisateurEtat(0);
-        } catch (Exception e) {
-            return Collections.emptyList();
-        }
-    }
-
-    @GetMapping("/v-annonces-vendu")
+    @GetMapping("/v_annonces_vendu")
     @PreAuthorize("hasAnyRole('ADMIN')")
     public List<V_Annonce> getFilteredVAnnoncesVendu() {
         try {
@@ -84,7 +69,7 @@ public class V_Annonce_Controller {
         }
     }
 
-    @GetMapping("/v-annonces-non-vendu")
+    @GetMapping("/v_annonces_non_vendu")
     @PreAuthorize("hasAnyRole('ADMIN')")
     public List<V_Annonce> getFilteredVAnnoncesNonVendu() {
         try {
@@ -93,4 +78,29 @@ public class V_Annonce_Controller {
             return Collections.emptyList();
         }
     }
+
+
+    @GetMapping("/annonces_non_vendu")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    public ResponseEntity<?> getMesAnnoncesNonVendus(HttpServletRequest request) {
+        try {
+            Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
+            return new ResponseEntity<>(v_AnnonceRepository.findV_AnnoncesByStatusAndIdUtilisateur(0, utilisateur.getUtilisateurId()), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/annonces_vendu")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    public ResponseEntity<?> getMesAnnoncesVendus(HttpServletRequest request) {
+        try {
+            Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
+            return new ResponseEntity<>(v_AnnonceRepository.findV_AnnoncesByStatusAndIdUtilisateur(10, utilisateur.getUtilisateurId()), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
 }

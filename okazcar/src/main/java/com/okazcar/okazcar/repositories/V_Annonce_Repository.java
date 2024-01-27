@@ -16,8 +16,7 @@ public interface V_Annonce_Repository extends JpaRepository<V_Annonce, Integer> 
             String localisation,
             String couleur
     );
-
-    List<V_Annonce> findV_AnnoncesByVoitureUtilisateurEtat(int voitureUtilisateurEtat);
-
     List<V_Annonce> findV_AnnoncesByStatus(int status);
+
+    List<V_Annonce> findV_AnnoncesByStatusAndIdUtilisateur(int status, String idUtilisateur);
 }

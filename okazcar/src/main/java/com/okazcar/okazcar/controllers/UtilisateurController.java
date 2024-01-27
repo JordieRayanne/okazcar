@@ -5,6 +5,7 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.okazcar.okazcar.details.UtilisateurDetails;
 import com.okazcar.okazcar.exception.ForgetException;
 import com.okazcar.okazcar.models.Users;
+import com.okazcar.okazcar.models.Utilisateur;
 import com.okazcar.okazcar.models.dto.UserInsertDto;
 import com.okazcar.okazcar.models.dto.UserLoginDto;
 import com.okazcar.okazcar.services.UtilisateurService;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.okazcar.okazcar.handlers.ResponseHandler.*;
@@ -45,7 +47,11 @@ public class UtilisateurController {
     @PreAuthorize("hasAnyRole('ADMIN')")
     public String getAll() throws IOException {
         try {
-            return sendResponseData(utilisateurService.getAll(), HttpStatus.ACCEPTED);
+            List<Utilisateur> users = utilisateurService.getAll();
+            for (int i = 0; i < users.size(); i++) {
+                users.get(i).setPassword(null);
+            }
+            return sendResponseData(users, HttpStatus.ACCEPTED);
         } catch (JsonProcessingException e) {
             return showError(e, HttpStatus.FORBIDDEN);
         }
