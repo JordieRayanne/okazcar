@@ -20,6 +20,7 @@ import java.util.Optional;
 import java.util.TimeZone;
 
 @RestController
+@CrossOrigin(origins = "")
 public class V_Annonce_Controller {
 
     private final V_Annonce_Repository v_AnnonceRepository;

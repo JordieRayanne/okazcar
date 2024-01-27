@@ -1,7 +1,5 @@
 package com.okazcar.okazcar.controllers;
 
-import com.okazcar.okazcar.models.Contact;
-import com.okazcar.okazcar.models.HistoriqueMessage;
 import com.okazcar.okazcar.models.Utilisateur;
 import com.okazcar.okazcar.models.dto.MessageDto;
 import com.okazcar.okazcar.models.mongodb.Conversation;
@@ -18,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 
 @RestController
+@CrossOrigin(origins = "")
 public class ConversationController {
 
     private final ConversationService conversationService;

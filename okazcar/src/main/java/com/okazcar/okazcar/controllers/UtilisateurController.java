@@ -23,6 +23,7 @@ import static com.okazcar.okazcar.handlers.ResponseHandler.*;
 
 
 @RestController
+@CrossOrigin(origins = "")
 public class UtilisateurController {
     final UtilisateurService utilisateurService;
     @Autowired
