@@ -48,28 +48,32 @@ public class VoitureUtilisateurController {
 
     @PostMapping("/voitureUtilisateur")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    public ResponseEntity<VoitureUtilisateur> create(@ModelAttribute VoitureUtilisateur voitureUtilisateur){
-        VoitureUtilisateur createdVoitureUtilisateur = voitureUtilisateurService.createVoitureUtilisateur(voitureUtilisateur);
-        createdVoitureUtilisateur.getUtilisateur().setPassword(null);
-        createdVoitureUtilisateur.getUtilisateur().setRoles(null);
-        return new ResponseEntity<>(createdVoitureUtilisateur,HttpStatus.CREATED);
+    public ResponseEntity<?> create(@ModelAttribute VoitureUtilisateur voitureUtilisateur){
+        try {
+            VoitureUtilisateur createdVoitureUtilisateur = voitureUtilisateurService.createVoitureUtilisateur(voitureUtilisateur);
+            return new ResponseEntity<>(createdVoitureUtilisateur,HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/voitureUtilisateurs/{id}/to-10")
     @PreAuthorize("hasAnyRole('ADMIN')")
     @Transactional
-    public ResponseEntity<VoitureUtilisateur> updateEtatTo10(@PathVariable int id){
-        VoitureUtilisateur updateEtat=voitureUtilisateurService.voitureUtilisateurEtatTo10(id);
-        Annonce annonce = new Annonce();
-        Commission commission = commissionRepository.getLatestCommissionByDateHeureCommission();
-        double prix = (updateEtat.getPrix() * commission.getCommission())/100;
-        annonce.setPrixCommission(prix);
-        annonce.setPrixVoiture(updateEtat.getPrix());
-        annonce.setVoitureUtilisateur(updateEtat);
-        annonceRepository.save(annonce);
-        updateEtat.getUtilisateur().setRoles(null);
-        updateEtat.getUtilisateur().setPassword(null);
-        return new ResponseEntity<>(updateEtat,HttpStatus.OK);
+    public ResponseEntity<?> updateEtatTo10(@PathVariable int id){
+        try {
+            VoitureUtilisateur updateEtat=voitureUtilisateurService.voitureUtilisateurEtatTo10(id);
+            Annonce annonce = new Annonce();
+            Commission commission = commissionRepository.getLatestCommissionByDateHeureCommission();
+            double prix = (updateEtat.getPrix() * commission.getCommission())/100;
+            annonce.setPrixCommission(prix);
+            annonce.setPrixVoiture(updateEtat.getPrix());
+            annonce.setVoitureUtilisateur(updateEtat);
+            annonceRepository.save(annonce);
+            return new ResponseEntity<>(updateEtat,HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/voitureUtilisateurs_validated")
@@ -77,9 +81,6 @@ public class VoitureUtilisateurController {
     public ResponseEntity<?> getVoitureUtilisateurValide() {
         try {
             List<VoitureUtilisateur> voitureUtilisateurs = voitureUtilisateurRepository.findVoitureUtilisateursByEtat(10);
-            for (int i = 0; i < voitureUtilisateurs.size(); i++) {
-                voitureUtilisateurs.get(i).getUtilisateur().setPassword(null);
-            }
             return new ResponseEntity<>(voitureUtilisateurs, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -91,9 +92,6 @@ public class VoitureUtilisateurController {
     public ResponseEntity<?> getVoitureUtilisateurNonValide() {
         try {
             List<VoitureUtilisateur> voitureUtilisateurs = voitureUtilisateurRepository.findVoitureUtilisateursByEtat(0);
-            for (int i = 0; i < voitureUtilisateurs.size(); i++) {
-                voitureUtilisateurs.get(i).getUtilisateur().setPassword(null);
-            }
             return new ResponseEntity<>(voitureUtilisateurs, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);

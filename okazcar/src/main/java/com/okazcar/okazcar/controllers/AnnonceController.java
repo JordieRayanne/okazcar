@@ -54,8 +54,6 @@ public class AnnonceController {
         return existingAnnonceOptional.map(existingModele -> {
             annonce.setId(id);
             Annonce updatedAnnonce = annonceRepository.save(annonce);
-            updatedAnnonce.getVoitureUtilisateur().getUtilisateur().setPassword(null);
-            updatedAnnonce.getVoitureUtilisateur().getUtilisateur().setRoles(null);
             return new ResponseEntity<>(updatedAnnonce, HttpStatus.OK);
         }).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
@@ -68,8 +66,6 @@ public class AnnonceController {
             existingModele.setStatus(10);
             existingModele.setDateVente(Timestamp.valueOf(LocalDateTime.now()));
             Annonce updatedAnnonce = annonceRepository.save(existingModele);
-            updatedAnnonce.getVoitureUtilisateur().getUtilisateur().setPassword(null);
-            updatedAnnonce.getVoitureUtilisateur().getUtilisateur().setRoles(null);
             return new ResponseEntity<>(updatedAnnonce, HttpStatus.OK);
         }).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }

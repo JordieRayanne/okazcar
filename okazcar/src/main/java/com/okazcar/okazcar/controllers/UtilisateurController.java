@@ -48,9 +48,6 @@ public class UtilisateurController {
     public String getAll() throws IOException {
         try {
             List<Utilisateur> users = utilisateurService.getAll();
-            for (int i = 0; i < users.size(); i++) {
-                users.get(i).setPassword(null);
-            }
             return sendResponseData(users, HttpStatus.ACCEPTED);
         } catch (JsonProcessingException e) {
             return showError(e, HttpStatus.FORBIDDEN);

@@ -25,10 +25,6 @@ public class ClientVoitureService {
 
     public ClientVoiture createClientVoiture(ClientVoiture clienntVoiture){
         clienntVoiture = clientVoitureRepository.save(clienntVoiture);
-        clienntVoiture.getUtilisateur().setRoles(null);
-        clienntVoiture.getUtilisateur().setPassword(null);
-        clienntVoiture.getAnnonce().getVoitureUtilisateur().getUtilisateur().setPassword(null);
-        clienntVoiture.getAnnonce().getVoitureUtilisateur().getUtilisateur().setRoles(null);
         return clienntVoiture;
     }
 
@@ -36,10 +32,6 @@ public class ClientVoitureService {
         return clientVoitureRepository.findById(clientVoitureid).map(clientVoiture -> {
             clientVoiture.setFavori(10);
             clientVoitureRepository.save(clientVoiture);
-            clientVoiture.getUtilisateur().setRoles(null);
-            clientVoiture.getUtilisateur().setPassword(null);
-            clientVoiture.getAnnonce().getVoitureUtilisateur().getUtilisateur().setPassword(null);
-            clientVoiture.getAnnonce().getVoitureUtilisateur().getUtilisateur().setRoles(null);
             return clientVoiture;
         }).orElseThrow(() -> new EntityNotFoundException("Client voiture not found with id: " + clientVoitureid));
     }

@@ -2,6 +2,7 @@ package com.okazcar.okazcar.controllers;
 
 import java.util.List;
 
+import com.okazcar.okazcar.models.VoitureUtilisateur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,9 +29,13 @@ public class ClientVoitureController {
 
     @PostMapping("/clientVoiture")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    public ResponseEntity <ClientVoiture> create(@ModelAttribute ClientVoiture clientVoiture){
-        ClientVoiture createdClientVoiture=clientVoitureService.createClientVoiture(clientVoiture);
-        return new ResponseEntity<>(createdClientVoiture,HttpStatus.CREATED);
+    public ResponseEntity<?> create(@ModelAttribute ClientVoiture clientVoiture){
+        try {
+            ClientVoiture createdClientVoiture=clientVoitureService.createClientVoiture(clientVoiture);
+            return new ResponseEntity<>(createdClientVoiture,HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 
