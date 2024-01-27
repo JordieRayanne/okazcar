@@ -7,6 +7,7 @@ import com.okazcar.okazcar.services.AnnonceService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,6 +30,7 @@ public class AnnoncePopulaireController {
     }
 
     @GetMapping("/anonnces_favori")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<List<Annonce>> getAnnonceFavoris(HttpServletRequest request) {
         List<Annonce> annonces = annoncePopulaireService.getAnnoncesFavoris(request);
         for (int i = 0; i < annonces.size(); i++) {

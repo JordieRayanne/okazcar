@@ -21,13 +21,13 @@ public class ModeleController {
     }
 
     @GetMapping("/modeles")
-    //  @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public List<Modele> getAllModeles() {
         return modeleRepository.findAll();
     }
 
     @GetMapping("/modeles/{id}")
-    //  @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<Modele> getModeleById(@PathVariable("id") Integer id) {
         Optional<Modele> modeleOptional = modeleRepository.findById(id);
         return modeleOptional.map(modele -> new ResponseEntity<>(modele, HttpStatus.OK))
@@ -35,14 +35,14 @@ public class ModeleController {
     }
 
     @PostMapping("/modele")
-    // @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<Modele> createModele(@ModelAttribute Modele modele) {
         Modele createdModele = modeleRepository.save(modele);
         return new ResponseEntity<>(createdModele, HttpStatus.CREATED);
     }
 
     @PutMapping("/modeles/{id}")
-    //  @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<Modele> updateModele(@PathVariable("id") Integer id, @ModelAttribute Modele modele) {
         Optional<Modele> existingModeleOptional = modeleRepository.findById(id);
         return existingModeleOptional.map(existingModele -> {
@@ -53,7 +53,7 @@ public class ModeleController {
     }
 
     @DeleteMapping("/modeles/{id}")
-    //   @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<String> deleteModele(@PathVariable("id") Integer id) {
         try {
             modeleRepository.deleteById(id);

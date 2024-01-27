@@ -20,28 +20,28 @@ public class TypeController {
     }
 
     @GetMapping("/types")
-    //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<List<Type>> getAll() {
         List<Type> types = typeService.findAll();
         return new ResponseEntity<>(types, HttpStatus.OK);
     }
 
     @GetMapping("/types/{id}")
-    //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<Type> getById(@PathVariable int id) {
         Type type = typeService.findOne(id);
         return new ResponseEntity<>(type, HttpStatus.OK);
     }
 
     @PostMapping("/type")
-    //@PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<Type> create(@ModelAttribute Type type) {
         Type createdType = typeService.insert(type);
         return new ResponseEntity<>(createdType, HttpStatus.CREATED);
     }
 
     @PutMapping("/types/{id}")
-    //@PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<?> update(@PathVariable("id") int id, @ModelAttribute Type type) {
         try {
             type.setId(id);
@@ -53,7 +53,7 @@ public class TypeController {
     }
 
     @DeleteMapping("/types/{id}")
-    //@PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<String> delete(@PathVariable int id) {
         try {
             typeService.delete(id);

@@ -32,7 +32,7 @@ public class VoitureUtilisateurController {
     }
 
     @GetMapping("/voitureUtilisateurs")
-    //   @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<List<VoitureUtilisateur>> getAll() {
         List<VoitureUtilisateur> voitureUtilisateurs= voitureUtilisateurService.getAllVoitureUtilisateurs();
         for (VoitureUtilisateur voitureUtilisateur: voitureUtilisateurs) {
@@ -43,7 +43,7 @@ public class VoitureUtilisateurController {
     }
 
     @PostMapping("/voitureUtilisateur")
-    //  @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<VoitureUtilisateur> create(@ModelAttribute VoitureUtilisateur voitureUtilisateur){
         VoitureUtilisateur createdVoitureUtilisateur = voitureUtilisateurService.createVoitureUtilisateur(voitureUtilisateur);
         createdVoitureUtilisateur.getUtilisateur().setPassword(null);
@@ -52,7 +52,7 @@ public class VoitureUtilisateurController {
     }
 
     @PutMapping("/voitureUtilisateurs/{id}/to-10")
-    // @PreAuthorize("hasAnyRole('ADMIN','USER')")
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @Transactional
     public ResponseEntity<VoitureUtilisateur> updateEtatTo10(@PathVariable int id){
         VoitureUtilisateur updateEtat=voitureUtilisateurService.voitureUtilisateurEtatTo10(id);

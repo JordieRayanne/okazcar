@@ -42,7 +42,7 @@ public class UtilisateurController {
     }
 
     @GetMapping("/utilisateurs")
-    //   @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public String getAll() throws IOException {
         try {
             return sendResponseData(utilisateurService.getAll(), HttpStatus.ACCEPTED);
@@ -72,6 +72,7 @@ public class UtilisateurController {
     }
 
     @DeleteMapping("/utilisateurs/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public String delete(@PathVariable("id") String id) throws IOException {
         try {
             return sendResponseData(utilisateurService.delete(id), HttpStatus.ACCEPTED);

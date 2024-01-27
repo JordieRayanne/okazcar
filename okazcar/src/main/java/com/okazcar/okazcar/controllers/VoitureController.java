@@ -34,14 +34,14 @@ public class VoitureController {
     }
 
     @GetMapping("/voitures")
-//    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<List<VoitureVoitureImage>> getAll(){
         List<VoitureVoitureImage> voitures=voitureImageService.getAll();
         return new ResponseEntity<>(voitures,HttpStatus.OK);
     }
 
     @GetMapping("/voitures/{id}")
-  //  @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<?> getById(@PathVariable int id){
         try {
             VoitureVoitureImage voiture=voitureImageService.getVoitureImageById(id);
@@ -52,7 +52,7 @@ public class VoitureController {
     }
 
     @PostMapping("/voiture")
-   // @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<?> create(HttpServletRequest request){
         try {
             return new ResponseEntity<>(voitureImageService.insert(request), HttpStatus.CREATED);
@@ -62,7 +62,7 @@ public class VoitureController {
     }
 
     @PutMapping("/voitures/{id}")
-   // @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<?> update(@PathVariable int id, HttpServletRequest request){
         try {
             return new ResponseEntity<>(voitureImageService.update(request, id), HttpStatus.OK);
@@ -72,7 +72,7 @@ public class VoitureController {
     }
 
     @DeleteMapping("/voitures/{id}")
-  //  @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<?> delete(@PathVariable int id){
         try {
             voitureService.deleteVoiture(id);

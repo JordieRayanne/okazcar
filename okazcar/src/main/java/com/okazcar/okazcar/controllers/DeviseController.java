@@ -21,28 +21,28 @@ public class DeviseController {
     }
 
     @GetMapping("/devises")
-    //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<List<Devise>> getAll() {
         List<Devise> devises = deviseService.findAll();
         return new ResponseEntity<>(devises, HttpStatus.OK);
     }
 
     @GetMapping("/devises/{id}")
-    //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<Devise> getById(@PathVariable int id) {
         Devise devise = deviseService.findOne(id);
         return new ResponseEntity<>(devise, HttpStatus.OK);
     }
 
     @PostMapping("/devise")
-    //@PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<Devise> create(@ModelAttribute Devise devise) {
         Devise createdDevise = deviseService.insert(devise);
         return new ResponseEntity<>(createdDevise, HttpStatus.CREATED);
     }
 
     @PutMapping("/devises/{id}")
-    //@PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<?> update(@PathVariable("id") int id, @ModelAttribute Devise devise) {
         try {
             devise.setId(id);
@@ -54,7 +54,7 @@ public class DeviseController {
     }
 
     @DeleteMapping("/devises/{id}")
-    //@PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<String> delete(@PathVariable int id) {
         try {
             deviseService.delete(id);

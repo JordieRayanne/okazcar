@@ -28,35 +28,35 @@ public class MarqueController {
     }
 
     @GetMapping("/marques")
-    //  @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<List<Marque>> getAll() {
         List<Marque> marques = marqueService.getAllMarques();
         return new ResponseEntity<>(marques, HttpStatus.OK);
     }
 
     @GetMapping("/marques/{id}")
-    //  @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<Marque> getById(@PathVariable int id) {
         Marque marque = marqueService.getMarqueById(id);
         return new ResponseEntity<>(marque, HttpStatus.OK);
     }
 
     @PostMapping("/marque")
-    //@PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<Marque> create(@ModelAttribute Marque marque) {
         Marque createdMarque = marqueService.createMarque(marque);
         return new ResponseEntity<>(createdMarque, HttpStatus.CREATED);
     }
 
     @PutMapping("/marques/{id}")
-    //  @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<Marque> update(@PathVariable int id,@ModelAttribute Marque marque) {
         Marque updatedMarque = marqueService.updateMarque(id, marque);
         return new ResponseEntity<>(updatedMarque, HttpStatus.OK);
     }
 
     @DeleteMapping("/marques/{id}")
-    //   @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<String> delete(@PathVariable int id) {
         try {
             marqueService.deleteMarque(id);

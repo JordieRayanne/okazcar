@@ -20,14 +20,14 @@ public class ClientVoitureController {
         this.clientVoitureService = clientVoitureService;
     }
     @GetMapping("/clientVoitures")
-    //@PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<List<ClientVoiture>> getAll(){
         List<ClientVoiture> clientVoitures=clientVoitureService.getAllClientVoiture();
         return new ResponseEntity<>(clientVoitures,HttpStatus.OK);
     }
 
     @PostMapping("/clientVoitures")
-   // @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity <ClientVoiture> create(@ModelAttribute ClientVoiture clientVoiture){
         ClientVoiture createdClientVoiture=clientVoitureService.createClientVoiture(clientVoiture);
         return new ResponseEntity<>(createdClientVoiture,HttpStatus.CREATED);
@@ -35,7 +35,7 @@ public class ClientVoitureController {
 
 
     @GetMapping("/ajouterFavori/{id}")
-    // @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<?> updateFavori(@PathVariable("id") int id){
         try {
             return new ResponseEntity<>(clientVoitureService.updateClientVoiture(id), HttpStatus.OK);

@@ -28,7 +28,6 @@ public class AnnonceController {
     }
 
     @GetMapping("/annonces")
-    // @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public List<Annonce> getAll(){
         List<Annonce> annonces = annonceRepository.findAll();
         for (int i = 0; i < annonces.size(); i++) {
@@ -39,7 +38,7 @@ public class AnnonceController {
     }
 
     @GetMapping("/annonces/{id}")
-    // @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<Annonce> getById(@PathVariable("id") Integer id) {
         Optional<Annonce> AnnonceOptional = annonceRepository.findById(id);
         return AnnonceOptional.map(Annonce -> new ResponseEntity<>(Annonce, HttpStatus.OK))
@@ -47,7 +46,7 @@ public class AnnonceController {
     }
 
     @PutMapping("/annonces/{id}")
-    //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<Annonce> update(@PathVariable("id") Integer id, @ModelAttribute Annonce annonce) {
         Optional<Annonce> existingAnnonceOptional = annonceRepository.findById(id);
         return existingAnnonceOptional.map(existingModele -> {
@@ -60,7 +59,7 @@ public class AnnonceController {
     }
 
     @GetMapping("/annonces_vendu/{id}")
-    //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<Annonce> updateStatusVendu(@PathVariable("id") Integer id) {
         Optional<Annonce> existingAnnonceOptional = annonceRepository.findById(id);
         return existingAnnonceOptional.map(existingModele -> {
@@ -73,7 +72,7 @@ public class AnnonceController {
     }
 
     @DeleteMapping("/annonces/{id}")
-    //   @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @Transactional
     public ResponseEntity<String> delete(@PathVariable("id") Integer id) {
         try {

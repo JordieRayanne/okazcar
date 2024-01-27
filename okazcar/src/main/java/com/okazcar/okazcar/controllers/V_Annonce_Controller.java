@@ -6,6 +6,7 @@ import com.okazcar.okazcar.repositories.V_Annonce_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,12 +29,13 @@ public class V_Annonce_Controller {
         this.v_AnnonceRepository = v_AnnonceRepository;
     }
 
-    @GetMapping("/v_annonce")
+    @GetMapping("/v_annonces")
     public List<V_Annonce> getAll() {
         return v_AnnonceRepository.findAll();
     }
 
     @GetMapping("/v_annonce/{id_annonce}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<V_Annonce> getById(@PathVariable("id_annonce") Integer id_annonce) {
         Optional<V_Annonce> v_AnnonceOptional = v_AnnonceRepository.findById(id_annonce);
         return v_AnnonceOptional.map(v_Annonce -> new ResponseEntity<>(v_Annonce, HttpStatus.OK))
@@ -41,19 +43,19 @@ public class V_Annonce_Controller {
     }
 
     @GetMapping("/v-annonces")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public List<V_Annonce> getFilteredVAnnonces(
             @RequestParam(required = false, defaultValue = "") String categorie,
             @RequestParam(required = false, defaultValue = "") String modele,
             @RequestParam(required = false, defaultValue = "") String type,
             @RequestParam(required = false, defaultValue = "") String localisation,
             @RequestParam(required = false, defaultValue = "") String couleur
-    ) throws ParseException {
-        // parse manta
-        //return null;
+    ) {
         return v_AnnonceRepository.findV_AnnoncesByCategorieAndModeleAndTypeAndLocalisationAndCouleur(categorie,modele,type,localisation,couleur);
     }
 
     @GetMapping("/v-annonces-valide")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public List<V_Annonce> getFilteredVAnnoncesValide() {
         try {
             return v_AnnonceRepository.findV_AnnoncesByVoitureUtilisateurEtat(10);
@@ -63,6 +65,7 @@ public class V_Annonce_Controller {
     }
 
     @GetMapping("/v-annonces-non-valide")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public List<V_Annonce> getFilteredVAnnoncesNonValide() {
         try {
             return v_AnnonceRepository.findV_AnnoncesByVoitureUtilisateurEtat(0);
@@ -72,6 +75,7 @@ public class V_Annonce_Controller {
     }
 
     @GetMapping("/v-annonces-vendu")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public List<V_Annonce> getFilteredVAnnoncesVendu() {
         try {
             return v_AnnonceRepository.findV_AnnoncesByStatus(10);
@@ -81,6 +85,7 @@ public class V_Annonce_Controller {
     }
 
     @GetMapping("/v-annonces-non-vendu")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public List<V_Annonce> getFilteredVAnnoncesNonVendu() {
         try {
             return v_AnnonceRepository.findV_AnnoncesByStatus(0);
