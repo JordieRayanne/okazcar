@@ -47,7 +47,7 @@ public class V_Annonce_Controller {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/v_annonces")
+    @GetMapping("/v_annonces_search")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public List<V_Annonce> getFilteredVAnnonces(
             @RequestParam(required = false, defaultValue = "") String categorie,
