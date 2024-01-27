@@ -24,7 +24,8 @@ import org.hibernate.annotations.Synchronize;
         "voiture.localisation AS localisation, " +
         "voiture.date_demande AS date_demande, " +
         "voiture.description AS description, " +
-        "voiture.prix AS prix, " +
+        "voiture_utilisateur.immatriculation AS immatriculation, " +
+        "voiture_utilisateur.prix AS prix, " +
         "devise.id AS id_devise, " +
         "modele.nom AS modele, " +
         "modele.id AS id_modele, " +
@@ -48,7 +49,7 @@ import org.hibernate.annotations.Synchronize;
         "JOIN " +
         "voiture ON voiture.id = voiture_utilisateur.id_voiture " +
         "JOIN " +
-        "devise ON devise.id = voiture.id_devise " +
+        "devise ON devise.id = voiture_utilisateur.id_devise " +
         "JOIN " +
         "modele ON modele.id = voiture.id_modele " +
         "JOIN " +
@@ -99,6 +100,9 @@ public class V_Annonce {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "immatriculation")
+    private String immatriculation;
 
     @Column(name = "prix")
     private double prix;
