@@ -21,10 +21,10 @@ public class Annonce {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "date_annonce")
+    @Column(name = "date_annonce", nullable = false)
     private Timestamp dateAnnonce = Timestamp.valueOf(LocalDateTime.now());
 
-    @Column(name = "status")
+    @Column(name = "status", nullable = false)
     private int status = 0;
 
 	@Column(name = "prix_commission", nullable = false)
@@ -37,4 +37,7 @@ public class Annonce {
 	@OneToOne
 	@JoinColumn(name = "id_voitureutilisateur",nullable = false)
 	private VoitureUtilisateur voitureUtilisateur;
+
+    @Column(name = "date_vente")
+    private Timestamp dateVente;
 }

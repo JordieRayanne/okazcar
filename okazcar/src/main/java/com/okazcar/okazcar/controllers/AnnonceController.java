@@ -2,6 +2,8 @@ package com.okazcar.okazcar.controllers;
 
 import com.okazcar.okazcar.repositories.VoitureUtilisateurRepository;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,6 +66,7 @@ public class AnnonceController {
         Optional<Annonce> existingAnnonceOptional = annonceRepository.findById(id);
         return existingAnnonceOptional.map(existingModele -> {
             existingModele.setStatus(10);
+            existingModele.setDateVente(Timestamp.valueOf(LocalDateTime.now()));
             Annonce updatedAnnonce = annonceRepository.save(existingModele);
             updatedAnnonce.getVoitureUtilisateur().getUtilisateur().setPassword(null);
             updatedAnnonce.getVoitureUtilisateur().getUtilisateur().setRoles(null);
