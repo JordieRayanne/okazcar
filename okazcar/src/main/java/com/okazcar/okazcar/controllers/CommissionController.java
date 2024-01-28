@@ -22,7 +22,7 @@ public class CommissionController {
 
     @PostMapping("/commission")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<?> insert(@ModelAttribute Commission commission) {
+    public ResponseEntity<?> insert(@RequestBody  Commission commission) {
         try {
             return new ResponseEntity<>(commissionService.insert(commission), HttpStatus.OK) ;
         } catch (Exception e) {
