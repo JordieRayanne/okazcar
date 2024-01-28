@@ -36,14 +36,14 @@ public class DeviseController {
 
     @PostMapping("/devise")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<Devise> create(@ModelAttribute Devise devise) {
+    public ResponseEntity<Devise> create(@RequestBody  Devise devise) {
         Devise createdDevise = deviseService.insert(devise);
         return new ResponseEntity<>(createdDevise, HttpStatus.CREATED);
     }
 
     @PutMapping("/devises/{id}")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @ModelAttribute Devise devise) {
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody  Devise devise) {
         try {
             devise.setId(id);
             Devise updatedDevise = deviseService.update(devise);
