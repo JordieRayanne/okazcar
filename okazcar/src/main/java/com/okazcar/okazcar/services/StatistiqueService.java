@@ -55,7 +55,8 @@ public class StatistiqueService {
     }
 
     private long getTotalRevenues(int month) {
-        return entityManager.createNativeQuery("SELECT SUM(a.prix_commission) FROM annonce a WHERE EXTRACT(YEAR from a.date_vente)="+year+" AND extract(Month FROM a.date_vente)="+month).getFirstResult();
+        Double data = (Double) entityManager.createNativeQuery("SELECT SUM(a.prix_commission) FROM annonce a WHERE EXTRACT(YEAR from a.date_vente)="+year+" AND extract(Month FROM a.date_vente)="+month, Double.class).getSingleResult();
+        return data != null ? data.longValue() : 0;
     }
 
     private HashMap<String, Long> getRevenuesTotalMois() {
