@@ -17,6 +17,7 @@ import org.hibernate.annotations.Synchronize;
         "annonce.status AS status, " +
         "annonce.prix_commission AS prix_commission, "+
         "annonce.prix_voiture AS prix_voiture, "+
+        "annonce.date_vente AS date_vente, "+
         "voiture_utilisateur.etat AS voiture_utilisateur_etat, " +
         "voiture.id AS id_voiture, " +
         "voiture.nom AS voiture, " +
@@ -79,6 +80,9 @@ public class V_Annonce {
 
     @Column(name = "prix_voiture")
     private double prixVoiture;
+
+    @Column(name = "date_vente")
+    private Timestamp dateVente;
 
     @Column(name = "voiture_utilisateur_etat")
     private int voitureUtilisateurEtat;
