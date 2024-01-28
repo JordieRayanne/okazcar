@@ -41,12 +41,11 @@ public class StatistiqueService {
         HashMap<String, Long> toReturn = new HashMap<>();
         long countAnnonceNonVendu =  v_Annonce_Repository.countV_AnnoncesByStatus(0);
         long countAnnonceVendu =  v_Annonce_Repository.countV_AnnoncesByStatus(10);
-        String sql = "SELECT COUNT(*) FROM utilisateurs_role ur WHERE ur.role_id_users_role=1";
-        Query query = entityManager.createNativeQuery(sql);
-        long countClient = query.getFirstResult();
+        String sql = "SELECT COUNT(*) FROM utilisateurs_role WHERE role_id_users_role=1";
+        long countClient = (Long) entityManager.createNativeQuery(sql, Long.class).getSingleResult();
         String sql2 = "SELECT SUM(a.prix_commission) FROM annonce a WHERE a.status=10";
-        Query query2 = entityManager.createNativeQuery(sql2);
-        long capitalTotal = query2.getFirstResult();
+        Double sum = (Double) entityManager.createNativeQuery(sql2, Double.class).getSingleResult();
+        long capitalTotal = sum != null ? sum.longValue() : 0;
         //
         toReturn.put("Annonces non vendues", countAnnonceNonVendu);
         toReturn.put("Annonces vendues", countAnnonceVendu);
