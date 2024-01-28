@@ -12,6 +12,4 @@ public interface AnnonceRepository extends JpaRepository<Annonce, Integer> {
 
     Annonce findAnnonceById(int id);
 
-    @Query("SELECT SUM(a.prixCommission) FROM annonce a where EXTRACT(YEAR from a.dateVente) = ?1 AND EXTRACT(month FROM a.dateVente) = ?2")
-    long getTotalRevenuesTotal(int year, int month);
 }

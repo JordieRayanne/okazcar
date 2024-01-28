@@ -16,11 +16,12 @@ public class StatistiqueService {
     @PersistenceContext
     private EntityManager entityManager;
     private final V_Annonce_Repository v_Annonce_Repository;
-    private final AnnonceRepository annonceRepository;
     private final CategorieRepository categorieRepository;
     private final TypeRepository typeRepository;
     private final MarqueRepository marqueRepository;
     private final ModeleRepository modeleRepository;
+
+    private final int year = LocalDate.now().getYear();
 
     @Autowired
     public StatistiqueService(V_Annonce_Repository v_Annonce_Repository,
@@ -30,7 +31,6 @@ public class StatistiqueService {
                               MarqueRepository marqueRepository,
                               ModeleRepository modeleRepository) {
         this.v_Annonce_Repository = v_Annonce_Repository;
-        this.annonceRepository = annonceRepository;
         this.categorieRepository = categorieRepository;
         this.typeRepository = typeRepository;
         this.marqueRepository = marqueRepository;
@@ -55,20 +55,24 @@ public class StatistiqueService {
         return toReturn;
     }
 
+    private long getTotalRevenues(int month) {
+        return entityManager.createNativeQuery("SELECT SUM(a.prix_commission) FROM annonce a WHERE EXTRACT(YEAR from a.date_vente)="+year+" AND extract(Month FROM a.date_vente)="+month).getFirstResult();
+    }
+
     private HashMap<String, Long> getRevenuesTotalMois() {
         HashMap<String, Long> toReturn = new HashMap<>();
-        toReturn.put("January", annonceRepository.getTotalRevenuesTotal(LocalDate.now().getYear(), 1));
-        toReturn.put("February", annonceRepository.getTotalRevenuesTotal(LocalDate.now().getYear(), 2));
-        toReturn.put("March", annonceRepository.getTotalRevenuesTotal(LocalDate.now().getYear(), 3));
-        toReturn.put("April", annonceRepository.getTotalRevenuesTotal(LocalDate.now().getYear(), 4));
-        toReturn.put("May", annonceRepository.getTotalRevenuesTotal(LocalDate.now().getYear(), 5));
-        toReturn.put("June", annonceRepository.getTotalRevenuesTotal(LocalDate.now().getYear(), 6));
-        toReturn.put("July", annonceRepository.getTotalRevenuesTotal(LocalDate.now().getYear(), 7));
-        toReturn.put("August", annonceRepository.getTotalRevenuesTotal(LocalDate.now().getYear(), 8));
-        toReturn.put("September", annonceRepository.getTotalRevenuesTotal(LocalDate.now().getYear(), 9));
-        toReturn.put("October", annonceRepository.getTotalRevenuesTotal(LocalDate.now().getYear(), 10));
-        toReturn.put("November", annonceRepository.getTotalRevenuesTotal(LocalDate.now().getYear(), 11));
-        toReturn.put("December", annonceRepository.getTotalRevenuesTotal(LocalDate.now().getYear(), 12));
+        toReturn.put("January", getTotalRevenues(1));
+        toReturn.put("February", getTotalRevenues(2));
+        toReturn.put("March", getTotalRevenues(3));
+        toReturn.put("April", getTotalRevenues(4));
+        toReturn.put("May", getTotalRevenues(5));
+        toReturn.put("June", getTotalRevenues(6));
+        toReturn.put("July", getTotalRevenues(7));
+        toReturn.put("August", getTotalRevenues(8));
+        toReturn.put("September", getTotalRevenues(9));
+        toReturn.put("October", getTotalRevenues(10));
+        toReturn.put("November", getTotalRevenues(11));
+        toReturn.put("December", getTotalRevenues(12));
         return toReturn;
     }
 
