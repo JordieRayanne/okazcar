@@ -19,4 +19,6 @@ public interface V_Annonce_Repository extends JpaRepository<V_Annonce, Integer> 
     List<V_Annonce> findV_AnnoncesByStatus(int status);
 
     List<V_Annonce> findV_AnnoncesByStatusAndIdUtilisateur(int status, String idUtilisateur);
+
+    long countV_AnnoncesByStatus(int status);
 }
