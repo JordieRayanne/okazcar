@@ -40,14 +40,14 @@ public class CategorieController {
 
     @PostMapping("/categorie")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<Categorie> create(@RequestBody Categorie categorie) {
+    public ResponseEntity<Categorie> create(@ModelAttribute Categorie categorie) {
         Categorie createdCategorie = categorieRepository.save(categorie);
         return new ResponseEntity<>(createdCategorie, HttpStatus.CREATED);
     }
 
     @PutMapping("/categories/{id}")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<Categorie> update(@PathVariable("id") Integer id, @RequestBody Categorie categorie) {
+    public ResponseEntity<Categorie> update(@PathVariable("id") Integer id, @ModelAttribute Categorie categorie) {
         Optional<Categorie> existingCategorieOptional = categorieRepository.findById(id);
         return existingCategorieOptional.map(existingModele -> {
             categorie.setId(id);
