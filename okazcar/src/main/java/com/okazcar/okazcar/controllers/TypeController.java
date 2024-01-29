@@ -35,14 +35,14 @@ public class TypeController {
 
     @PostMapping("/type")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<Type> create(@RequestBody Type type) {
+    public ResponseEntity<Type> create(@ModelAttribute Type type) {
         Type createdType = typeService.insert(type);
         return new ResponseEntity<>(createdType, HttpStatus.CREATED);
     }
 
     @PutMapping("/types/{id}")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Type type) {
+    public ResponseEntity<?> update(@PathVariable("id") int id, @ModelAttribute Type type) {
         try {
             type.setId(id);
             Type updatedType = typeService.update(type);
