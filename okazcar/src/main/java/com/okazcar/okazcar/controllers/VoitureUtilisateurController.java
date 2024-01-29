@@ -4,9 +4,11 @@ import java.util.List;
 
 import com.okazcar.okazcar.models.Annonce;
 import com.okazcar.okazcar.models.Commission;
+import com.okazcar.okazcar.models.VoitureVoitureUtilisateurImage;
 import com.okazcar.okazcar.repositories.AnnonceRepository;
 import com.okazcar.okazcar.repositories.CommissionRepository;
 import com.okazcar.okazcar.repositories.VoitureUtilisateurRepository;
+import com.okazcar.okazcar.services.VoitureVoitureUtilisateurImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,13 +25,15 @@ public class VoitureUtilisateurController {
     private final CommissionRepository commissionRepository;
     private final AnnonceRepository annonceRepository;
     private final VoitureUtilisateurRepository voitureUtilisateurRepository;
+    private final VoitureVoitureUtilisateurImageService voitureVoitureUtilisateurImageService;
 
     @Autowired
     public VoitureUtilisateurController(VoitureUtilisateurService voitureUtilisateurService,
                                         CommissionRepository commissionRepository,
                                         AnnonceRepository annonceRepository,
-                                        VoitureUtilisateurRepository voitureUtilisateurRepository) {
+                                        VoitureUtilisateurRepository voitureUtilisateurRepository, VoitureVoitureUtilisateurImageService voitureVoitureUtilisateurImageService) {
         this.voitureUtilisateurService = voitureUtilisateurService;
+        this.voitureVoitureUtilisateurImageService = voitureVoitureUtilisateurImageService;
         this.commissionRepository = commissionRepository;
         this.annonceRepository = annonceRepository;
         this.voitureUtilisateurRepository = voitureUtilisateurRepository;
@@ -81,7 +85,7 @@ public class VoitureUtilisateurController {
     public ResponseEntity<?> getVoitureUtilisateurValide() {
         try {
             List<VoitureUtilisateur> voitureUtilisateurs = voitureUtilisateurRepository.findVoitureUtilisateursByEtat(10);
-            return new ResponseEntity<>(voitureUtilisateurs, HttpStatus.OK);
+            return new ResponseEntity<>(voitureVoitureUtilisateurImageService.getVoitureUtilisateursWithImage(voitureUtilisateurs), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -92,7 +96,7 @@ public class VoitureUtilisateurController {
     public ResponseEntity<?> getVoitureUtilisateurNonValide() {
         try {
             List<VoitureUtilisateur> voitureUtilisateurs = voitureUtilisateurRepository.findVoitureUtilisateursByEtat(0);
-            return new ResponseEntity<>(voitureUtilisateurs, HttpStatus.OK);
+            return new ResponseEntity<>(voitureVoitureUtilisateurImageService.getVoitureUtilisateursWithImage(voitureUtilisateurs), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }

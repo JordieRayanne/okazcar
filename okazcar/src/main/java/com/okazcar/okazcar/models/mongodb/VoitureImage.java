@@ -39,7 +39,7 @@ public class VoitureImage {
         for (Map.Entry<String, MultipartFile> entry : multipartFiles.entrySet()) {
             file = FileUploaderHandler.uploadFile(entry.getValue());
             if (file.getName().endsWith(".png") || file.getName().endsWith(".jpeg") || file.getName().endsWith(".jpg") || file.getName().endsWith(".gif")) {
-                imagesBytes.add(Base64.getEncoder().encodeToString(Files.toByteArray(file)));
+                this.imagesBytes.add(Base64.getEncoder().encodeToString(Files.toByteArray(file)));
                 FileUploaderHandler.deleteFile(file);
             }
             else {
