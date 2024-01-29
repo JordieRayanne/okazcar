@@ -37,14 +37,14 @@ public class MarqueController {
 
     @PostMapping("/marque")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<Marque> create(@RequestBody Marque marque) {
+    public ResponseEntity<Marque> create(@ModelAttribute Marque marque) {
         Marque createdMarque = marqueService.createMarque(marque);
         return new ResponseEntity<>(createdMarque, HttpStatus.CREATED);
     }
 
     @PutMapping("/marques/{id}")
     @PreAuthorize("hasAnyRole('ADMIN')")
-    public ResponseEntity<Marque> update(@PathVariable int id,@RequestBody Marque marque) {
+    public ResponseEntity<Marque> update(@PathVariable int id,@ModelAttribute Marque marque) {
         Marque updatedMarque = marqueService.updateMarque(id, marque);
         return new ResponseEntity<>(updatedMarque, HttpStatus.OK);
     }
