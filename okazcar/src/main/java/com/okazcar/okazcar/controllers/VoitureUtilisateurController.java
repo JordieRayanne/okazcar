@@ -61,7 +61,7 @@ public class VoitureUtilisateurController {
         }
     }
 
-    @GetMapping("/voitureUtilisateurs/{id}/to-10")
+    @GetMapping("/voitureUtilisateurs/{id}/to_10")
     @PreAuthorize("hasAnyRole('ADMIN')")
     @Transactional
     public ResponseEntity<?> updateEtatTo10(@PathVariable int id){
