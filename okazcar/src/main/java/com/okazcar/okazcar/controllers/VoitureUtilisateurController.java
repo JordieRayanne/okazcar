@@ -101,4 +101,14 @@ public class VoitureUtilisateurController {
             return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @DeleteMapping("/voitureUtilisateurs/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    public ResponseEntity<?> deleteVoitureUtilisateur(@PathVariable("id")int id) {
+        try {
+            voitureUtilisateurRepository.deleteById(id);
+            return new ResponseEntity<>("Voiture utilisateur with id=" + id +" is deleted", HttpStatus.FOUND);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
