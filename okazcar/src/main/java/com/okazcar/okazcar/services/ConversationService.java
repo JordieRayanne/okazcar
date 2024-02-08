@@ -12,13 +12,14 @@ import com.okazcar.okazcar.models.mongodb.Person;
 import com.okazcar.okazcar.repositories.HistoriqueMessageRepository;
 import com.okazcar.okazcar.repositories.UtilisateurRepository;
 import com.okazcar.okazcar.repositories.mongodb.ConversationRepository;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -28,6 +29,8 @@ public class ConversationService {
     private final HistoriqueMessageRepository historiqueMessageRepository;
     private final UtilisateurRepository utilisateurRepository;
     private final NotificationService notificationService;
+
+    Logger logger = LoggerFactory.getLogger(ConversationService.class);
 
     @Autowired
     public ConversationService(ConversationRepository conversationRepository,
@@ -57,6 +60,8 @@ public class ConversationService {
             Utilisateur utilisateurReceiver = utilisateurRepository.findUtilisateurByUtilisateurId(messageDto.getPersonId2());
             notificationService.sendNotification(utilisateurSender, utilisateurReceiver, message);
         } catch (ForgetException e) {
+            logger.error(e.getLocalizedMessage());
+            logger.error(e.getCause().getMessage());
         }
         // </Notification>
         if (!conversation.isEmpty()) {
