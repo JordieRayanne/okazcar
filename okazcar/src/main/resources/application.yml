@@ -1,0 +1,5 @@
+gcp:
+  firebase:
+    service-account: classpath:settingsFirebase.json
+  notifications:
+    taille-max: 50

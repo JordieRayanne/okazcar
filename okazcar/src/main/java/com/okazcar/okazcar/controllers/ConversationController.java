@@ -33,7 +33,7 @@ public class ConversationController {
     public ResponseEntity<?> addMessage(@ModelAttribute MessageDto messageDto) {
         try {
             return new ResponseEntity<>(conversationService.insert(messageDto), HttpStatus.OK);
-        }catch (IOException e) {
+        }catch (IOException | com.google.firebase.messaging.FirebaseMessagingException | com.google.firebase.auth.FirebaseAuthException e) {
             return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

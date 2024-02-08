@@ -20,5 +20,6 @@ public class UserInsertDto {
     private String phoneNumber;
     private String image;
     private Date birthday;
+    private String fcmToken;
     private MultipartFile imageFile;
 }

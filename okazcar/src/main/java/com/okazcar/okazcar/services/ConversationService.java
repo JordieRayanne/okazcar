@@ -1,11 +1,16 @@
 package com.okazcar.okazcar.services;
 
+import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.messaging.FirebaseMessagingException;
+import com.okazcar.okazcar.exception.ForgetException;
 import com.okazcar.okazcar.models.HistoriqueMessage;
+import com.okazcar.okazcar.models.Utilisateur;
 import com.okazcar.okazcar.models.dto.MessageDto;
 import com.okazcar.okazcar.models.mongodb.Conversation;
 import com.okazcar.okazcar.models.mongodb.Message;
 import com.okazcar.okazcar.models.mongodb.Person;
 import com.okazcar.okazcar.repositories.HistoriqueMessageRepository;
+import com.okazcar.okazcar.repositories.UtilisateurRepository;
 import com.okazcar.okazcar.repositories.mongodb.ConversationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -21,16 +26,22 @@ public class ConversationService {
     private final ConversationRepository conversationRepository;
     private final HistoriqueMessageService historiqueMessageService;
     private final HistoriqueMessageRepository historiqueMessageRepository;
+    private final UtilisateurRepository utilisateurRepository;
+    private final NotificationService notificationService;
 
     @Autowired
     public ConversationService(ConversationRepository conversationRepository,
-                               HistoriqueMessageRepository historiqueMessageRepository, HistoriqueMessageService historiqueMessageService) {
+                               HistoriqueMessageRepository historiqueMessageRepository, HistoriqueMessageService historiqueMessageService,
+                               UtilisateurRepository utilisateurRepository,
+                                NotificationService notificationService) {
         this.conversationRepository = conversationRepository;
         this.historiqueMessageService = historiqueMessageService;
         this.historiqueMessageRepository = historiqueMessageRepository;
+        this.utilisateurRepository = utilisateurRepository;
+        this.notificationService= notificationService;
     }
 
-    public Conversation insert(MessageDto messageDto) throws IOException {
+    public Conversation insert(MessageDto messageDto) throws IOException, FirebaseMessagingException, FirebaseAuthException {
         Person person1 = new Person(messageDto.getPersonId1(), messageDto.getUsername1());
         Person person2 = new Person(messageDto.getPersonId2(), messageDto.getUsername2());
         List<HistoriqueMessage> count = historiqueMessageRepository.findHistoriqueMessagesFrom2Utilisateurs(messageDto.getPersonId1(), messageDto.getPersonId2());
@@ -40,6 +51,14 @@ public class ConversationService {
         Sort sort = Sort.by(Sort.Direction.DESC, "messages.dateTimeSend");
         List<Conversation> conversation = conversationRepository.findConversationByPersons(messageDto.getPersonId1(), messageDto.getPersonId2(), sort);
         Message message = new Message(messageDto);
+        // <Notification>
+        try {
+            Utilisateur utilisateurSender = utilisateurRepository.findUtilisateurByUtilisateurId(messageDto.getPersonId1());
+            Utilisateur utilisateurReceiver = utilisateurRepository.findUtilisateurByUtilisateurId(messageDto.getPersonId2());
+            notificationService.sendNotification(utilisateurSender, utilisateurReceiver, message);
+        } catch (ForgetException e) {
+        }
+        // </Notification>
         if (!conversation.isEmpty()) {
             Conversation conversationToSend = conversation.get(0);
             conversationToSend.getMessages().add(message);

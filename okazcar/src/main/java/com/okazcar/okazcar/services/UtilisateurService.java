@@ -96,15 +96,15 @@ public class UtilisateurService implements UserDetailsService {
 
     public Users logIn(UserLoginDto userDto) throws ForgetException {
         Utilisateur utilisateur;
-        if (userDto.getUserId() == null) {
-            utilisateur = utilisateurRepository.findUtilisateurByEmail(userDto.getEmail());
-            if (utilisateur == null)
-                throw new ForgetException("Error! Email or password are incorrect", new Throwable("Authentication failed"));
-            if (!isPasswordValid(userDto, utilisateur))
-                throw new ForgetException("Error! Email or password are incorrect", new Throwable("Authentication failed"));
-            return new Users(utilisateur, userMongoDbRepository.findUserMongoDbByUserId(utilisateur.getUtilisateurId()));
+        utilisateur = utilisateurRepository.findUtilisateurByEmail(userDto.getEmail());
+        if (utilisateur == null)
+            throw new ForgetException("Error! Email or password are incorrect", new Throwable("Authentication failed"));
+        if (!isPasswordValid(userDto, utilisateur))
+            throw new ForgetException("Error! Email or password are incorrect", new Throwable("Authentication failed"));
+        if (userDto.getFcmToken() != null) {
+            utilisateur.setFcmToken(userDto.getFcmToken());
+            utilisateur = utilisateurRepository.save(utilisateur);
         }
-        utilisateur = utilisateurRepository.findUtilisateurByUtilisateurId(userDto.getUserId());
         return new Users(utilisateur, userMongoDbRepository.findUserMongoDbByUserId(utilisateur.getUtilisateurId()));
     }
     private boolean isPasswordValid(UserLoginDto userLoginDto, Utilisateur utilisateur) {

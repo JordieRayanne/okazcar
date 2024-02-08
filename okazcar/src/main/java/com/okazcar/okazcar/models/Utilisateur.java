@@ -52,6 +52,10 @@ public class Utilisateur {
     @Column(name = "birthday")
     private Date birthday;
 
+    @Column(name = "fcm_token")
+    @Setter
+    private String fcmToken;
+
     @Setter
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "utilisateurs_role", joinColumns = @JoinColumn(name = "utilisateur_id_utilisateurs_role", referencedColumnName = "utilisateur_id"),
@@ -75,6 +79,8 @@ public class Utilisateur {
         setPassword(userDto.getPassword());
         setPhoneNumber(userDto.getPhoneNumber());
         setBirthday(userDto.getBirthday());
+        if (userDto.getFcmToken() != null)
+            setFcmToken(userDto.getFcmToken());
         if (userDto.getImageFile() != null)
             setImageUrl(userDto.getImageFile().getResource().getFilename());
     }

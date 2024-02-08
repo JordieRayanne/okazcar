@@ -14,6 +14,8 @@ public class UserLoginDto {
     private String email;
     private String password;
     @Setter
+    private String fcmToken;
+    @Setter
     private String platform = "Email/Phone";
     public void setUserId(String userId) throws ForgetException {
         if (userId == null && email == null)
