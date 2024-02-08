@@ -22,19 +22,19 @@ public class NotificationService {
         this.firebaseMessaging = firebaseMessaging;
     }
 
-    public void sendNotification(Utilisateur utilisateurSender, Utilisateur utilisateurReceiver, com.okazcar.okazcar.models.mongodb.Message messageToSend) throws FirebaseMessagingException, ForgetException {
+    public void sendNotification(String utilisateurSender, Utilisateur utilisateurReceiver, com.okazcar.okazcar.models.mongodb.Message messageToSend) throws FirebaseMessagingException, ForgetException {
         Notification notification;
         if (messageToSend.getType().equals("FILE")) {
             notification = Notification
                     .builder()
                     .setTitle("Okazcar")
-                    .setBody(utilisateurSender.getUsername() + " vous a envoyé un fichier")
+                    .setBody(utilisateurSender + " vous a envoyé un fichier")
                     .build();
         } else {
             notification = Notification
                     .builder()
                     .setTitle("Okazcar")
-                    .setBody(utilisateurSender.getUsername() + " vous a envoyé un message:\""+ messageToSend.getContent()+"\"")
+                    .setBody(utilisateurSender + " vous a envoyé un message:\""+ messageToSend.getContent()+"\"")
                     .build();
         }
         if (utilisateurReceiver.getFcmToken() == null)

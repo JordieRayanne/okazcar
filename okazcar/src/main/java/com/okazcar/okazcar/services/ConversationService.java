@@ -56,9 +56,8 @@ public class ConversationService {
         Message message = new Message(messageDto);
         // <Notification>
         try {
-            Utilisateur utilisateurSender = utilisateurRepository.findUtilisateurByUtilisateurId(messageDto.getPersonId1());
             Utilisateur utilisateurReceiver = utilisateurRepository.findUtilisateurByUtilisateurId(messageDto.getPersonId2());
-            notificationService.sendNotification(utilisateurSender, utilisateurReceiver, message);
+            notificationService.sendNotification(messageDto.getUsername1(), utilisateurReceiver, message);
         } catch (ForgetException e) {
             logger.error(e.getLocalizedMessage());
             logger.error(e.getCause().getMessage());
