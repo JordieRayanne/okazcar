@@ -80,6 +80,7 @@ public class ResponseHandler {
         SecurityContextHolder.getContext().setAuthentication(utilisateurService.getAuthenticationToken(token, new UtilisateurDetails(users.getUtilisateur(), users.getUtilisateur().getRoles())));
         Map<String, Object> map = new HashMap<>();
         map.put("Token", token);
+        map.put("UtilisateurId", users.getUtilisateur());
         map.put("Email", users.getUtilisateur().getEmail());
         map.put("Username", users.getUtilisateur().getUsername());
         if (users.getUserMongoDb() != null) {
