@@ -2,7 +2,9 @@ package com.okazcar.okazcar.controllers;
 
 import java.util.List;
 
+import com.okazcar.okazcar.models.Voiture;
 import com.okazcar.okazcar.models.VoitureVoitureImage;
+import com.okazcar.okazcar.repositories.VoitureRepository;
 import com.okazcar.okazcar.services.VoitureImageService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +19,27 @@ import com.okazcar.okazcar.services.VoitureService;
 public class VoitureController {
     private final VoitureService voitureService;
     private final VoitureImageService voitureImageService;
+    private final VoitureRepository voitureRepository;
 
     @Autowired
-    public VoitureController(VoitureService voitureService, VoitureImageService voitureImageService){
+    public VoitureController(VoitureService voitureService, VoitureImageService voitureImageService,
+                             VoitureRepository voitureRepository){
         this.voitureService=voitureService;
         this.voitureImageService = voitureImageService;
+        this.voitureRepository = voitureRepository;
     }
 
     @GetMapping("/voitures")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<List<VoitureVoitureImage>> getAll(){
         List<VoitureVoitureImage> voitures=voitureImageService.getAll();
+        return new ResponseEntity<>(voitures,HttpStatus.OK);
+    }
+
+    @GetMapping("/voitures_without_imag")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    public ResponseEntity<List<Voiture>> getAllWithoutImag(){
+        List<Voiture> voitures=voitureRepository.findAll();
         return new ResponseEntity<>(voitures,HttpStatus.OK);
     }
 
