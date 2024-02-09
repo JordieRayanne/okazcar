@@ -1,6 +1,7 @@
 package com.okazcar.okazcar.controllers;
 
 import com.okazcar.okazcar.models.Annonce;
+import com.okazcar.okazcar.models.ClientVoiture;
 import com.okazcar.okazcar.repositories.AnnonceRepository;
 import com.okazcar.okazcar.services.AnnoncePopulaireService;
 import com.okazcar.okazcar.services.AnnonceService;
@@ -31,12 +32,8 @@ public class AnnoncePopulaireController {
 
     @GetMapping("/annonces_favori")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    public ResponseEntity<List<Annonce>> getAnnonceFavoris(HttpServletRequest request) {
-        List<Annonce> annonces = annoncePopulaireService.getAnnoncesFavoris(request);
-        for (int i = 0; i < annonces.size(); i++) {
-            annonces.get(i).getVoitureUtilisateur().getUtilisateur().setRoles(null);
-            annonces.get(i).getVoitureUtilisateur().getUtilisateur().setPassword(null);
-        }
+    public ResponseEntity<List<ClientVoiture>> getAnnonceFavoris(HttpServletRequest request) {
+        List<ClientVoiture> annonces = annoncePopulaireService.getAnnoncesFavoris(request);
         return new ResponseEntity<>(annonces, HttpStatus.OK);
     }
 }
