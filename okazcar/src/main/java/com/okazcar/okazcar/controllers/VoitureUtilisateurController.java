@@ -2,13 +2,13 @@ package com.okazcar.okazcar.controllers;
 
 import java.util.List;
 
-import com.okazcar.okazcar.models.Annonce;
-import com.okazcar.okazcar.models.Commission;
-import com.okazcar.okazcar.models.VoitureVoitureUtilisateurImage;
+import com.okazcar.okazcar.models.*;
 import com.okazcar.okazcar.repositories.AnnonceRepository;
 import com.okazcar.okazcar.repositories.CommissionRepository;
 import com.okazcar.okazcar.repositories.VoitureUtilisateurRepository;
+import com.okazcar.okazcar.services.UtilisateurService;
 import com.okazcar.okazcar.services.VoitureVoitureUtilisateurImageService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import com.okazcar.okazcar.models.VoitureUtilisateur;
 import com.okazcar.okazcar.services.VoitureUtilisateurService;
 
 @RestController
@@ -26,15 +25,19 @@ public class VoitureUtilisateurController {
     private final AnnonceRepository annonceRepository;
     private final VoitureUtilisateurRepository voitureUtilisateurRepository;
     private final VoitureVoitureUtilisateurImageService voitureVoitureUtilisateurImageService;
+    private final UtilisateurService utilisateurService;
 
     @Autowired
     public VoitureUtilisateurController(VoitureUtilisateurService voitureUtilisateurService,
                                         CommissionRepository commissionRepository,
                                         AnnonceRepository annonceRepository,
-                                        VoitureUtilisateurRepository voitureUtilisateurRepository, VoitureVoitureUtilisateurImageService voitureVoitureUtilisateurImageService) {
+                                        VoitureUtilisateurRepository voitureUtilisateurRepository,
+                                        UtilisateurService utilisateurService,
+                                        VoitureVoitureUtilisateurImageService voitureVoitureUtilisateurImageService) {
         this.voitureUtilisateurService = voitureUtilisateurService;
         this.voitureVoitureUtilisateurImageService = voitureVoitureUtilisateurImageService;
         this.commissionRepository = commissionRepository;
+        this.utilisateurService = utilisateurService;
         this.annonceRepository = annonceRepository;
         this.voitureUtilisateurRepository = voitureUtilisateurRepository;
     }
@@ -101,6 +104,19 @@ public class VoitureUtilisateurController {
             return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/mes_voitureUtilisateurs_not_validated")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    public ResponseEntity<?> getMesVoitureUtilisateurNonValide(HttpServletRequest request) {
+        try {
+            Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
+            List<VoitureUtilisateur> voitureUtilisateurs = voitureUtilisateurRepository.getMesVoituresUtilisateurs(0, utilisateur.getUtilisateurId());
+            return new ResponseEntity<>(voitureVoitureUtilisateurImageService.getVoitureUtilisateursWithImage(voitureUtilisateurs), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @DeleteMapping("/voitureUtilisateurs/{id}")
     @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<?> deleteVoitureUtilisateur(@PathVariable("id")int id) {
