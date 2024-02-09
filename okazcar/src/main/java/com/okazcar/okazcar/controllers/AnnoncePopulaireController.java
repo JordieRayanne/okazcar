@@ -1,7 +1,7 @@
 package com.okazcar.okazcar.controllers;
 
-import com.okazcar.okazcar.models.Annonce;
-import com.okazcar.okazcar.models.ClientVoiture;
+import com.okazcar.okazcar.models.AnnonceImage;
+import com.okazcar.okazcar.models.ClientVoitureImage;
 import com.okazcar.okazcar.repositories.AnnonceRepository;
 import com.okazcar.okazcar.services.AnnoncePopulaireService;
 import com.okazcar.okazcar.services.AnnonceService;
@@ -26,14 +26,14 @@ public class AnnoncePopulaireController {
     }
 
     @GetMapping("/annonces_populaire")
-    public ResponseEntity<List<Annonce>> getAnnoncePopulaires() {
+    public ResponseEntity<List<AnnonceImage>> getAnnoncePopulaires() {
         return new ResponseEntity<>(annoncePopulaireService.getAnnoncesPopulaires(), HttpStatus.OK);
     }
 
     @GetMapping("/annonces_favori")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    public ResponseEntity<List<ClientVoiture>> getAnnonceFavoris(HttpServletRequest request) {
-        List<ClientVoiture> annonces = annoncePopulaireService.getAnnoncesFavoris(request);
+    public ResponseEntity<List<ClientVoitureImage>> getAnnonceFavoris(HttpServletRequest request) {
+        List<ClientVoitureImage> annonces = annoncePopulaireService.getAnnoncesFavoris(request);
         return new ResponseEntity<>(annonces, HttpStatus.OK);
     }
 }

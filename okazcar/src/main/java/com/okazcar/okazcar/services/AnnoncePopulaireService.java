@@ -1,11 +1,10 @@
 package com.okazcar.okazcar.services;
 
-import com.okazcar.okazcar.models.Annonce;
-import com.okazcar.okazcar.models.ClientVoiture;
-import com.okazcar.okazcar.models.Utilisateur;
+import com.okazcar.okazcar.models.*;
 import com.okazcar.okazcar.models.file.AnnonceFile;
 import com.okazcar.okazcar.repositories.AnnonceRepository;
 import com.okazcar.okazcar.repositories.ClientVoitureRepository;
+import com.okazcar.okazcar.repositories.mongodb.VoitureImageRepository;
 import com.okazcar.okazcar.services.file.AnnonceFileService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -29,31 +28,40 @@ public class AnnoncePopulaireService {
 
     @PersistenceContext
     private EntityManager entityManager;
+    private final VoitureImageRepository voitureImageRepository;
 
     @Autowired
-    public AnnoncePopulaireService (AnnonceRepository annonceRepository, AnnonceFileService annonceFileService, ClientVoitureRepository clientVoitureRepository, UtilisateurService utilisateurService) {
+    public AnnoncePopulaireService (AnnonceRepository annonceRepository, AnnonceFileService annonceFileService, ClientVoitureRepository clientVoitureRepository, UtilisateurService utilisateurService,
+                                    VoitureImageRepository voitureImageRepository) {
         this.annonceRepository = annonceRepository;
         this.clientVoitureRepository = clientVoitureRepository;
         this.annonceFileService = annonceFileService;
         this.utilisateurService = utilisateurService;
+        this.voitureImageRepository = voitureImageRepository;
     }
 
-    public List<Annonce> getAnnoncesPopulaires() {
-       List<Annonce> annonces = annonceRepository.findAll();
+    public List<AnnonceImage> getAnnoncesPopulaires() {
+        List<Annonce> annonces = annonceRepository.findAll();
+        List<AnnonceImage> annonceImages = new ArrayList<>();
         List<Annonce> toReturn = new ArrayList<>();
         List<AnnonceFile> annonceFiles = annonceFileService.getAnnonceFiles();
         annonceFiles = annonceFiles.stream().sorted(Comparator.comparing(AnnonceFile::getTotalCount)).toList();
         Optional<Annonce> annonceOptional;
         for (AnnonceFile annonceFile: annonceFiles) {
             annonceOptional = annonces.stream().filter(annonce -> (annonce.getId()==annonceFile.getArticleId())).findFirst();
-            annonceOptional.ifPresent(toReturn::add);
+            annonceOptional.ifPresent(annonce -> annonceImages.add(new AnnonceImage(annonce, voitureImageRepository.findVoitureImageByVoitureId(annonce.getVoitureUtilisateur().getVoiture().getId()))));
         }
-        return toReturn;
+        return annonceImages;
     }
 
     @SuppressWarnings("unchecked")
-    public List<ClientVoiture> getAnnoncesFavoris(HttpServletRequest request) {
+    public List<ClientVoitureImage> getAnnoncesFavoris(HttpServletRequest request) {
         Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
-        return (List<ClientVoiture>) entityManager.createNativeQuery("SELECT * FROM client_voiture WHERE favori = 10 AND id_utilisateur='"+utilisateur.getUtilisateurId()+"'", ClientVoiture.class).getResultList();
+        List<ClientVoiture> clientVoitures = (List<ClientVoiture>) entityManager.createNativeQuery("SELECT * FROM client_voiture WHERE favori = 10 AND id_utilisateur='"+utilisateur.getUtilisateurId()+"'", ClientVoiture.class).getResultList();
+        List<ClientVoitureImage> clientVoitureImages = new ArrayList<>();
+        for (ClientVoiture clientVoiture: clientVoitures) {
+            clientVoitureImages.add(new ClientVoitureImage(clientVoiture, voitureImageRepository.findVoitureImageByVoitureId(clientVoiture.getAnnonce().getVoitureUtilisateur().getVoiture().getId())));
+        }
+        return clientVoitureImages;
     }
 }
