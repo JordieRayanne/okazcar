@@ -40,7 +40,7 @@ public class ConversationController {
 
     @GetMapping("/conversations/{personId}")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    public ResponseEntity<Conversation> findByPerson(@RequestParam("personId") String personId, HttpServletRequest request) {
+    public ResponseEntity<Conversation> findByPerson(@PathVariable("personId") String personId, HttpServletRequest request) {
         Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
         return new ResponseEntity<>(conversationService.getConversations(utilisateur.getUtilisateurId(), personId).get(0), HttpStatus.OK);
     }
