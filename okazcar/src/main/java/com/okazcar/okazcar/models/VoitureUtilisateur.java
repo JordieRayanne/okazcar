@@ -24,7 +24,7 @@ public class VoitureUtilisateur {
     private Utilisateur utilisateur;
 
     @OneToOne
-    @JoinColumn(name = "id_voiture",nullable = false)
+    @JoinColumn(name = "id_voiture",nullable = false, unique = false)
     private Voiture voiture;
 
     @Column(name="immatriculation",nullable = false, unique = true)
@@ -41,7 +41,7 @@ public class VoitureUtilisateur {
 
     @Setter
     @OneToOne
-    @JoinColumn(name = "id_devise",nullable = false)
+    @JoinColumn(name = "id_devise",nullable = false, unique = false)
     private Devise devise;
 
     public void setPrix(double prix) throws Exception {
