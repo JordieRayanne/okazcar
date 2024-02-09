@@ -3,6 +3,7 @@ package com.okazcar.okazcar.controllers;
 import com.okazcar.okazcar.models.*;
 import com.okazcar.okazcar.repositories.V_Annonce_Repository;
 
+import com.okazcar.okazcar.repositories.mongodb.VoitureImageRepository;
 import com.okazcar.okazcar.services.UtilisateurService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,25 +13,24 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import java.util.*;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-import java.util.TimeZone;
 
 @RestController
 public class V_Annonce_Controller {
 
     private final V_Annonce_Repository v_AnnonceRepository;
     final UtilisateurService utilisateurService;
+    private final VoitureImageRepository voitureImageRepository;
 
     @Autowired
-    public V_Annonce_Controller(V_Annonce_Repository v_AnnonceRepository, UtilisateurService utilisateurService) {
+    public V_Annonce_Controller(V_Annonce_Repository v_AnnonceRepository, UtilisateurService utilisateurService,
+                                VoitureImageRepository voitureImageRepository) {
         this.v_AnnonceRepository = v_AnnonceRepository;
         this.utilisateurService = utilisateurService;
+        this.voitureImageRepository = voitureImageRepository;
     }
 
     @GetMapping("/v_annonces")
@@ -79,6 +79,22 @@ public class V_Annonce_Controller {
         }
     }
 
+    @GetMapping("/annonces_non_vendu_img")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    public ResponseEntity<?> getMesAnnoncesNonVendusImg(HttpServletRequest request) {
+        try {
+            Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
+            List<V_Annonce> vAnnonces = v_AnnonceRepository.findV_AnnoncesByStatusAndIdUtilisateur(0, utilisateur.getUtilisateurId());
+            List<VAnnonceImage> vAnnonceImages = new ArrayList<>();
+            for (V_Annonce vAnnonce: vAnnonces) {
+                vAnnonceImages.add(new VAnnonceImage(vAnnonce, voitureImageRepository.findVoitureImageByVoitureId(vAnnonce.getIdVoiture())));
+            }
+            return new ResponseEntity<>(vAnnonceImages, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
     @GetMapping("/annonces_non_vendu")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
@@ -97,6 +113,22 @@ public class V_Annonce_Controller {
         try {
             Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
             return new ResponseEntity<>(v_AnnonceRepository.findV_AnnoncesByStatusAndIdUtilisateur(10, utilisateur.getUtilisateurId()), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/annonces_vendu_img")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    public ResponseEntity<?> getMesAnnoncesVendusImg(HttpServletRequest request) {
+        try {
+            Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
+            List<V_Annonce> vAnnonces = v_AnnonceRepository.findV_AnnoncesByStatusAndIdUtilisateur(10, utilisateur.getUtilisateurId());
+            List<VAnnonceImage> vAnnonceImages = new ArrayList<>();
+            for (V_Annonce vAnnonce: vAnnonces) {
+                vAnnonceImages.add(new VAnnonceImage(vAnnonce, voitureImageRepository.findVoitureImageByVoitureId(vAnnonce.getIdVoiture())));
+            }
+            return new ResponseEntity<>(vAnnonceImages, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
