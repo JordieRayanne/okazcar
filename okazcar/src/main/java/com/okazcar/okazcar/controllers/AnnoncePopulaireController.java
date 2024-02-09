@@ -24,12 +24,12 @@ public class AnnoncePopulaireController {
         this.annonceRepository = annonceRepository;
     }
 
-    @GetMapping("/anonnces_populaire")
+    @GetMapping("/annonces_populaire")
     public ResponseEntity<List<Annonce>> getAnnoncePopulaires() {
         return new ResponseEntity<>(annoncePopulaireService.getAnnoncesPopulaires(), HttpStatus.OK);
     }
 
-    @GetMapping("/anonnces_favori")
+    @GetMapping("/annonces_favori")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<List<Annonce>> getAnnonceFavoris(HttpServletRequest request) {
         List<Annonce> annonces = annoncePopulaireService.getAnnoncesFavoris(request);
