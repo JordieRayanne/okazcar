@@ -57,7 +57,6 @@ public class HistoricLoginService {
         int index = toReturn.indexOf(year);
         String beforeTarget = toReturn.substring(0, index);
         String afterTarget = toReturn.substring(index + year.length());
-        String modifiedString = beforeTarget + afterTarget;
-        return modifiedString;
+        return beforeTarget + afterTarget;
     }
 }
