@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -51,6 +52,12 @@ public class HistoricLoginService {
     private String generateCodeChiffre() {
         String toReturn = LocalDateTime.now().toString();
         String[] parts = toReturn.split("\\.");
-        return parts[0].replace("T", "").replace(":", "").replace("-", "");
+        String year = String.valueOf(LocalDate.now().getYear());
+        toReturn = parts[0].replace("T", "").replace(":", "").replace("-", "");
+        int index = toReturn.indexOf(year);
+        String beforeTarget = toReturn.substring(0, index);
+        String afterTarget = toReturn.substring(index + year.length());
+        String modifiedString = beforeTarget + afterTarget;
+        return modifiedString;
     }
 }
