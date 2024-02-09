@@ -55,7 +55,7 @@ public class AnnoncePopulaireService {
     public List<Annonce> getAnnoncesFavoris(HttpServletRequest request) {
         List<Annonce> annonces = new ArrayList<>();
         Utilisateur utilisateur = utilisateurService.extractUtilisateurFromHttpServletRequest(request);
-        List<ClientVoiture> clientVoitures = (List<ClientVoiture>) entityManager.createNativeQuery("SELECT * FROM client_voiture WHERE favori = 1 AND id_utilisateur='"+utilisateur.getUtilisateurId()+"'", ClientVoiture.class).getResultList();
+        List<ClientVoiture> clientVoitures = (List<ClientVoiture>) entityManager.createNativeQuery("SELECT * FROM client_voiture WHERE favori = 10 AND id_utilisateur='"+utilisateur.getUtilisateurId()+"'", ClientVoiture.class).getResultList();
         for (ClientVoiture clientVoiture: clientVoitures) {
             annonces.add(clientVoiture.getAnnonce());
         }
