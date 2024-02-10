@@ -93,6 +93,7 @@ public class SecurityConfig {
 		config.addAllowedOrigin("https://localhost");
 		config.addAllowedOrigin("https://okazcar-web.netlify.app");
 		config.addAllowedOrigin("https://okazcar.netlify.app");
+		config.addAllowedOrigin("https://okazicara.onrender.com");
 		config.setAllowedMethods(Arrays.asList("POST", "OPTIONS", "GET", "DELETE", "PUT"));
 		config.setAllowedHeaders(Arrays.asList("*"));
 		source.registerCorsConfiguration("/**", config);
