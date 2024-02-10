@@ -7,6 +7,7 @@ import com.okazcar.okazcar.models.Users;
 import com.okazcar.okazcar.repositories.mongodb.UserMongoDbRepository;
 import com.okazcar.okazcar.services.HistoricLoginService;
 import com.okazcar.okazcar.services.UtilisateurService;
+import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,6 +44,8 @@ public class HistoricLoginController {
             return ResponseHandler.prepareToBeSend(token, users, utilisateurService);
         } catch (SQLException | IOException e) {
             return ResponseHandler.generateErrorResponse(e.getMessage(), HttpStatus.FORBIDDEN);
+        } catch (ExpiredJwtException e) {
+            return ResponseHandler.generateErrorResponse("Votre code à 10 chiffres est expiré. Générer un nouveau", HttpStatus.FORBIDDEN);
         }
     }
 }
