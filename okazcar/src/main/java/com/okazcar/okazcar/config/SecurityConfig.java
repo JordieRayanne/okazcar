@@ -91,6 +91,7 @@ public class SecurityConfig {
 		config.addAllowedOrigin("http://localhost:8100");
 		config.addAllowedOrigin("http://localhost:3001");
 		config.addAllowedOrigin("https://localhost");
+		config.addAllowedOrigin("http://localhost:8081");
 		config.addAllowedOrigin("https://okazcar-web.netlify.app");
 		config.addAllowedOrigin("https://okazcar.netlify.app");
 		config.addAllowedOrigin("https://okazicara.onrender.com");
@@ -108,7 +109,7 @@ public class SecurityConfig {
 			@Override
 			public void addCorsMappings( CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins("http://localhost:3000", "http://localhost:8100", "http://localhost:3001", "https://okazcar.netlify.app", "https://localhost", "https://okazcar-web.netlify.app")
+						.allowedOrigins("http://localhost:3000", "http://localhost:8100", "http://localhost:3001", "https://okazcar.netlify.app", "https://localhost", "https://okazcar-web.netlify.app", "http://localhost:8081")
 						.allowedMethods("GET", "POST", "PUT", "DELETE")
 						.allowedHeaders("*")
 						.allowCredentials(true);
